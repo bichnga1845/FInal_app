@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_splash_premium"
+    tools:context=".SplashActivity">
+
+    <!-- Overlay làm nổi chữ -->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/splash_overlay"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Main Content -->
+    <LinearLayout
+        android:id="@+id/logo_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingHorizontal="32dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.43">
+
+        <!-- Logo -->
+        <ImageView
+            android:id="@+id/logo_image"
+            android:layout_width="205dp"
+            android:layout_height="205dp"
+            android:contentDescription="@string/app_name"
+            android:elevation="12dp"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/ic_logo" />
+
+        <!-- App Name -->
+        <TextView
+            android:id="@+id/app_name_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="sans-serif-black"
+            android:letterSpacing="0.08"
+            android:shadowColor="#66000000"
+            android:shadowDx="0"
+            android:shadowDy="4"
+            android:shadowRadius="10"
+            android:text="@string/splash_app_name"
+            android:textAllCaps="true"
+            android:textColor="@android:color/white"
+            android:textSize="36sp" />
+
+        <!-- Slogan -->
+        <TextView
+            android:id="@+id/slogan_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center"
+            android:letterSpacing="0.05"
+            android:paddingHorizontal="28dp"
+            android:shadowColor="#55000000"
+            android:shadowDx="0"
+            android:shadowDy="2"
+            android:shadowRadius="6"
+            android:text="@string/splash_slogan"
+            android:textColor="#F8F8F8"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <!-- Bottom -->
+    <LinearLayout
+        android:id="@+id/footer_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="42dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Premium line -->
+        <View
+            android:layout_width="62dp"
+            android:layout_height="4dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/loading_line_splash"
+            android:alpha="0.9"/>
+
+        <!-- Footer -->
+        <TextView
+            android:id="@+id/footer_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:letterSpacing="0.04"
+            android:shadowColor="#44000000"
+            android:shadowDx="0"
+            android:shadowDy="2"
+            android:shadowRadius="4"
+            android:text="@string/splash_footer"
+            android:textColor="#F3E8D7"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

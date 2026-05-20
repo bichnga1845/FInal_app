@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Nền chính -->
+    <item>
+        <shape>
+            <gradient
+                android:angle="135"
+                android:endColor="#3D4E30"
+                android:startColor="@color/primary"
+                android:type="linear" />
+        </shape>
+    </item>
+
+    <!-- Họa tiết trang trí (giả lập các đường lượn sóng/lá từ hình mẫu) -->
+    <item android:top="-100dp" android:right="-100dp">
+        <rotate android:fromDegrees="45">
+            <shape>
+                <solid android:color="#10FFFFFF" />
+                <size android:width="300dp" android:height="300dp" />
+                <corners android:radius="150dp" />
+            </shape>
+        </rotate>
+    </item>
+
+    <item android:bottom="-50dp" android:left="-50dp">
+        <shape>
+            <solid android:color="#08FFFFFF" />
+            <size android:width="200dp" android:height="200dp" />
+            <corners android:radius="100dp" />
+        </shape>
+    </item>
+</layer-list>

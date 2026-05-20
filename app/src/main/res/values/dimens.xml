@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="button_height">48dp</dimen>
+    <dimen name="button_radius">12dp</dimen>
+    <dimen name="button_padding_vertical">12dp</dimen>
+    <dimen name="button_padding_horizontal">20dp</dimen>
+    <dimen name="input_height">48dp</dimen>
+    <dimen name="input_radius">12dp</dimen>
+    <dimen name="input_padding_vertical">12dp</dimen>
+    <dimen name="input_padding_horizontal">16dp</dimen>
+    <dimen name="input_border_width">1.5dp</dimen>
+    <dimen name="text_size_medium">16sp</dimen>
+    <dimen name="text_size_content">16sp</dimen>
+</resources>

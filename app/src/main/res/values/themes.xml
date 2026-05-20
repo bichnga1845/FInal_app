@@ -1,0 +1,64 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.FinalApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="android:windowBackground">@color/background</item>
+
+        <!-- Thiết lập font mặc định cho toàn App -->
+        <item name="textAppearanceTitleMedium">@style/TextAppearance.App.Header</item>
+        <item name="textAppearanceBodyMedium">@style/TextAppearance.App.Content</item>
+    </style>
+
+    <style name="Theme.FinalApp" parent="Base.Theme.FinalApp" />
+
+    <!-- Button Style -->
+    <style name="Widget.App.Button" parent="Widget.Material3.Button">
+        <item name="android:minHeight">@dimen/button_height</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="backgroundTint">@color/primary</item>
+        <item name="android:textColor">@color/text_button</item>
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.App.SmallComponent</item>
+    </style>
+
+    <!-- Input Field Style -->
+    <style name="Widget.App.TextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxBackgroundColor">@color/input_background</item>
+        <item name="boxStrokeColor">@color/primary</item>
+        <item name="boxStrokeWidth">@dimen/input_border_width</item>
+        <item name="hintTextColor">@color/placeholder</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.App.SmallComponent</item>
+    </style>
+
+    <style name="Widget.App.TextInputEditText" parent="Widget.Material3.TextInputEditText">
+        <item name="android:padding">@dimen/input_padding_vertical</item>
+        <item name="android:textColor">@color/text_main</item>
+        <item name="android:textSize">@dimen/text_size_content</item>
+    </style>
+
+    <!-- Bottom Navigation Style -->
+    <style name="Widget.App.BottomNavigationView" parent="Widget.Material3.BottomNavigationView">
+        <item name="backgroundTint">@color/toolbar_background</item>
+        <item name="itemIconTint">@color/toolbar_content</item>
+        <item name="itemTextColor">@color/toolbar_content</item>
+    </style>
+
+    <style name="ShapeAppearance.App.SmallComponent" parent="ShapeAppearance.Material3.SmallComponent">
+        <item name="cornerSize">@dimen/button_radius</item>
+    </style>
+
+    <!-- Text Styles -->
+    <style name="TextAppearance.App.Header" parent="TextAppearance.Material3.TitleMedium">
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">@color/text_main</item>
+    </style>
+
+    <style name="TextAppearance.App.Content" parent="TextAppearance.Material3.BodyMedium">
+        <item name="fontFamily">sans-serif-light</item>
+        <item name="android:textSize">@dimen/text_size_content</item>
+        <item name="android:textColor">@color/text_main</item>
+    </style>
+
+</resources>

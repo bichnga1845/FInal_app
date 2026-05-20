@@ -1,0 +1,756 @@
+[{
+  "_id": {
+    "$oid": "69a98b01fde9b32594ffb334"
+  },
+  "session": {
+    "$oid": "69a98b01fde9b32594ffb332"
+  },
+  "sessionId": "sess_1772718849472_a0989f5dddca3d6d7478ca5c98a71c91",
+  "url": "/api/v1/products?limit=6&featured=true",
+  "path": "/api/v1/products",
+  "title": "http://localhost:4200/",
+  "referrer": "http://localhost:4200/",
+  "timestamp": {
+    "$date": "2026-03-05T13:54:09.524Z"
+  },
+  "createdAt": {
+    "$date": "2026-03-05T13:54:09.526Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69a98b2ffde9b32594ffb33b"
+  },
+  "session": {
+    "$oid": "69a98b2ffde9b32594ffb339"
+  },
+  "sessionId": "sess_1772718895119_953545516b6af7059d2a5b7a4a54e7ce",
+  "url": "/api/v1/auth/google/status",
+  "path": "/api/v1/auth/google/status",
+  "timestamp": {
+    "$date": "2026-03-05T13:54:55.121Z"
+  },
+  "createdAt": {
+    "$date": "2026-03-05T13:54:55.121Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69a98c4bfde9b32594ffb33f"
+  },
+  "session": {
+    "$oid": "69a98b01fde9b32594ffb332"
+  },
+  "sessionId": "sess_1772718849472_a0989f5dddca3d6d7478ca5c98a71c91",
+  "url": "/api/v1/products?limit=6&featured=true",
+  "path": "/api/v1/products",
+  "title": "http://localhost:4200/",
+  "referrer": "http://localhost:4200/",
+  "timestamp": {
+    "$date": "2026-03-05T13:59:39.391Z"
+  },
+  "createdAt": {
+    "$date": "2026-03-05T13:59:39.392Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69a98c6ffde9b32594ffb346"
+  },
+  "session": {
+    "$oid": "69a98b01fde9b32594ffb332"
+  },
+  "sessionId": "sess_1772718849472_a0989f5dddca3d6d7478ca5c98a71c91",
+  "url": "/api/v1/auth/login",
+  "path": "/api/v1/auth/login",
+  "title": "http://localhost:4200/auth/login",
+  "referrer": "http://localhost:4200/auth/login",
+  "timestamp": {
+    "$date": "2026-03-05T14:00:15.709Z"
+  },
+  "createdAt": {
+    "$date": "2026-03-05T14:00:15.710Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69a98c6ffde9b32594ffb34b"
+  },
+  "session": {
+    "$oid": "69a98b01fde9b32594ffb332"
+  },
+  "sessionId": "sess_1772718849472_a0989f5dddca3d6d7478ca5c98a71c91",
+  "url": "/api/v1/auth/me",
+  "path": "/api/v1/auth/me",
+  "title": "http://localhost:4200/auth/login",
+  "referrer": "http://localhost:4200/auth/login",
+  "timestamp": {
+    "$date": "2026-03-05T14:00:15.849Z"
+  },
+  "createdAt": {
+    "$date": "2026-03-05T14:00:15.849Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69a98c6ffde9b32594ffb351"
+  },
+  "session": {
+    "$oid": "69a98b01fde9b32594ffb332"
+  },
+  "sessionId": "sess_1772718849472_a0989f5dddca3d6d7478ca5c98a71c91",
+  "url": "/api/v1/cart",
+  "path": "/api/v1/cart",
+  "title": "http://localhost:4200/auth/login",
+  "referrer": "http://localhost:4200/auth/login",
+  "timestamp": {
+    "$date": "2026-03-05T14:00:15.882Z"
+  },
+  "createdAt": {
+    "$date": "2026-03-05T14:00:15.883Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69a98c6ffde9b32594ffb359"
+  },
+  "session": {
+    "$oid": "69a98b01fde9b32594ffb332"
+  },
+  "sessionId": "sess_1772718849472_a0989f5dddca3d6d7478ca5c98a71c91",
+  "url": "/api/v1/products?limit=6&featured=true",
+  "path": "/api/v1/products",
+  "title": "http://localhost:4200/",
+  "referrer": "http://localhost:4200/",
+  "timestamp": {
+    "$date": "2026-03-05T14:00:15.973Z"
+  },
+  "createdAt": {
+    "$date": "2026-03-05T14:00:15.973Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69a9983bfde9b32594ffb360"
+  },
+  "session": {
+    "$oid": "69a9983bfde9b32594ffb35e"
+  },
+  "sessionId": "sess_1772722235231_ce9e12a1fcab38d8798cd9807e56ab05",
+  "url": "/api/v1/auth/google",
+  "path": "/api/v1/auth/google",
+  "timestamp": {
+    "$date": "2026-03-05T14:50:35.246Z"
+  },
+  "createdAt": {
+    "$date": "2026-03-05T14:50:35.247Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69a99c00fde9b32594ffb364"
+  },
+  "session": {
+    "$oid": "69a99c00fde9b32594ffb362"
+  },
+  "sessionId": "sess_1772723200210_ba87ec776e54402df947b3ecf2216bf8",
+  "url": "/api/v1/products?limit=6&featured=true",
+  "path": "/api/v1/products",
+  "title": "http://localhost:4200/",
+  "referrer": "http://localhost:4200/",
+  "timestamp": {
+    "$date": "2026-03-05T15:06:40.213Z"
+  },
+  "createdAt": {
+    "$date": "2026-03-05T15:06:40.214Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69a99f20fde9b32594ffb36b"
+  },
+  "session": {
+    "$oid": "69a99c00fde9b32594ffb362"
+  },
+  "sessionId": "sess_1772723200210_ba87ec776e54402df947b3ecf2216bf8",
+  "url": "/api/v1/auth/google/status",
+  "path": "/api/v1/auth/google/status",
+  "title": "http://localhost:4200/auth/login",
+  "referrer": "http://localhost:4200/auth/login",
+  "timestamp": {
+    "$date": "2026-03-05T15:20:00.473Z"
+  },
+  "createdAt": {
+    "$date": "2026-03-05T15:20:00.473Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69a99f2ffde9b32594ffb36f"
+  },
+  "session": {
+    "$oid": "69a99c00fde9b32594ffb362"
+  },
+  "sessionId": "sess_1772723200210_ba87ec776e54402df947b3ecf2216bf8",
+  "url": "/api/v1/auth/google/status",
+  "path": "/api/v1/auth/google/status",
+  "title": "http://localhost:4200/auth/login",
+  "referrer": "http://localhost:4200/auth/login",
+  "timestamp": {
+    "$date": "2026-03-05T15:20:15.573Z"
+  },
+  "createdAt": {
+    "$date": "2026-03-05T15:20:15.573Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69a99f35fde9b32594ffb373"
+  },
+  "session": {
+    "$oid": "69a99c00fde9b32594ffb362"
+  },
+  "sessionId": "sess_1772723200210_ba87ec776e54402df947b3ecf2216bf8",
+  "url": "/api/v1/auth/google/status",
+  "path": "/api/v1/auth/google/status",
+  "title": "http://localhost:4200/auth/login",
+  "referrer": "http://localhost:4200/auth/login",
+  "timestamp": {
+    "$date": "2026-03-05T15:20:21.212Z"
+  },
+  "createdAt": {
+    "$date": "2026-03-05T15:20:21.212Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69a9a023fde9b32594ffb377"
+  },
+  "session": {
+    "$oid": "69a99c00fde9b32594ffb362"
+  },
+  "sessionId": "sess_1772723200210_ba87ec776e54402df947b3ecf2216bf8",
+  "url": "/api/v1/auth/google/status",
+  "path": "/api/v1/auth/google/status",
+  "title": "http://localhost:4200/auth/login",
+  "referrer": "http://localhost:4200/auth/login",
+  "timestamp": {
+    "$date": "2026-03-05T15:24:19.739Z"
+  },
+  "createdAt": {
+    "$date": "2026-03-05T15:24:19.739Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69a9a034fde9b32594ffb37b"
+  },
+  "session": {
+    "$oid": "69a99c00fde9b32594ffb362"
+  },
+  "sessionId": "sess_1772723200210_ba87ec776e54402df947b3ecf2216bf8",
+  "url": "/api/v1/auth/google",
+  "path": "/api/v1/auth/google",
+  "title": "http://localhost:4200/auth/login",
+  "referrer": "http://localhost:4200/auth/login",
+  "timestamp": {
+    "$date": "2026-03-05T15:24:36.900Z"
+  },
+  "createdAt": {
+    "$date": "2026-03-05T15:24:36.901Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69a9a035fde9b32594ffb382"
+  },
+  "session": {
+    "$oid": "69a99c00fde9b32594ffb362"
+  },
+  "sessionId": "sess_1772723200210_ba87ec776e54402df947b3ecf2216bf8",
+  "url": "/api/v1/cart",
+  "path": "/api/v1/cart",
+  "title": "http://localhost:4200/auth/login",
+  "referrer": "http://localhost:4200/auth/login",
+  "timestamp": {
+    "$date": "2026-03-05T15:24:37.417Z"
+  },
+  "createdAt": {
+    "$date": "2026-03-05T15:24:37.418Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69a9a035fde9b32594ffb38b"
+  },
+  "session": {
+    "$oid": "69a99c00fde9b32594ffb362"
+  },
+  "sessionId": "sess_1772723200210_ba87ec776e54402df947b3ecf2216bf8",
+  "url": "/api/v1/products?limit=6&featured=true",
+  "path": "/api/v1/products",
+  "title": "http://localhost:4200/",
+  "referrer": "http://localhost:4200/",
+  "timestamp": {
+    "$date": "2026-03-05T15:24:37.542Z"
+  },
+  "createdAt": {
+    "$date": "2026-03-05T15:24:37.542Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69a9a06cfde9b32594ffb392"
+  },
+  "session": {
+    "$oid": "69a99c00fde9b32594ffb362"
+  },
+  "sessionId": "sess_1772723200210_ba87ec776e54402df947b3ecf2216bf8",
+  "url": "/api/v1/products?page=1&limit=10000",
+  "path": "/api/v1/products",
+  "title": "http://localhost:4200/shop",
+  "referrer": "http://localhost:4200/shop",
+  "timestamp": {
+    "$date": "2026-03-05T15:25:32.855Z"
+  },
+  "createdAt": {
+    "$date": "2026-03-05T15:25:32.855Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69a9a06dfde9b32594ffb39b"
+  },
+  "session": {
+    "$oid": "69a99c00fde9b32594ffb362"
+  },
+  "sessionId": "sess_1772723200210_ba87ec776e54402df947b3ecf2216bf8",
+  "url": "/api/v1/categories",
+  "path": "/api/v1/categories",
+  "title": "http://localhost:4200/shop",
+  "referrer": "http://localhost:4200/shop",
+  "timestamp": {
+    "$date": "2026-03-05T15:25:33.124Z"
+  },
+  "createdAt": {
+    "$date": "2026-03-05T15:25:33.125Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69a9a072fde9b32594ffb3a1"
+  },
+  "session": {
+    "$oid": "69a99c00fde9b32594ffb362"
+  },
+  "sessionId": "sess_1772723200210_ba87ec776e54402df947b3ecf2216bf8",
+  "url": "/api/v1/products?limit=6&featured=true",
+  "path": "/api/v1/products",
+  "title": "http://localhost:4200/",
+  "referrer": "http://localhost:4200/",
+  "timestamp": {
+    "$date": "2026-03-05T15:25:38.699Z"
+  },
+  "createdAt": {
+    "$date": "2026-03-05T15:25:38.699Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69a9a079fde9b32594ffb3a8"
+  },
+  "session": {
+    "$oid": "69a99c00fde9b32594ffb362"
+  },
+  "sessionId": "sess_1772723200210_ba87ec776e54402df947b3ecf2216bf8",
+  "url": "/api/v1/auth/login",
+  "path": "/api/v1/auth/login",
+  "title": "http://localhost:4200/auth/login",
+  "referrer": "http://localhost:4200/auth/login",
+  "timestamp": {
+    "$date": "2026-03-05T15:25:45.299Z"
+  },
+  "createdAt": {
+    "$date": "2026-03-05T15:25:45.299Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69a9a079fde9b32594ffb3ad"
+  },
+  "session": {
+    "$oid": "69a99c00fde9b32594ffb362"
+  },
+  "sessionId": "sess_1772723200210_ba87ec776e54402df947b3ecf2216bf8",
+  "url": "/api/v1/auth/me",
+  "path": "/api/v1/auth/me",
+  "title": "http://localhost:4200/auth/login",
+  "referrer": "http://localhost:4200/auth/login",
+  "timestamp": {
+    "$date": "2026-03-05T15:25:45.424Z"
+  },
+  "createdAt": {
+    "$date": "2026-03-05T15:25:45.424Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69a9a079fde9b32594ffb3b3"
+  },
+  "session": {
+    "$oid": "69a99c00fde9b32594ffb362"
+  },
+  "sessionId": "sess_1772723200210_ba87ec776e54402df947b3ecf2216bf8",
+  "url": "/api/v1/cart",
+  "path": "/api/v1/cart",
+  "title": "http://localhost:4200/auth/login",
+  "referrer": "http://localhost:4200/auth/login",
+  "timestamp": {
+    "$date": "2026-03-05T15:25:45.441Z"
+  },
+  "createdAt": {
+    "$date": "2026-03-05T15:25:45.441Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69a9a079fde9b32594ffb3bb"
+  },
+  "session": {
+    "$oid": "69a99c00fde9b32594ffb362"
+  },
+  "sessionId": "sess_1772723200210_ba87ec776e54402df947b3ecf2216bf8",
+  "url": "/api/v1/products?limit=6&featured=true",
+  "path": "/api/v1/products",
+  "title": "http://localhost:4200/",
+  "referrer": "http://localhost:4200/",
+  "timestamp": {
+    "$date": "2026-03-05T15:25:45.548Z"
+  },
+  "createdAt": {
+    "$date": "2026-03-05T15:25:45.549Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69a9a12cfde9b32594ffb3c2"
+  },
+  "session": {
+    "$oid": "69a99c00fde9b32594ffb362"
+  },
+  "sessionId": "sess_1772723200210_ba87ec776e54402df947b3ecf2216bf8",
+  "url": "/api/v1/auth/google/status",
+  "path": "/api/v1/auth/google/status",
+  "title": "http://localhost:4200/auth/login",
+  "referrer": "http://localhost:4200/auth/login",
+  "timestamp": {
+    "$date": "2026-03-05T15:28:44.694Z"
+  },
+  "createdAt": {
+    "$date": "2026-03-05T15:28:44.695Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69a9a1c8fde9b32594ffb3c6"
+  },
+  "session": {
+    "$oid": "69a99c00fde9b32594ffb362"
+  },
+  "sessionId": "sess_1772723200210_ba87ec776e54402df947b3ecf2216bf8",
+  "url": "/api/v1/auth/google",
+  "path": "/api/v1/auth/google",
+  "title": "http://localhost:4200/auth/login",
+  "referrer": "http://localhost:4200/auth/login",
+  "timestamp": {
+    "$date": "2026-03-05T15:31:20.297Z"
+  },
+  "createdAt": {
+    "$date": "2026-03-05T15:31:20.336Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69a9a1c8fde9b32594ffb3cb"
+  },
+  "session": {
+    "$oid": "69a99c00fde9b32594ffb362"
+  },
+  "sessionId": "sess_1772723200210_ba87ec776e54402df947b3ecf2216bf8",
+  "url": "/api/v1/cart",
+  "path": "/api/v1/cart",
+  "title": "http://localhost:4200/auth/login",
+  "referrer": "http://localhost:4200/auth/login",
+  "timestamp": {
+    "$date": "2026-03-05T15:31:20.376Z"
+  },
+  "createdAt": {
+    "$date": "2026-03-05T15:31:20.377Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69a9a1c8fde9b32594ffb3d2"
+  },
+  "session": {
+    "$oid": "69a99c00fde9b32594ffb362"
+  },
+  "sessionId": "sess_1772723200210_ba87ec776e54402df947b3ecf2216bf8",
+  "url": "/api/v1/products?limit=6&featured=true",
+  "path": "/api/v1/products",
+  "title": "http://localhost:4200/",
+  "referrer": "http://localhost:4200/",
+  "timestamp": {
+    "$date": "2026-03-05T15:31:20.502Z"
+  },
+  "createdAt": {
+    "$date": "2026-03-05T15:31:20.503Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69a9a26cfde9b32594ffb3db"
+  },
+  "session": {
+    "$oid": "69a99c00fde9b32594ffb362"
+  },
+  "sessionId": "sess_1772723200210_ba87ec776e54402df947b3ecf2216bf8",
+  "url": "/api/v1/auth/me",
+  "path": "/api/v1/auth/me",
+  "title": "http://localhost:4200/",
+  "referrer": "http://localhost:4200/",
+  "timestamp": {
+    "$date": "2026-03-05T15:34:04.460Z"
+  },
+  "createdAt": {
+    "$date": "2026-03-05T15:34:04.461Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69a9a26cfde9b32594ffb3dd"
+  },
+  "session": {
+    "$oid": "69a99c00fde9b32594ffb362"
+  },
+  "sessionId": "sess_1772723200210_ba87ec776e54402df947b3ecf2216bf8",
+  "url": "/api/v1/auth/google/status",
+  "path": "/api/v1/auth/google/status",
+  "title": "http://localhost:4200/",
+  "referrer": "http://localhost:4200/",
+  "timestamp": {
+    "$date": "2026-03-05T15:34:04.461Z"
+  },
+  "createdAt": {
+    "$date": "2026-03-05T15:34:04.462Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69a9a26cfde9b32594ffb3e3"
+  },
+  "session": {
+    "$oid": "69a99c00fde9b32594ffb362"
+  },
+  "sessionId": "sess_1772723200210_ba87ec776e54402df947b3ecf2216bf8",
+  "url": "/api/v1/cart",
+  "path": "/api/v1/cart",
+  "title": "http://localhost:4200/",
+  "referrer": "http://localhost:4200/",
+  "timestamp": {
+    "$date": "2026-03-05T15:34:04.533Z"
+  },
+  "createdAt": {
+    "$date": "2026-03-05T15:34:04.533Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69a9a270fde9b32594ffb3ea"
+  },
+  "session": {
+    "$oid": "69a99c00fde9b32594ffb362"
+  },
+  "sessionId": "sess_1772723200210_ba87ec776e54402df947b3ecf2216bf8",
+  "url": "/api/v1/products?limit=6&featured=true",
+  "path": "/api/v1/products",
+  "title": "http://localhost:4200/",
+  "referrer": "http://localhost:4200/",
+  "timestamp": {
+    "$date": "2026-03-05T15:34:08.581Z"
+  },
+  "createdAt": {
+    "$date": "2026-03-05T15:34:08.585Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69fda8d5b3ce0c55778da027"
+  },
+  "session": {
+    "$oid": "69fda8d5b3ce0c55778da025"
+  },
+  "sessionId": "sess_1778231509064_149b201068800ec9050165fb89f85b8b",
+  "url": "/api/v1/auth/google/status",
+  "path": "/api/v1/auth/google/status",
+  "title": "http://localhost:4200/",
+  "referrer": "http://localhost:4200/",
+  "timestamp": {
+    "$date": "2026-05-08T09:11:49.150Z"
+  },
+  "createdAt": {
+    "$date": "2026-05-08T09:11:49.152Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69fda8d5b3ce0c55778da02b"
+  },
+  "session": {
+    "$oid": "69fda8d5b3ce0c55778da025"
+  },
+  "sessionId": "sess_1778231509064_149b201068800ec9050165fb89f85b8b",
+  "url": "/api/v1/products?limit=6&featured=true",
+  "path": "/api/v1/products",
+  "title": "http://localhost:4200/",
+  "referrer": "http://localhost:4200/",
+  "timestamp": {
+    "$date": "2026-05-08T09:11:49.652Z"
+  },
+  "createdAt": {
+    "$date": "2026-05-08T09:11:49.653Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69fda8deb3ce0c55778da032"
+  },
+  "session": {
+    "$oid": "69fda8d5b3ce0c55778da025"
+  },
+  "sessionId": "sess_1778231509064_149b201068800ec9050165fb89f85b8b",
+  "url": "/api/v1/products?page=1&limit=10000",
+  "path": "/api/v1/products",
+  "title": "http://localhost:4200/shop",
+  "referrer": "http://localhost:4200/shop",
+  "timestamp": {
+    "$date": "2026-05-08T09:11:58.930Z"
+  },
+  "createdAt": {
+    "$date": "2026-05-08T09:11:58.931Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69fda8dfb3ce0c55778da03b"
+  },
+  "session": {
+    "$oid": "69fda8d5b3ce0c55778da025"
+  },
+  "sessionId": "sess_1778231509064_149b201068800ec9050165fb89f85b8b",
+  "url": "/api/v1/categories",
+  "path": "/api/v1/categories",
+  "title": "http://localhost:4200/shop",
+  "referrer": "http://localhost:4200/shop",
+  "timestamp": {
+    "$date": "2026-05-08T09:11:59.084Z"
+  },
+  "createdAt": {
+    "$date": "2026-05-08T09:11:59.085Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69fda8e1b3ce0c55778da041"
+  },
+  "session": {
+    "$oid": "69fda8d5b3ce0c55778da025"
+  },
+  "sessionId": "sess_1778231509064_149b201068800ec9050165fb89f85b8b",
+  "url": "/api/v1/products?limit=6&featured=true",
+  "path": "/api/v1/products",
+  "title": "http://localhost:4200/",
+  "referrer": "http://localhost:4200/",
+  "timestamp": {
+    "$date": "2026-05-08T09:12:01.921Z"
+  },
+  "createdAt": {
+    "$date": "2026-05-08T09:12:01.922Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69fdadd0b3ce0c55778da048"
+  },
+  "session": {
+    "$oid": "69fda8d5b3ce0c55778da025"
+  },
+  "sessionId": "sess_1778231509064_149b201068800ec9050165fb89f85b8b",
+  "url": "/api/v1/auth/google/status",
+  "path": "/api/v1/auth/google/status",
+  "title": "http://localhost:4200/",
+  "referrer": "http://localhost:4200/",
+  "timestamp": {
+    "$date": "2026-05-08T09:33:04.137Z"
+  },
+  "createdAt": {
+    "$date": "2026-05-08T09:33:04.138Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69fdadd0b3ce0c55778da04c"
+  },
+  "session": {
+    "$oid": "69fda8d5b3ce0c55778da025"
+  },
+  "sessionId": "sess_1778231509064_149b201068800ec9050165fb89f85b8b",
+  "url": "/api/v1/products?limit=6&featured=true",
+  "path": "/api/v1/products",
+  "title": "http://localhost:4200/",
+  "referrer": "http://localhost:4200/",
+  "timestamp": {
+    "$date": "2026-05-08T09:33:04.438Z"
+  },
+  "createdAt": {
+    "$date": "2026-05-08T09:33:04.438Z"
+  },
+  "__v": 0
+}]

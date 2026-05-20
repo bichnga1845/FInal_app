@@ -1,0 +1,287 @@
+[{
+  "_id": {
+    "$oid": "697329e573991d59c9e70740"
+  },
+  "name": "Nhật Đỗ Admin",
+  "email": "nhatdo@admin.gmail.com",
+  "password": "$2a$10$D9qghxmtw0bxftriIvPhAOnBbAAJtKOKLymBHWCdE3BHDuzWD2uyC",
+  "role": "admin",
+  "isEmailVerified": true,
+  "authProvider": "local",
+  "createdAt": {
+    "$date": "2026-01-23T07:57:25.195Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-23T07:57:25.195Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69732ad665d1ce0c06c7d23c"
+  },
+  "name": "Test User 0",
+  "email": "a0@tester.gmail.com",
+  "password": "$2a$10$jS9KK4yHi8P12k9uO0T2S.8EOAZVP8Uq4gAqYyBokWdKeY/p8am9m",
+  "role": "user",
+  "isEmailVerified": true,
+  "authProvider": "local",
+  "isActive": true,
+  "address": {
+    "street": "100 Test Street",
+    "city": "Test City",
+    "state": "Test State",
+    "zipCode": "10000",
+    "country": "Vietnam"
+  },
+  "createdAt": {
+    "$date": "2026-01-23T08:01:26.164Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-23T08:01:40.275Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69732ad665d1ce0c06c7d23d"
+  },
+  "name": "Test User 1",
+  "email": "a1@tester.gmail.com",
+  "password": "$2a$10$jS9KK4yHi8P12k9uO0T2S.8EOAZVP8Uq4gAqYyBokWdKeY/p8am9m",
+  "role": "user",
+  "isEmailVerified": true,
+  "authProvider": "local",
+  "isActive": true,
+  "address": {
+    "street": "101 Test Street",
+    "city": "Test City",
+    "state": "Test State",
+    "zipCode": "10001",
+    "country": "Vietnam"
+  },
+  "createdAt": {
+    "$date": "2026-01-23T08:01:26.166Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-23T08:01:40.283Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69732ad665d1ce0c06c7d23e"
+  },
+  "name": "Test User 2",
+  "email": "a2@tester.gmail.com",
+  "password": "$2a$10$jS9KK4yHi8P12k9uO0T2S.8EOAZVP8Uq4gAqYyBokWdKeY/p8am9m",
+  "role": "user",
+  "isEmailVerified": true,
+  "authProvider": "local",
+  "isActive": true,
+  "address": {
+    "street": "102 Test Street",
+    "city": "Test City",
+    "state": "Test State",
+    "zipCode": "10002",
+    "country": "Vietnam"
+  },
+  "createdAt": {
+    "$date": "2026-01-23T08:01:26.167Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-23T08:01:40.284Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69732ad665d1ce0c06c7d23f"
+  },
+  "name": "Test User 3",
+  "email": "a3@tester.gmail.com",
+  "password": "$2a$10$jS9KK4yHi8P12k9uO0T2S.8EOAZVP8Uq4gAqYyBokWdKeY/p8am9m",
+  "role": "user",
+  "isEmailVerified": true,
+  "authProvider": "local",
+  "isActive": true,
+  "address": {
+    "street": "103 Test Street",
+    "city": "Test City",
+    "state": "Test State",
+    "zipCode": "10003",
+    "country": "Vietnam"
+  },
+  "createdAt": {
+    "$date": "2026-01-23T08:01:26.168Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-23T08:01:40.286Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69732ad665d1ce0c06c7d240"
+  },
+  "name": "Test User 4",
+  "email": "a4@tester.gmail.com",
+  "password": "$2a$10$jS9KK4yHi8P12k9uO0T2S.8EOAZVP8Uq4gAqYyBokWdKeY/p8am9m",
+  "role": "user",
+  "isEmailVerified": true,
+  "authProvider": "local",
+  "isActive": true,
+  "address": {
+    "street": "104 Test Street",
+    "city": "Test City",
+    "state": "Test State",
+    "zipCode": "10004",
+    "country": "Vietnam"
+  },
+  "createdAt": {
+    "$date": "2026-01-23T08:01:26.169Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-23T08:01:40.287Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69732ad665d1ce0c06c7d241"
+  },
+  "name": "Test User 5",
+  "email": "a5@tester.gmail.com",
+  "password": "$2a$10$jS9KK4yHi8P12k9uO0T2S.8EOAZVP8Uq4gAqYyBokWdKeY/p8am9m",
+  "role": "user",
+  "isEmailVerified": true,
+  "authProvider": "local",
+  "isActive": true,
+  "address": {
+    "street": "105 Test Street",
+    "city": "Test City",
+    "state": "Test State",
+    "zipCode": "10005",
+    "country": "Vietnam"
+  },
+  "createdAt": {
+    "$date": "2026-01-23T08:01:26.170Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-23T08:01:40.288Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69732ad665d1ce0c06c7d242"
+  },
+  "name": "Test User 6",
+  "email": "a6@tester.gmail.com",
+  "password": "$2a$10$jS9KK4yHi8P12k9uO0T2S.8EOAZVP8Uq4gAqYyBokWdKeY/p8am9m",
+  "role": "user",
+  "isEmailVerified": true,
+  "authProvider": "local",
+  "isActive": true,
+  "address": {
+    "street": "106 Test Street",
+    "city": "Test City",
+    "state": "Test State",
+    "zipCode": "10006",
+    "country": "Vietnam"
+  },
+  "createdAt": {
+    "$date": "2026-01-23T08:01:26.171Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-23T08:01:40.290Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69732ad665d1ce0c06c7d243"
+  },
+  "name": "Test User 7",
+  "email": "a7@tester.gmail.com",
+  "password": "$2a$10$jS9KK4yHi8P12k9uO0T2S.8EOAZVP8Uq4gAqYyBokWdKeY/p8am9m",
+  "role": "user",
+  "isEmailVerified": true,
+  "authProvider": "local",
+  "isActive": true,
+  "address": {
+    "street": "107 Test Street",
+    "city": "Test City",
+    "state": "Test State",
+    "zipCode": "10007",
+    "country": "Vietnam"
+  },
+  "createdAt": {
+    "$date": "2026-01-23T08:01:26.172Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-23T08:01:40.291Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69732ad665d1ce0c06c7d244"
+  },
+  "name": "Test User 8",
+  "email": "a8@tester.gmail.com",
+  "password": "$2a$10$jS9KK4yHi8P12k9uO0T2S.8EOAZVP8Uq4gAqYyBokWdKeY/p8am9m",
+  "role": "user",
+  "isEmailVerified": true,
+  "authProvider": "local",
+  "isActive": true,
+  "address": {
+    "street": "108 Test Street",
+    "city": "Test City",
+    "state": "Test State",
+    "zipCode": "10008",
+    "country": "Vietnam"
+  },
+  "createdAt": {
+    "$date": "2026-01-23T08:01:26.173Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-23T08:01:40.292Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69732ad665d1ce0c06c7d245"
+  },
+  "name": "Test User 9",
+  "email": "a9@tester.gmail.com",
+  "password": "$2a$10$jS9KK4yHi8P12k9uO0T2S.8EOAZVP8Uq4gAqYyBokWdKeY/p8am9m",
+  "role": "user",
+  "isEmailVerified": true,
+  "authProvider": "local",
+  "isActive": true,
+  "address": {
+    "street": "109 Test Street",
+    "city": "Test City",
+    "state": "Test State",
+    "zipCode": "10009",
+    "country": "Vietnam"
+  },
+  "createdAt": {
+    "$date": "2026-01-23T08:01:26.174Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-23T08:01:40.293Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69a9a035fde9b32594ffb37e"
+  },
+  "name": "Nga Trần Thị Bích",
+  "email": "ngattb234111e@st.uel.edu.vn",
+  "role": "user",
+  "avatar": "https://lh3.googleusercontent.com/a/ACg8ocLqsang9iHQ0643HXl8-stRPWlSASlishg7gn8qZ6ZF5uk0HzzO=s96-c",
+  "isActive": true,
+  "isEmailVerified": true,
+  "googleId": "111100395803003170560",
+  "authProvider": "google",
+  "createdAt": {
+    "$date": "2026-03-05T15:24:37.391Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-05T15:24:37.391Z"
+  },
+  "__v": 0
+}]

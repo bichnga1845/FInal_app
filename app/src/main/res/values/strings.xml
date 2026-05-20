@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">FinalApp</string>
+    <string name="splash_app_name">PONSAI</string>
+    <string name="splash_slogan">ARTISANAL GROWTH</string>
+    <string name="splash_footer">Cultivating Experience&#8230;</string>
+    <string name="str_login">Đăng nhập</string>
+    <string name="str_login_subtitle">Chào mừng bạn quay trở lại với không gian bonsai của mình 🌿</string>
+
+    <string name="str_bonsai_lifestyle">BONSAI LIFESTYLE</string>
+
+    <string name="str_phone_number">Số điện thoại</string>
+    <string name="str_hint_phone">Nhập số điện thoại</string>
+
+    <string name="str_password">Mật khẩu</string>
+    <string name="str_hint_password">Nhập mật khẩu</string>
+
+    <string name="str_forgot_password">Quên mật khẩu?</string>
+
+    <string name="str_continue_with">hoặc tiếp tục với</string>
+
+    <string name="str_register">Đăng ký</string>
+
+    <string name="str_google_login">Đăng nhập với Google</string>
+    <string name="str_facebook_login">Đăng nhập với Facebook</string>
+
+        <string name="str_register_title">ĐĂNG KÝ TÀI KHOẢN MỚI</string>
+        <string name="str_register_subtitle">Hãy điền thêm thông tin để nhận ngay phần thưởng chỉ dành riêng cho Katies mới lần đầu tiên đăng ký!</string>
+
+        <string name="str_phone_number">Số điện thoại</string>
+        <string name="str_hint_phone">Nhập số điện thoại</string>
+
+        <string name="str_email">Email *</string>
+        <string name="str_hint_email">Nhập địa chỉ email</string>
+
+        <string name="str_full_name">Họ và tên *</string>
+        <string name="str_hint_full_name">Nhập họ và tên</string>
+
+        <string name="str_gender">Giới tính *</string>
+        <string name="str_hint_gender">Chọn giới tính</string>
+
+        <string name="str_dob">Ngày sinh *</string>
+        <string name="str_hint_dob">dd/mm/yyyy</string>
+
+        <string name="str_province">Tỉnh thành *</string>
+        <string name="str_hint_province">Chọn tỉnh thành</string>
+
+        <string name="str_auth_info">THÔNG TIN ĐĂNG NHẬP</string>
+
+        <string name="str_password">Mật khẩu *</string>
+        <string name="str_hint_password">Nhập mật khẩu</string>
+
+        <string name="str_re_password">Nhập lại mật khẩu *</string>
+        <string name="str_hint_re_password">Nhập lại mật khẩu</string>
+
+        <string name="str_referral_code">Nhập mã giới thiệu (nếu có)</string>
+        <string name="str_hint_referral_code">Nhập mã giới thiệu</string>
+
+        <string name="str_other_info">THÔNG TIN KHÁC</string>
+        <string name="str_expand">Mở rộng</string>
+        <string name="str_terms_agree">Tôi đồng ý với chính sách điều khoản của KATINAT</string>
+        <string name="str_register_btn">Đăng ký</string>
+</resources>

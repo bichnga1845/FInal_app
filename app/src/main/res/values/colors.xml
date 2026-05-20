@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="primary">#546B41</color>
+    <color name="primary_variant">#99AD7A</color>
+    <color name="background">#FFFFFF</color>
+
+    <color name="text_main">#546B41</color>
+    <color name="text_description">#666666</color>
+    <color name="text_button">#FFF8EC</color>
+
+    <color name="tab_active">#546B41</color>
+    <color name="tab_inactive">#99AD7A</color>
+
+    <color name="timestamp">#DCCCAC</color>
+
+    <color name="input_background">#FFF8EC</color>
+    <color name="input_border">#546B41</color>
+    <color name="placeholder">#B8B8B8</color>
+
+    <color name="toolbar_background">#546B41</color>
+    <color name="toolbar_content">#FFF8EC</color>
+</resources>

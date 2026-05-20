@@ -1,0 +1,44 @@
+{
+  "categories": {
+    "69732a092a6a836a11711fba": { "name": "Bonsai Trees", "slug": "bonsai-trees", "active": true },
+    "69732a092a6a836a11711fbf": { "name": "Bonsai Pots", "slug": "bonsai-pots", "active": true },
+    "69732a092a6a836a11711fc3": { "name": "Tools", "slug": "tools", "active": true },
+    "69732a092a6a836a11711fc6": { "name": "Accessories", "slug": "accessories", "active": true },
+    "69732a092a6a836a11711fc9": { "name": "Books & Guides", "slug": "books-&-guides", "active": true }
+  },
+  "products": {
+    "69732a092a6a836a11711fcc": {
+      "categoryId": "69732a092a6a836a11711fbf",
+      "name": "Solar Red - White Stoneware Cascade Bonsai Pot 5cm",
+      "description": "Our handcrafted WHITE Stoneware ceramic pots \"like porcelain\" but not! Designed at Zero Bonsai...",
+      "price": 33.01,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0771/8010/9084/files/zbp-aug-s1-084.jpg",
+      "stock": 10,
+      "timestamp": 1737619081000
+    },
+    "69732a092a6a836a11711fce": {
+      "categoryId": "69732a092a6a836a11711fc6",
+      "name": "Cotoneaster Bonsai Tree",
+      "description": "Semi Cascade Bonsai: 5+ year old cotoneaster - Coral Beauty (white flowers, red berries)...",
+      "price": 95.24,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0771/8010/9084/files/zbt-may-25-486.jpg",
+      "stock": 0,
+      "timestamp": 1737619081000
+    }
+  },
+  "users": {
+    "697329e573991d59c9e70740": {
+      "name": "Nhật Đỗ Admin",
+      "email": "nhatdo@admin.gmail.com",
+      "role": "admin",
+      "createdAt": 1737619045000
+    },
+    "69a9a035fde9b32594ffb37e": {
+      "name": "Nga Trần Thị Bích",
+      "email": "ngattb234111e@st.uel.edu.vn",
+      "role": "user",
+      "avatar": "https://lh3.googleusercontent.com/a/ACg8ocLqsang9iHQ0643HXl8-stRPWlSASlishg7gn8qZ6ZF5uk0HzzO=s96-c",
+      "createdAt": 1741188277000
+    }
+  }
+}

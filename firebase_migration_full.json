@@ -1,0 +1,29 @@
+{
+  "categories": {
+    "69732a092a6a836a11711fba": { "name": "Bonsai Trees", "slug": "bonsai-trees", "active": true },
+    "69732a092a6a836a11711fbf": { "name": "Bonsai Pots", "slug": "bonsai-pots", "active": true },
+    "69732a092a6a836a11711fc3": { "name": "Tools", "slug": "tools", "active": true },
+    "69732a092a6a836a11711fc6": { "name": "Accessories", "slug": "accessories", "active": true },
+    "69732a092a6a836a11711fc9": { "name": "Books & Guides", "slug": "books-&-guides", "active": true }
+  },
+  "products": {
+    "69732a092a6a836a11711fcc": { "categoryId": "69732a092a6a836a11711fbf", "name": "Solar Red - White Stoneware Cascade Bonsai Pot 5cm", "price": 33.01, "imageUrl": "https://cdn.shopify.com/s/files/1/0771/8010/9084/files/zbp-aug-s1-084.jpg", "stock": 10, "timestamp": 1737619081418 },
+    "69732a092a6a836a11711fce": { "categoryId": "69732a092a6a836a11711fc6", "name": "Cotoneaster Bonsai Tree", "price": 95.24, "imageUrl": "https://cdn.shopify.com/s/files/1/0771/8010/9084/files/zbt-may-25-486.jpg", "stock": 0, "timestamp": 1737619081427 },
+    "69732a092a6a836a11711fd0": { "categoryId": "69732a092a6a836a11711fc6", "name": "Katsura Japanese Maple Bonsai", "price": 101.6, "imageUrl": "https://cdn.shopify.com/s/files/1/0771/8010/9084/files/zero-25-apr-172.jpg", "stock": 0, "timestamp": 1737619081430 },
+    "69732a092a6a836a11711fd2": { "categoryId": "69732a092a6a836a11711fc6", "name": "Copper Training Wire 1.5mm x 1m", "price": 6.34, "imageUrl": "https://cdn.shopify.com/s/files/1/0771/8010/9084/files/IMG20230818161422.jpg", "stock": 10, "timestamp": 1737619081431 },
+    "69732a092a6a836a11711fd4": { "categoryId": "69732a092a6a836a11711fbf", "name": "Topaz Round Ceramic Bonsai Pot 8cm", "price": 31.75, "imageUrl": "https://cdn.shopify.com/s/files/1/0771/8010/9084/files/DEX_4903.jpg", "stock": 10, "timestamp": 1737619081432 },
+    "69732a092a6a836a11711fd6": { "categoryId": "69732a092a6a836a11711fc6", "name": "Repotting Kit - Large 1500", "price": 24.77, "imageUrl": "https://cdn.shopify.com/s/files/1/0771/8010/9084/files/IMG20230719121648.jpg", "stock": 10, "timestamp": 1737619081438 },
+    "69732a092a6a836a11711fde": { "categoryId": "69732a092a6a836a11711fbf", "name": "NANBAN Ceramic Abstract Venus Brown 29cm", "price": 190.49, "imageUrl": "https://cdn.shopify.com/s/files/1/0771/8010/9084/files/pacboat-161.jpg", "stock": 10, "timestamp": 1737619081445 },
+    "69732a092a6a836a11711fe2": { "categoryId": "69732a092a6a836a11711fc6", "name": "Chinese Elm Bonsai and Care Kit Navy", "price": 69.84, "imageUrl": "https://cdn.shopify.com/s/files/1/0771/8010/9084/files/zbt-nov-25-274.jpg", "stock": 10, "timestamp": 1737619081448 },
+    "69732a092a6a836a11711fe6": { "categoryId": "69732a092a6a836a11711fc6", "name": "Dawn Redwood Bonsai", "price": 323.85, "imageUrl": "https://cdn.shopify.com/s/files/1/0771/8010/9084/files/zbt-june-25-118.jpg", "stock": 10, "timestamp": 1737619081450 },
+    "69732a092a6a836a1171201a": { "categoryId": "69732a092a6a836a11711fc6", "name": "Mandarin Bonsai", "price": 47.63, "imageUrl": "https://cdn.shopify.com/s/files/1/0771/8010/9084/files/IMG20240103110603.jpg", "stock": 10, "timestamp": 1737619081480 },
+    "69732a092a6a836a11712028": { "categoryId": "69732a092a6a836a11711fc6", "name": "Bonsai Tree Sealant - Cut Paste 100g", "price": 18.99, "imageUrl": "https://cdn.shopify.com/s/files/1/0771/8010/9084/files/IMG20240328163837.jpg", "stock": 10, "timestamp": 1737619081488 }
+  },
+  "users": {
+    "697329e573991d59c9e70740": { "name": "Nhật Đỗ Admin", "email": "nhatdo@admin.gmail.com", "role": "admin", "createdAt": 1737619045195 },
+    "69732ad665d1ce0c06c7d23c": { "name": "Test User 0", "email": "a0@tester.gmail.com", "role": "user", "createdAt": 1737619286164 },
+    "69732ad665d1ce0c06c7d23d": { "name": "Test User 1", "email": "a1@tester.gmail.com", "role": "user", "createdAt": 1737619286166 },
+    "69732ad665d1ce0c06c7d23e": { "name": "Test User 2", "email": "a2@tester.gmail.com", "role": "user", "createdAt": 1737619286167 },
+    "69a9a035fde9b32594ffb37e": { "name": "Nga Trần Thị Bích", "email": "ngattb234111e@st.uel.edu.vn", "role": "user", "avatar": "https://lh3.googleusercontent.com/a/ACg8ocLqsang9iHQ0643HXl8-stRPWlSASlishg7gn8qZ6ZF5uk0HzzO=s96-c", "createdAt": 1741188277391 }
+  }
+}

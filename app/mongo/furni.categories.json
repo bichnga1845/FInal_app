@@ -1,0 +1,85 @@
+[{
+  "_id": {
+    "$oid": "69732a092a6a836a11711fba"
+  },
+  "name": "Bonsai Trees",
+  "description": "Live bonsai plants and trees",
+  "slug": "bonsai-trees",
+  "parent": null,
+  "active": true,
+  "createdAt": {
+    "$date": "2026-01-23T07:58:01.397Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-23T07:58:01.397Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69732a092a6a836a11711fbf"
+  },
+  "name": "Bonsai Pots",
+  "description": "Ceramic and stoneware bonsai containers",
+  "slug": "bonsai-pots",
+  "parent": null,
+  "active": true,
+  "createdAt": {
+    "$date": "2026-01-23T07:58:01.402Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-23T07:58:01.402Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69732a092a6a836a11711fc3"
+  },
+  "name": "Tools",
+  "description": "Bonsai maintenance and care tools",
+  "slug": "tools",
+  "parent": null,
+  "active": true,
+  "createdAt": {
+    "$date": "2026-01-23T07:58:01.404Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-23T07:58:01.404Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69732a092a6a836a11711fc6"
+  },
+  "name": "Accessories",
+  "description": "Wire, soil, fertilizers, and more",
+  "slug": "accessories",
+  "parent": null,
+  "active": true,
+  "createdAt": {
+    "$date": "2026-01-23T07:58:01.407Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-23T07:58:01.407Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69732a092a6a836a11711fc9"
+  },
+  "name": "Books & Guides",
+  "description": "Educational materials for bonsai enthusiasts",
+  "slug": "books-&-guides",
+  "parent": null,
+  "active": true,
+  "createdAt": {
+    "$date": "2026-01-23T07:58:01.408Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-23T07:58:01.408Z"
+  },
+  "__v": 0
+}]
