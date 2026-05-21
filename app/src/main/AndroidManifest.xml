@@ -30,6 +30,24 @@
         <activity
             android:name=".MainActivity"
             android:exported="false" />
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ChangePasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ForgotPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SelectAddressActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PaymentMethodActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
