@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/example/finalapp/AboutActivity.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/app/src/main/java/com/example/finalapp/AboutActivity.java" />
+              <option name="originalContent" value="package com.example.finalapp;&#10;&#10;import android.os.Bundle;&#10;import android.view.View;&#10;import android.widget.ImageView;&#10;import androidx.appcompat.app.AppCompatActivity;&#10;&#10;public class AboutActivity extends AppCompatActivity {&#10;&#10;    @Override&#10;    protected void onCreate(Bundle savedInstanceState) {&#10;        super.onCreate(savedInstanceState);&#10;        setContentView(R.layout.activity_about);&#10;&#10;        ImageView btnBack = findViewById(R.id.btnBack);&#10;        if (btnBack != null) {&#10;            btnBack.setOnClickListener(v -&gt; finish());&#10;        }&#10;    }&#10;}&#10;" />
+              <option name="updatedContent" value="package com.example.finalapp;&#13;&#10;&#13;&#10;import android.content.Intent;&#10;import android.os.Bundle;&#13;&#10;import android.widget.Button;&#10;import android.widget.ImageView;&#13;&#10;&#10;import androidx.appcompat.app.AppCompatActivity;&#13;&#10;&#13;&#10;public class AboutActivity extends AppCompatActivity {&#13;&#10;&#13;&#10;    @Override&#13;&#10;    protected void onCreate(Bundle savedInstanceState) {&#13;&#10;        super.onCreate(savedInstanceState);&#13;&#10;        setContentView(R.layout.activity_about);&#13;&#10;&#13;&#10;        ImageView btnBack = findViewById(R.id.btnBack);&#13;&#10;        if (btnBack != null) {&#13;&#10;            btnBack.setOnClickListener(v -&gt; finish());&#13;&#10;        }&#13;&#10;&#10;        Button btnExploreCollection = findViewById(R.id.btnExploreCollection);&#10;        Button btnBuyNow = findViewById(R.id.btnBuyNow);&#10;        Button btnFinalCta = findViewById(R.id.btnFinalCta);&#10;&#10;        if (btnExploreCollection != null) {&#10;            btnExploreCollection.setOnClickListener(v -&gt; openCatalog());&#10;        }&#10;&#10;        if (btnBuyNow != null) {&#10;            btnBuyNow.setOnClickListener(v -&gt; openCatalog());&#10;        }&#10;&#10;        if (btnFinalCta != null) {&#10;            btnFinalCta.setOnClickListener(v -&gt; openCatalog());&#10;        }&#10;    }&#10;&#10;    private void openCatalog() {&#10;        startActivity(new Intent(this, MainActivity.class));&#10;        finish();&#10;    }&#13;&#10;}&#13;&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/drawable/bg_avatar_circle.xml">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/app/src/main/res/drawable/bg_avatar_circle.xml" />
+              <option name="updatedContent" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&#10;&lt;shape xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot; android:shape=&quot;oval&quot;&gt;&#10;    &lt;solid android:color=&quot;#99AD7A&quot; /&gt;&#10;    &lt;stroke&#10;        android:width=&quot;1dp&quot;&#10;        android:color=&quot;#DCCCAC&quot; /&gt;&#10;&lt;/shape&gt;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

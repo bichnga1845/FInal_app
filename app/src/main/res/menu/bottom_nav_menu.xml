@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@mipmap/ic_homepage"
+        android:title="Trang chủ" />
+    <item
+        android:id="@+id/nav_order"
+        android:icon="@mipmap/ic_category_bonsai_trees"
+        android:title="Sản phẩm" />
+    <item
+        android:id="@+id/nav_promo"
+        android:icon="@mipmap/ic_coupon"
+        android:title="Ưu đãi" />
+    <item
+        android:id="@+id/nav_about"
+        android:icon="@mipmap/ic_about_us"
+        android:title="Về chúng tôi" />
+    <item
+        android:id="@+id/nav_account"
+        android:icon="@mipmap/ic_account"
+        android:title="Tài khoản" />
+</menu>

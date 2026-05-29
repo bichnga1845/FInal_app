@@ -4,7 +4,7 @@
     <string name="splash_slogan">ARTISANAL GROWTH</string>
     <string name="splash_footer">Cultivating Experience&#8230;</string>
     <string name="str_login">Đăng nhập</string>
-    <string name="str_login_subtitle">Chào mừng bạn quay trở lại với không gian bonsai của mình 🌿</string>
+    <string name="str_login_subtitle">Chào mừng bạn quay trở lại với không gian bonsai của mình </string>
 
     <string name="str_bonsai_lifestyle">BONSAI LIFESTYLE</string>
 
@@ -26,9 +26,6 @@
         <string name="str_register_title">ĐĂNG KÝ TÀI KHOẢN MỚI</string>
         <string name="str_register_subtitle">Hãy điền thêm thông tin để nhận ngay phần thưởng chỉ dành riêng cho Katies mới lần đầu tiên đăng ký!</string>
 
-        <string name="str_phone_number">Số điện thoại</string>
-        <string name="str_hint_phone">Nhập số điện thoại</string>
-
         <string name="str_email">Email *</string>
         <string name="str_hint_email">Nhập địa chỉ email</string>
 
@@ -45,9 +42,6 @@
         <string name="str_hint_province">Chọn tỉnh thành</string>
 
         <string name="str_auth_info">THÔNG TIN ĐĂNG NHẬP</string>
-
-        <string name="str_password">Mật khẩu *</string>
-        <string name="str_hint_password">Nhập mật khẩu</string>
 
         <string name="str_re_password">Nhập lại mật khẩu *</string>
         <string name="str_hint_re_password">Nhập lại mật khẩu</string>

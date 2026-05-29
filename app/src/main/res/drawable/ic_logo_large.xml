@@ -1,0 +1,35 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="200"
+    android:viewportHeight="200">
+
+    <!-- P Logo with Twist - Exact Design from Screenshot -->
+    <g android:translateX="100" android:translateY="100">
+        <!-- Main P stroke -->
+        <path
+            android:strokeColor="#4A8BA4"
+            android:strokeWidth="12"
+            android:fillColor="@android:color/transparent"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round"
+            android:pathData="M -20 -60
+            L -20 60
+            M -20 -20
+            Q 20 -50 40 -20
+            Q 50 0 40 20
+            Q 20 40 -20 20" />
+
+        <!-- Top curl/twist -->
+        <path
+            android:strokeColor="#4A8BA4"
+            android:strokeWidth="10"
+            android:fillColor="@android:color/transparent"
+            android:strokeLineCap="round"
+            android:pathData="M 35 -55
+            Q 55 -70 60 -45
+            Q 65 -20 45 -15" />
+    </g>
+</vector>
+
+
