@@ -31,7 +31,7 @@ public class RegisterActivity extends AppCompatActivity {
         // Chuyển đến màn hình chính khi bấm Đăng ký
         Button btnRegister = findViewById(R.id.btnRegister);
         btnRegister.setOnClickListener(v -> {
-            startActivity(new Intent(RegisterActivity.this, MainActivity.class));
+            startActivity(new Intent(RegisterActivity.this, MainFinalActivity.class));
             finishAffinity(); // Đóng tất cả các màn hình trước đó
         });
     }

@@ -6,6 +6,7 @@ import com.google.firebase.database.IgnoreExtraProperties;
 public class Product {
     public String id;
     public String name;
+    public String description;
     public double price;
     
     public double originalPrice;
@@ -18,6 +19,14 @@ public class Product {
     public String category;
     public String categoryId;
     public String category_id;
+    
+    // Additional fields for detail screen
+    public String species;
+    public String age;
+    public String height;
+    public String careLevel;
+    public String waterInfo;
+    public String lightInfo;
 
     public Product() {}
 

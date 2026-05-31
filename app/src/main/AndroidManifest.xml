@@ -24,6 +24,15 @@
             android:name=".AboutActivity"
             android:exported="false" />
         <activity
+            android:name=".MainFinalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProductDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CartActivity"
+            android:exported="false" />
+        <activity
             android:name=".SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.FinalApp">

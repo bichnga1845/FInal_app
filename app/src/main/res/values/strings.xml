@@ -53,4 +53,13 @@
         <string name="str_expand">Mở rộng</string>
         <string name="str_terms_agree">Tôi đồng ý với chính sách điều khoản của KATINAT</string>
         <string name="str_register_btn">Đăng ký</string>
+
+    <string name="home_discover_title">Khám phá cây mới</string>
+    <string name="home_discover_desc">Mang thiên nhiên vào ngôi nhà của bạn với bộ sưu tập Bonsai mới nhất.</string>
+    <string name="home_see_more">Xem thêm</string>
+    <string name="home_search_hint">Tìm kiếm sản phẩm...</string>
+    <string name="home_tab_all">Tất cả</string>
+    <string name="home_tab_popular">Phổ biến</string>
+    <string name="home_tab_new">Mới về</string>
+    <string name="home_section_promo">ƯU ĐÃI</string>
 </resources>
