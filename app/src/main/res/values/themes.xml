@@ -32,7 +32,7 @@
         <item name="shapeAppearanceOverlay">@style/ShapeAppearance.App.SmallComponent</item>
     </style>
 
-    <style name="Widget.App.TextInputEditText" parent="Widget.MaterialComponents.TextInputEditText.OutlinedBox">
+    <style name="Widget.App.TextInputEditText" parent="Widget.Material3.TextInputEditText.OutlinedBox">
         <item name="android:padding">@dimen/input_padding_vertical</item>
         <item name="android:textColor">@color/text_main</item>
         <item name="android:textSize">@dimen/text_size_content</item>

@@ -1,6 +1,9 @@
 package com.example.finalapp;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +22,17 @@ public class RegisterActivity extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+
+        // Nút quay lại
+        ImageView imgBack = findViewById(R.id.imgBack);
+        imgBack.setOnClickListener(v -> finish());
+
+        // Chuyển đến màn hình chính khi bấm Đăng ký
+        Button btnRegister = findViewById(R.id.btnRegister);
+        btnRegister.setOnClickListener(v -> {
+            startActivity(new Intent(RegisterActivity.this, MainActivity.class));
+            finishAffinity(); // Đóng tất cả các màn hình trước đó
         });
     }
 }

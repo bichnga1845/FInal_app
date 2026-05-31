@@ -5,14 +5,10 @@ plugins {
 
 android {
     namespace = "com.example.finalapp"
-    compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
-        }
-    }
+    compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.finalapp"
+        applicationId = "com.example.finalapp.dev"
         minSdk = 26
         targetSdk = 36
         versionCode = 1
@@ -43,6 +39,7 @@ dependencies {
     implementation(libs.firebase.database)
     implementation(libs.firebase.auth)
     implementation(libs.material)
+    implementation("com.github.bumptech.glide:glide:4.16.0")
     testImplementation(libs.junit)
     androidTestImplementation(libs.espresso.core)
     androidTestImplementation(libs.ext.junit)

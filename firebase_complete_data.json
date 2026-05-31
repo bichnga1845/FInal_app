@@ -1,0 +1,36 @@
+{
+  "categories": {
+    "69732a092a6a836a11711fba": { "name": "Bonsai Trees", "slug": "bonsai-trees", "active": true },
+    "69732a092a6a836a11711fbf": { "name": "Bonsai Pots", "slug": "bonsai-pots", "active": true },
+    "69732a092a6a836a11711fc3": { "name": "Tools", "slug": "tools", "active": true },
+    "69732a092a6a836a11711fc6": { "name": "Accessories", "slug": "accessories", "active": true },
+    "69732a092a6a836a11711fc9": { "name": "Books & Guides", "slug": "books-&-guides", "active": true }
+  },
+  "products": {
+    "prod_001": { "categoryId": "69732a092a6a836a11711fba", "name": "Japanese Black Pine Bonsai", "price": 89.99, "imageUrl": "https://images.unsplash.com/photo-1582951273127-7e5dd48d3d86?w=500", "stock": 5, "timestamp": 1737619081418 },
+    "prod_002": { "categoryId": "69732a092a6a836a11711fba", "name": "Chinese Elm Bonsai Tree", "price": 79.99, "imageUrl": "https://images.unsplash.com/photo-1599599810694-ee83d2ce4155?w=500", "stock": 8, "timestamp": 1737619081419 },
+    "prod_003": { "categoryId": "69732a092a6a836a11711fba", "name": "Ficus Bonsai Tree", "price": 69.99, "imageUrl": "https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=500", "stock": 12, "timestamp": 1737619081420 },
+    "prod_004": { "categoryId": "69732a092a6a836a11711fba", "name": "Maple Bonsai - Red Leaf", "price": 99.99, "imageUrl": "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=500", "stock": 3, "timestamp": 1737619081421 },
+    "prod_005": { "categoryId": "69732a092a6a836a11711fba", "name": "Juniper Bonsai Tree", "price": 84.99, "imageUrl": "https://images.unsplash.com/photo-1532996122724-8f3c2cd83c5d?w=500", "stock": 6, "timestamp": 1737619081422 },
+    "prod_006": { "categoryId": "69732a092a6a836a11711fbf", "name": "White Ceramic Cascade Pot 5cm", "price": 33.01, "imageUrl": "https://images.unsplash.com/photo-1615876651852-bd42075f5667?w=500", "stock": 10, "timestamp": 1737619081423 },
+    "prod_007": { "categoryId": "69732a092a6a836a11711fbf", "name": "Topaz Round Ceramic Pot 8cm", "price": 31.75, "imageUrl": "https://images.unsplash.com/photo-1610809269000-9c9e75c8d960?w=500", "stock": 10, "timestamp": 1737619081424 },
+    "prod_008": { "categoryId": "69732a092a6a836a11711fbf", "name": "Brown Stoneware Square Pot 6cm", "price": 42.50, "imageUrl": "https://images.unsplash.com/photo-1578482326433-ad653e30e4e7?w=500", "stock": 7, "timestamp": 1737619081425 },
+    "prod_009": { "categoryId": "69732a092a6a836a11711fc3", "name": "Bonsai Pruning Shears Set", "price": 45.99, "imageUrl": "https://images.unsplash.com/photo-1540191549336-e6e99c3679fe?w=500", "stock": 15, "timestamp": 1737619081426 },
+    "prod_010": { "categoryId": "69732a092a6a836a11711fc3", "name": "Copper Training Wire 1.5mm", "price": 6.34, "imageUrl": "https://images.unsplash.com/photo-1563220570-2d829fb1c76e?w=500", "stock": 25, "timestamp": 1737619081427 },
+    "prod_011": { "categoryId": "69732a092a6a836a11711fc3", "name": "Bonsai Trimming Saw Professional", "price": 29.99, "imageUrl": "https://images.unsplash.com/photo-1586864387789-628dda5fff5b?w=500", "stock": 8, "timestamp": 1737619081428 },
+    "prod_012": { "categoryId": "69732a092a6a836a11711fc3", "name": "Bamboo Bonsai Soil Rake", "price": 12.50, "imageUrl": "https://images.unsplash.com/photo-1576923550319-c913d732f0de?w=500", "stock": 20, "timestamp": 1737619081429 },
+    "prod_013": { "categoryId": "69732a092a6a836a11711fc6", "name": "Premium Bonsai Soil Mix 5L", "price": 19.99, "imageUrl": "https://images.unsplash.com/photo-1599599810694-ee83d2ce4155?w=500", "stock": 30, "timestamp": 1737619081430 },
+    "prod_014": { "categoryId": "69732a092a6a836a11711fc6", "name": "Bonsai Fertilizer 500ml", "price": 24.99, "imageUrl": "https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=500", "stock": 22, "timestamp": 1737619081431 },
+    "prod_015": { "categoryId": "69732a092a6a836a11711fc6", "name": "Repotting Kit Complete", "price": 24.77, "imageUrl": "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=500", "stock": 10, "timestamp": 1737619081432 },
+    "prod_016": { "categoryId": "69732a092a6a836a11711fc6", "name": "Moss Pole Support 30cm", "price": 15.50, "imageUrl": "https://images.unsplash.com/photo-1532996122724-8f3c2cd83c5d?w=500", "stock": 18, "timestamp": 1737619081433 },
+    "prod_017": { "categoryId": "69732a092a6a836a11711fc6", "name": "Bonsai Cut Paste Sealant 100g", "price": 18.99, "imageUrl": "https://images.unsplash.com/photo-1615876651852-bd42075f5667?w=500", "stock": 25, "timestamp": 1737619081434 },
+    "prod_018": { "categoryId": "69732a092a6a836a11711fc9", "name": "Bonsai Complete Beginner Guide", "price": 22.99, "imageUrl": "https://images.unsplash.com/photo-1507842217343-583f20270319?w=500", "stock": 15, "timestamp": 1737619081435 },
+    "prod_019": { "categoryId": "69732a092a6a836a11711fc9", "name": "Advanced Bonsai Techniques Book", "price": 34.50, "imageUrl": "https://images.unsplash.com/photo-1543002588-d83a60a6c7fe?w=500", "stock": 8, "timestamp": 1737619081436 },
+    "prod_020": { "categoryId": "69732a092a6a836a11711fc9", "name": "Bonsai Care and Training Manual", "price": 28.99, "imageUrl": "https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=500", "stock": 12, "timestamp": 1737619081437 }
+  },
+  "users": {
+    "697329e573991d59c9e70740": { "name": "Nhật Đỗ Admin", "email": "nhatdo@admin.gmail.com", "role": "admin", "createdAt": 1737619045195 },
+    "69a9a035fde9b32594ffb37e": { "name": "Nga Trần Thị Bích", "email": "ngattb234111e@st.uel.edu.vn", "role": "user", "avatar": "https://lh3.googleusercontent.com/a/ACg8ocLqsang9iHQ0643HXl8-stRPWlSASlishg7gn8qZ6ZF5uk0HzzO=s96-c", "createdAt": 1741188277391 }
+  }
+}
+
