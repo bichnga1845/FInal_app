@@ -27,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
         // Chuyển đến màn hình chính khi bấm Đăng nhập
         Button btnLogin = findViewById(R.id.btnLogin);
         btnLogin.setOnClickListener(v -> {
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+            startActivity(new Intent(LoginActivity.this, MainFinalActivity.class));
             finish();
         });
 

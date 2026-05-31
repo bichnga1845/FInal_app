@@ -37,6 +37,7 @@ dependencies {
     implementation(libs.appcompat)
     implementation(libs.constraintlayout)
     implementation(libs.firebase.database)
+    implementation(libs.firebase.auth)
     implementation(libs.material)
     implementation("com.github.bumptech.glide:glide:4.16.0")
     testImplementation(libs.junit)

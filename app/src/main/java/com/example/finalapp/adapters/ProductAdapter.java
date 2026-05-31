@@ -20,15 +20,33 @@ import java.util.List;
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
 
     private List<Product> productList;
+    private OnProductClickListener listener;
+    private boolean isHorizontal = false;
+
+    public interface OnProductClickListener {
+        void onProductClick(Product product);
+    }
 
     public ProductAdapter(List<Product> productList) {
         this.productList = productList;
     }
 
+    public ProductAdapter(List<Product> productList, OnProductClickListener listener) {
+        this.productList = productList;
+        this.listener = listener;
+    }
+
+    public ProductAdapter(List<Product> productList, boolean isHorizontal, OnProductClickListener listener) {
+        this.productList = productList;
+        this.isHorizontal = isHorizontal;
+        this.listener = listener;
+    }
+
     @NonNull
     @Override
     public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_product, parent, false);
+        int layoutId = isHorizontal ? R.layout.item_product_horizontal : R.layout.item_product;
+        View view = LayoutInflater.from(parent.getContext()).inflate(layoutId, parent, false);
         return new ProductViewHolder(view);
     }
 
@@ -39,7 +57,14 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         
         DecimalFormat df = new DecimalFormat("#,###đ");
         holder.txtPrice.setText(df.format(product.getPrice()));
-        holder.txtOldPrice.setText(df.format(product.getOldPrice()));
+        
+        if (holder.txtOldPrice != null) {
+            holder.txtOldPrice.setText(df.format(product.getOldPrice()));
+        }
+        
+        if (holder.txtSpecies != null) {
+            holder.txtSpecies.setText(product.species != null ? product.species : "Bonsai");
+        }
 
         // Clear previous image to prevent showing same image
         Glide.with(holder.itemView.getContext()).clear(holder.imgProduct);
@@ -55,6 +80,12 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         } else {
             holder.imgProduct.setImageResource(R.mipmap.ic_banner);
         }
+
+        holder.itemView.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onProductClick(product);
+            }
+        });
     }
 
     @Override
@@ -64,7 +95,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
     public static class ProductViewHolder extends RecyclerView.ViewHolder {
         ImageView imgProduct;
-        TextView txtName, txtPrice, txtOldPrice;
+        TextView txtName, txtPrice, txtOldPrice, txtSpecies;
 
         public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -72,6 +103,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             txtName = itemView.findViewById(R.id.txtProductName);
             txtPrice = itemView.findViewById(R.id.txtProductPrice);
             txtOldPrice = itemView.findViewById(R.id.txtProductOldPrice);
+            txtSpecies = itemView.findViewById(R.id.txtProductSpecies);
         }
     }
 }
