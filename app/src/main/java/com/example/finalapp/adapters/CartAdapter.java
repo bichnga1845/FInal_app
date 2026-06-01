@@ -19,8 +19,8 @@ import java.util.List;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder> {
 
-    private List<CartItem> cartItems;
-    private OnCartChangeListener listener;
+    private final List<CartItem> cartItems;
+    private final OnCartChangeListener listener;
 
     public interface OnCartChangeListener {
         void onQuantityChange(CartItem item, int newQuantity);
@@ -44,8 +44,14 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         CartItem item = cartItems.get(position);
         if (item.product != null) {
             holder.txtName.setText(item.product.getName());
+            
+            // Hiển thị mô tả (loài hoặc tuổi cây)
+            String desc = (item.product.species != null ? item.product.species : "") + 
+                          (item.product.age != null ? ", " + item.product.age : "");
+            holder.txtDesc.setText(desc.isEmpty() ? "Bonsai nghệ thuật" : desc);
+            
             DecimalFormat df = new DecimalFormat("#,###đ");
-            holder.txtPrice.setText(df.format(item.product.getPrice() * item.quantity));
+            holder.txtPrice.setText(df.format(item.product.getPrice()));
             
             Glide.with(holder.itemView.getContext())
                     .load(item.product.getImageUrl())
@@ -55,13 +61,22 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
 
         holder.txtQuantity.setText(String.valueOf(item.quantity));
 
-        holder.btnPlus.setOnClickListener(v -> listener.onQuantityChange(item, item.quantity + 1));
-        holder.btnMinus.setOnClickListener(v -> {
-            if (item.quantity > 1) {
-                listener.onQuantityChange(item, item.quantity - 1);
-            }
-        });
-        holder.btnRemove.setOnClickListener(v -> listener.onRemoveItem(item));
+        if (listener != null) {
+            holder.btnPlus.setOnClickListener(v -> listener.onQuantityChange(item, item.quantity + 1));
+            holder.btnMinus.setOnClickListener(v -> {
+                if (item.quantity > 1) {
+                    listener.onQuantityChange(item, item.quantity - 1);
+                }
+            });
+            holder.btnRemove.setOnClickListener(v -> listener.onRemoveItem(item));
+            holder.btnPlus.setVisibility(View.VISIBLE);
+            holder.btnMinus.setVisibility(View.VISIBLE);
+            holder.btnRemove.setVisibility(View.VISIBLE);
+        } else {
+            holder.btnPlus.setVisibility(View.GONE);
+            holder.btnMinus.setVisibility(View.GONE);
+            holder.btnRemove.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -71,13 +86,14 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
 
     public static class CartViewHolder extends RecyclerView.ViewHolder {
         ImageView imgProduct;
-        TextView txtName, txtPrice, txtQuantity;
+        TextView txtName, txtDesc, txtPrice, txtQuantity;
         ImageButton btnPlus, btnMinus, btnRemove;
 
         public CartViewHolder(@NonNull View itemView) {
             super(itemView);
             imgProduct = itemView.findViewById(R.id.imgCartProduct);
             txtName = itemView.findViewById(R.id.txtCartProductName);
+            txtDesc = itemView.findViewById(R.id.txtCartProductDesc); // Đã thêm ánh xạ
             txtPrice = itemView.findViewById(R.id.txtCartProductPrice);
             txtQuantity = itemView.findViewById(R.id.txtQuantity);
             btnPlus = itemView.findViewById(R.id.btnPlus);

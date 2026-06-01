@@ -1,5 +1,6 @@
 package com.example.finalapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -33,27 +34,26 @@ public class CartActivity extends AppCompatActivity {
     private RecyclerView rvCart;
     private CartAdapter cartAdapter;
     private List<CartItem> cartItemList;
-    private TextView txtTotal;
+    private TextView txtSubtotal, txtShipping, txtTotal;
     private Button btnCheckout;
     private ImageButton btnBack;
     private LinearLayout layoutEmpty;
 
     private DatabaseReference cartRef, productsRef;
-    private FirebaseAuth mAuth;
     private String userId;
+    private final double SHIPPING_FEE = 35000;
+    private final double DISCOUNT = 150000; // Mock discount like in image
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
 
-        mAuth = FirebaseAuth.getInstance();
-        if (mAuth.getCurrentUser() == null) {
-            Toast.makeText(this, "Vui lòng đăng nhập!", Toast.LENGTH_SHORT).show();
+        if (FirebaseAuth.getInstance().getCurrentUser() == null) {
             finish();
             return;
         }
-        userId = mAuth.getCurrentUser().getUid();
+        userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         initViews();
         setupFirebase();
@@ -62,35 +62,41 @@ public class CartActivity extends AppCompatActivity {
 
     private void initViews() {
         rvCart = findViewById(R.id.rvCart);
+        txtSubtotal = findViewById(R.id.txtSubtotal);
+        txtShipping = findViewById(R.id.txtShipping);
         txtTotal = findViewById(R.id.txtTotalPrice);
         btnCheckout = findViewById(R.id.btnCheckout);
         btnBack = findViewById(R.id.btnBack);
-        layoutEmpty = findViewById(R.id.layoutEmptyCart);
 
         cartItemList = new ArrayList<>();
         cartAdapter = new CartAdapter(cartItemList, new CartAdapter.OnCartChangeListener() {
             @Override
             public void onQuantityChange(CartItem item, int newQuantity) {
-                updateQuantity(item.productId, newQuantity);
+                cartRef.child(item.productId).setValue(newQuantity);
             }
 
             @Override
             public void onRemoveItem(CartItem item) {
-                removeItem(item.productId);
+                cartRef.child(item.productId).removeValue();
             }
         });
 
         rvCart.setLayoutManager(new LinearLayoutManager(this));
         rvCart.setAdapter(cartAdapter);
 
-        btnBack.setOnClickListener(v -> finish());
         btnCheckout.setOnClickListener(v -> {
-            Toast.makeText(this, "Tính năng thanh toán đang phát triển!", Toast.LENGTH_SHORT).show();
+            if (cartItemList.isEmpty()) {
+                Toast.makeText(this, "Giỏ hàng của bạn đang trống", Toast.LENGTH_SHORT).show();
+            } else {
+                startActivity(new Intent(CartActivity.this, CheckoutActivity.class));
+            }
         });
+        btnBack.setOnClickListener(v -> finish());
+        txtShipping.setText(formatMoney(SHIPPING_FEE));
     }
 
     private void setupFirebase() {
-        FirebaseDatabase db = FirebaseDatabase.getInstance("https://finalapp-c65a2-default-rtdb.firebaseio.com/");
+        FirebaseDatabase db = FirebaseDatabase.getInstance();
         cartRef = db.getReference("cart").child(userId);
         productsRef = db.getReference("products");
     }
@@ -101,72 +107,59 @@ public class CartActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 cartItemList.clear();
                 if (!snapshot.exists()) {
-                    updateUI(true);
+                    calculateTotal(0);
                     return;
                 }
 
-                final int totalItems = (int) snapshot.getChildrenCount();
-                final int[] loadedItems = {0};
+                final long totalCount = snapshot.getChildrenCount();
+                final int[] loadedCount = {0};
 
                 for (DataSnapshot data : snapshot.getChildren()) {
                     String pId = data.getKey();
-                    int quantity = data.getValue(Integer.class);
+                    Integer qty = data.getValue(Integer.class);
+                    int quantity = (qty != null) ? qty : 1;
+                    
                     CartItem item = new CartItem(pId, quantity);
                     cartItemList.add(item);
 
-                    // Fetch product details for each item
                     productsRef.child(pId).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
-                        public void onDataChange(@NonNull DataSnapshot productSnapshot) {
-                            item.product = productSnapshot.getValue(Product.class);
-                            loadedItems[0]++;
-                            if (loadedItems[0] == totalItems) {
+                        public void onDataChange(@NonNull DataSnapshot pSnapshot) {
+                            item.product = pSnapshot.getValue(Product.class);
+                            loadedCount[0]++;
+                            if (loadedCount[0] == totalCount) {
                                 cartAdapter.notifyDataSetChanged();
-                                calculateTotal();
-                                updateUI(false);
+                                updatePriceSummary();
                             }
                         }
-
                         @Override
-                        public void onCancelled(@NonNull DatabaseError error) {}
+                        public void onCancelled(@NonNull DatabaseError e) {}
                     });
                 }
             }
-
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("CartError", error.getMessage());
-            }
+            public void onCancelled(@NonNull DatabaseError error) {}
         });
     }
 
-    private void updateQuantity(String pId, int quantity) {
-        cartRef.child(pId).setValue(quantity);
-    }
-
-    private void removeItem(String pId) {
-        cartRef.child(pId).removeValue();
-    }
-
-    private void calculateTotal() {
-        double total = 0;
+    private void updatePriceSummary() {
+        double subtotal = 0;
         for (CartItem item : cartItemList) {
             if (item.product != null) {
-                total += item.product.getPrice() * item.quantity;
+                subtotal += item.product.getPrice() * item.quantity;
             }
         }
-        DecimalFormat df = new DecimalFormat("#,###đ");
-        txtTotal.setText(df.format(total));
+        calculateTotal(subtotal);
     }
 
-    private void updateUI(boolean isEmpty) {
-        if (isEmpty) {
-            layoutEmpty.setVisibility(View.VISIBLE);
-            rvCart.setVisibility(View.GONE);
-            txtTotal.setText("0đ");
-        } else {
-            layoutEmpty.setVisibility(View.GONE);
-            rvCart.setVisibility(View.VISIBLE);
-        }
+    private void calculateTotal(double subtotal) {
+        txtSubtotal.setText(formatMoney(subtotal));
+        double finalTotal = subtotal + SHIPPING_FEE - DISCOUNT;
+        if (finalTotal < 0) finalTotal = 0;
+        txtTotal.setText(formatMoney(finalTotal));
+    }
+
+    private String formatMoney(double amount) {
+        return new DecimalFormat("#,###đ").format(amount);
     }
 }
