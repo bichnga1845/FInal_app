@@ -46,9 +46,9 @@ public class CheckoutActivity extends AppCompatActivity {
 
     private String userId;
     private String selectedAddressId;
-    private String selectedPaymentMethod = "COD";
+    private String selectedPaymentMethod = PaymentMethodActivity.METHOD_COD;
     private double subtotal = 0;
-    private double discount = 0;
+    private double discount = 150000; // Match Cart discount
     private final double SHIPPING_FEE = 35000;
 
     @Override
@@ -86,17 +86,15 @@ public class CheckoutActivity extends AppCompatActivity {
         rvOrderItems.setAdapter(checkoutAdapter);
 
         findViewById(R.id.cardAddress).setOnClickListener(v -> {
-            // Intent intent = new Intent(CheckoutActivity.this, SelectAddressActivity.class);
-            // intent.putExtra(SelectAddressActivity.EXTRA_UID, userId);
-            // startActivityForResult(intent, REQUEST_CODE_ADDRESS);
-            Toast.makeText(this, "Tính năng chọn địa chỉ đang phát triển", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(CheckoutActivity.this, SelectAddressActivity.class);
+            intent.putExtra(SelectAddressActivity.EXTRA_UID, userId);
+            startActivityForResult(intent, REQUEST_CODE_ADDRESS);
         });
 
         findViewById(R.id.cardPayment).setOnClickListener(v -> {
-            // Intent intent = new Intent(CheckoutActivity.this, PaymentMethodActivity.class);
-            // intent.putExtra(PaymentMethodActivity.EXTRA_INITIAL_METHOD, selectedPaymentMethod);
-            // startActivityForResult(intent, REQUEST_CODE_PAYMENT);
-            Toast.makeText(this, "Tính năng chọn phương thức thanh toán đang phát triển", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(CheckoutActivity.this, PaymentMethodActivity.class);
+            intent.putExtra(PaymentMethodActivity.EXTRA_INITIAL_METHOD, selectedPaymentMethod);
+            startActivityForResult(intent, REQUEST_CODE_PAYMENT);
         });
 
         btnSelectPromo.setOnClickListener(v -> {
@@ -205,7 +203,7 @@ public class CheckoutActivity extends AppCompatActivity {
                 cartItemList,
                 subtotal,
                 SHIPPING_FEE,
-                subtotal + SHIPPING_FEE,
+                subtotal + SHIPPING_FEE - discount,
                 selectedAddressId,
                 txtAddressDetail.getText().toString(),
                 selectedPaymentMethod
@@ -233,14 +231,16 @@ public class CheckoutActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK && data != null) {
             if (requestCode == REQUEST_CODE_ADDRESS) {
-                // selectedAddressId = data.getStringExtra(SelectAddressActivity.RESULT_SELECTED_ADDRESS_ID);
-                // fetchAddressDetail(selectedAddressId);
+                selectedAddressId = data.getStringExtra(SelectAddressActivity.RESULT_SELECTED_ADDRESS_ID);
+                if (selectedAddressId != null) {
+                    fetchAddressDetail(selectedAddressId);
+                }
             } else if (requestCode == REQUEST_CODE_PAYMENT) {
-                // selectedPaymentMethod = data.getStringExtra(PaymentMethodActivity.RESULT_PAYMENT_METHOD);
-                // String label = PaymentMethodActivity.METHOD_COD.equals(selectedPaymentMethod)
-                //         ? "Thanh toán khi nhận hàng"
-                //         : "Chuyển khoản ngân hàng";
-                // txtPaymentMethodDesc.setText(label);
+                selectedPaymentMethod = data.getStringExtra(PaymentMethodActivity.RESULT_PAYMENT_METHOD);
+                String label = PaymentMethodActivity.METHOD_COD.equals(selectedPaymentMethod)
+                        ? "Thanh toán khi nhận hàng"
+                        : "Chuyển khoản ngân hàng";
+                txtPaymentMethodDesc.setText(label);
             }
         }
     }

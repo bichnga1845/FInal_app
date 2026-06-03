@@ -162,8 +162,27 @@ public class ProductDetailActivity extends AppCompatActivity {
         }
 
         String userId = mAuth.getCurrentUser().getUid();
-        cartRef.child(userId).child(productId).setValue(1) // Tạm thời set số lượng là 1
-                .addOnSuccessListener(aVoid -> Toast.makeText(ProductDetailActivity.this, "Đã thêm vào giỏ hàng!", Toast.LENGTH_SHORT).show())
-                .addOnFailureListener(e -> Toast.makeText(ProductDetailActivity.this, "Lỗi: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+        DatabaseReference itemRef = cartRef.child(userId).child(productId);
+        
+        itemRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int quantity = 1;
+                if (snapshot.exists()) {
+                    Integer currentQty = snapshot.getValue(Integer.class);
+                    if (currentQty != null) {
+                        quantity = currentQty + 1;
+                    }
+                }
+                itemRef.setValue(quantity)
+                        .addOnSuccessListener(aVoid -> Toast.makeText(ProductDetailActivity.this, "Đã thêm vào giỏ hàng!", Toast.LENGTH_SHORT).show())
+                        .addOnFailureListener(e -> Toast.makeText(ProductDetailActivity.this, "Lỗi: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(ProductDetailActivity.this, "Lỗi kết nối Firebase", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

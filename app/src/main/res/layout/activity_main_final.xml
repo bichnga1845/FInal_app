@@ -95,11 +95,12 @@
                 </LinearLayout>
 
                 <ImageView
+                    android:id="@+id/btnNotification"
                     android:layout_width="32dp"
                     android:layout_height="32dp"
                     android:background="@drawable/bg_badge_soft"
                     android:padding="8dp"
-                    android:src="@android:drawable/ic_popup_reminder"
+                    android:src="@drawable/ic_notifications"
                     app:layout_constraintBottom_toBottomOf="@id/cardAvatar"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@id/cardAvatar"

@@ -64,6 +64,15 @@
         <activity
             android:name=".CheckoutActivity"
             android:exported="false" />
+        <activity
+            android:name=".NotificationListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NotificationDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OrderDetailActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

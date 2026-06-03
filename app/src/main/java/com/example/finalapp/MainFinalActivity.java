@@ -27,7 +27,7 @@ public class MainFinalActivity extends AppCompatActivity {
     private ProductAdapter bestSellersAdapter, newArrivalsAdapter;
     private List<Product> bestSellersList, newArrivalsList;
     private DatabaseReference productsRef;
-    private View btnProfile, btnCartTab;
+    private View btnProfile, btnCartTab, btnNotification;
     private FloatingActionButton fabCart;
 
     @Override
@@ -44,6 +44,11 @@ public class MainFinalActivity extends AppCompatActivity {
         btnProfile = findViewById(R.id.btnProfile);
         btnCartTab = findViewById(R.id.layoutBottomCart);
         fabCart = findViewById(R.id.fabCart);
+        btnNotification = findViewById(R.id.btnNotification);
+
+        if (btnNotification != null) {
+            btnNotification.setOnClickListener(v -> startActivity(new Intent(MainFinalActivity.this, NotificationListActivity.class)));
+        }
 
         // Best Sellers
         rvBestSellers = findViewById(R.id.rvBestSellers);
