@@ -51,7 +51,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
             holder.txtDesc.setText(desc.isEmpty() ? "Bonsai nghệ thuật" : desc);
             
             DecimalFormat df = new DecimalFormat("#,###đ");
-            holder.txtPrice.setText(df.format(item.product.getPrice()));
+            holder.txtPrice.setText(df.format(item.product.getVndPrice()));
             
             Glide.with(holder.itemView.getContext())
                     .load(item.product.getImageUrl())

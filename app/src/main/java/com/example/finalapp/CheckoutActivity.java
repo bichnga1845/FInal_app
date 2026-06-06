@@ -48,7 +48,7 @@ public class CheckoutActivity extends AppCompatActivity {
     private String selectedAddressId;
     private String selectedPaymentMethod = PaymentMethodActivity.METHOD_COD;
     private double subtotal = 0;
-    private double discount = 150000; // Match Cart discount
+    private double discount = 0; // Match Cart discount
     private final double SHIPPING_FEE = 35000;
 
     @Override
@@ -134,7 +134,7 @@ public class CheckoutActivity extends AppCompatActivity {
                         public void onDataChange(@NonNull DataSnapshot pSnapshot) {
                             item.product = pSnapshot.getValue(Product.class);
                             if (item.product != null) {
-                                subtotal += item.product.getPrice() * item.quantity;
+                                subtotal += item.product.getVndPrice() * item.quantity;
                             }
                             loadedCount[0]++;
                             if (loadedCount[0] == totalCount) {
@@ -206,6 +206,8 @@ public class CheckoutActivity extends AppCompatActivity {
                 subtotal + SHIPPING_FEE - discount,
                 selectedAddressId,
                 txtAddressDetail.getText().toString(),
+                txtAddressLabel.getText().toString(),
+                txtReceiverPhone.getText().toString(),
                 selectedPaymentMethod
         );
         order.orderId = orderId;

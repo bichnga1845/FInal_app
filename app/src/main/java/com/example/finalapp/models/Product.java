@@ -12,6 +12,16 @@ public class Product {
     public double originalPrice;
     public double oldPrice;
 
+    public static final double EXCHANGE_RATE = 25000;
+
+    public double getVndPrice() {
+        return price * EXCHANGE_RATE;
+    }
+
+    public double getVndOldPrice() {
+        return getOldPrice() * EXCHANGE_RATE;
+    }
+
     public String primaryImage;
     public String imageUrl;
     public String image_url;

@@ -115,11 +115,12 @@ public class OrderDetailActivity extends AppCompatActivity {
         // Mock shipping carrier as it's not in the model
         txtShippingCarrier.setText("Nhanh - Giao Hàng Tiết Kiệm");
         
-        // Assuming addressDetail contains both name/phone and address in a formatted way 
-        // Or we might need to fetch from Address model if only ID is stored.
-        // For now, use the addressDetail field from Order.
         txtReceiverAddress.setText(order.addressDetail);
-        txtReceiverNamePhone.setText("Thông tin người nhận"); // Placeholder if not explicitly in Order model
+        if (order.receiverName != null && order.receiverPhone != null) {
+            txtReceiverNamePhone.setText(order.receiverName + " - " + order.receiverPhone);
+        } else {
+            txtReceiverNamePhone.setText("Thông tin người nhận");
+        }
 
         DecimalFormat df = new DecimalFormat("#,###đ");
         txtTotalAmount.setText(df.format(order.totalAmount));
@@ -130,9 +131,10 @@ public class OrderDetailActivity extends AppCompatActivity {
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm", Locale.getDefault());
         txtOrderTime.setText(sdf.format(new Date(order.timestamp)));
         
-        // Completion time: logic could vary, for now just show a bit later than order time if status is Shipped/Delivered
         if ("Delivered".equals(order.status)) {
-            txtCompletionTime.setText(sdf.format(new Date(order.timestamp + 86400000 * 2))); // +2 days mock
+            txtCompletionTime.setText("Giao hàng thành công");
+        } else if ("Pending".equals(order.status) || "Processing".equals(order.status)) {
+            txtCompletionTime.setText("Dự kiến 2-3 ngày");
         } else {
             txtCompletionTime.setText("Đang xử lý...");
         }

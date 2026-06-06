@@ -42,7 +42,7 @@ public class CartActivity extends AppCompatActivity {
     private DatabaseReference cartRef, productsRef;
     private String userId;
     private final double SHIPPING_FEE = 35000;
-    private final double DISCOUNT = 150000; // Mock discount like in image
+    private final double DISCOUNT = 0; // Mock discount like in image
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -146,7 +146,7 @@ public class CartActivity extends AppCompatActivity {
         double subtotal = 0;
         for (CartItem item : cartItemList) {
             if (item.product != null) {
-                subtotal += item.product.getPrice() * item.quantity;
+                subtotal += item.product.getVndPrice() * item.quantity;
             }
         }
         calculateTotal(subtotal);

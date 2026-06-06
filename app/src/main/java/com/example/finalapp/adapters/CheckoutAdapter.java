@@ -42,7 +42,7 @@ public class CheckoutAdapter extends RecyclerView.Adapter<CheckoutAdapter.Checko
             holder.txtDesc.setText(desc);
             
             DecimalFormat df = new DecimalFormat("#,###đ");
-            holder.txtPrice.setText(df.format(item.product.getPrice()));
+            holder.txtPrice.setText(df.format(item.product.getVndPrice()));
             
             Glide.with(holder.itemView.getContext())
                     .load(item.product.getImageUrl())
