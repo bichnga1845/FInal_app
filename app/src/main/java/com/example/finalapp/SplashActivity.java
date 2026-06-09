@@ -45,7 +45,10 @@ public class SplashActivity extends AppCompatActivity {
 
         // Chuyển màn sau 3.5 giây
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
-            startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+            Class<?> destination = com.google.firebase.auth.FirebaseAuth.getInstance().getCurrentUser() != null
+                    ? MainFinalActivity.class
+                    : LoginActivity.class;
+            startActivity(new Intent(SplashActivity.this, destination));
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
             finish();
         }, 3500);

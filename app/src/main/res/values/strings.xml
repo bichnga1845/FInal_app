@@ -19,6 +19,7 @@
     <string name="str_continue_with">hoặc tiếp tục với</string>
 
     <string name="str_register">Đăng ký</string>
+    <string name="str_dont_have_account">Chưa có tài khoản?</string>
 
     <string name="str_google_login">Đăng nhập với Google</string>
     <string name="str_facebook_login">Đăng nhập với Facebook</string>
@@ -26,7 +27,7 @@
         <string name="str_register_title">ĐĂNG KÝ TÀI KHOẢN MỚI</string>
         <string name="str_register_subtitle">Hãy điền thêm thông tin để nhận ngay phần thưởng chỉ dành riêng cho Katies mới lần đầu tiên đăng ký!</string>
 
-        <string name="str_email">Email *</string>
+        <string name="str_email">Email</string>
         <string name="str_hint_email">Nhập địa chỉ email</string>
 
         <string name="str_full_name">Họ và tên *</string>
@@ -61,5 +62,7 @@
     <string name="home_tab_all">Tất cả</string>
     <string name="home_tab_popular">Phổ biến</string>
     <string name="home_tab_new">Mới về</string>
-    <string name="home_section_promo">ƯU ĐÃI</string>
+    <string name="str_error_email">Vui lòng nhập email hợp lệ</string>
+    <string name="str_error_password">Vui lòng nhập mật khẩu</string>
+    <string name="str_login_failed">Đăng nhập thất bại</string>
 </resources>

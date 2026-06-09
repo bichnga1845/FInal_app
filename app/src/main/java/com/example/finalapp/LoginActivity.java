@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.util.Patterns;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,18 +42,21 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
-        edtEmail = findViewById(R.id.edtPhone);
+        edtEmail = findViewById(R.id.edtEmail);
         edtPassword = findViewById(R.id.edtPassword);
         btnLogin = findViewById(R.id.btnLogin);
 
         btnLogin.setOnClickListener(v -> attemptLogin());
 
+        ImageView imgBack = findViewById(R.id.imgBack);
+        imgBack.setOnClickListener(v -> finish());
+
         TextView txtForgotPassword = findViewById(R.id.txtForgotPassword);
         txtForgotPassword.setOnClickListener(v ->
                 startActivity(new Intent(LoginActivity.this, ForgotPasswordActivity.class)));
 
-        TextView txtContinueWith = findViewById(R.id.txtContinueWith);
-        txtContinueWith.setOnClickListener(v ->
+        TextView txtSignUp = findViewById(R.id.txtSignUp);
+        txtSignUp.setOnClickListener(v ->
                 startActivity(new Intent(LoginActivity.this, RegisterActivity.class)));
     }
 
@@ -61,13 +65,13 @@ public class LoginActivity extends AppCompatActivity {
         String password = edtPassword.getText().toString();
 
         if (TextUtils.isEmpty(email) || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            edtEmail.setError("Vui long nhap email hop le");
+            edtEmail.setError(getString(R.string.str_error_email));
             edtEmail.requestFocus();
             return;
         }
 
         if (TextUtils.isEmpty(password)) {
-            edtPassword.setError("Vui long nhap mat khau");
+            edtPassword.setError(getString(R.string.str_error_password));
             edtPassword.requestFocus();
             return;
         }
@@ -81,7 +85,7 @@ public class LoginActivity extends AppCompatActivity {
                     } else {
                         String message = task.getException() != null
                                 ? task.getException().getMessage()
-                                : "Dang nhap that bai";
+                                : getString(R.string.str_login_failed);
                         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
                     }
                 });
