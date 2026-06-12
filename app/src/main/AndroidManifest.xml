@@ -21,6 +21,9 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
+            android:name=".ProductActivity"
+            android:exported="false" />
+        <activity
             android:name=".AboutActivity"
             android:exported="false" />
         <activity
@@ -73,6 +76,13 @@
         <activity
             android:name=".OrderDetailActivity"
             android:exported="false" />
+        <activity
+            android:name=".RefundSelectionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RefundRequestActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
+

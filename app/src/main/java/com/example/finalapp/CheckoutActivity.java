@@ -2,6 +2,7 @@ package com.example.finalapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -123,11 +124,15 @@ public class CheckoutActivity extends AppCompatActivity {
                 final int[] loadedCount = {0};
 
                 for (DataSnapshot data : snapshot.getChildren()) {
-                    String pId = data.getKey();
-                    Integer qty = data.getValue(Integer.class);
-                    int quantity = (qty != null) ? qty : 1;
-                    CartItem item = new CartItem(pId, quantity);
+                    CartItem item = data.getValue(CartItem.class);
+                    if (item == null) continue;
+                    
+                    if (item.productId == null) {
+                        item.productId = data.getKey();
+                    }
+                    
                     cartItemList.add(item);
+                    String pId = item.productId;
 
                     productsRef.child(pId).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
@@ -216,16 +221,43 @@ public class CheckoutActivity extends AppCompatActivity {
             if (task.isSuccessful()) {
                 // Clear cart
                 FirebaseDatabase.getInstance().getReference("cart").child(userId).removeValue();
-                Toast.makeText(CheckoutActivity.this, "Đặt hàng thành công!", Toast.LENGTH_LONG).show();
-                // Navigate to main or success screen
-                Intent intent = new Intent(CheckoutActivity.this, MainFinalActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-                finish();
+                showSuccessDialog(orderId);
             } else {
                 Toast.makeText(CheckoutActivity.this, "Lỗi khi đặt hàng", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void showSuccessDialog(String orderId) {
+        View dialogView = getLayoutInflater().inflate(R.layout.dialog_payment_success, null);
+        
+        androidx.appcompat.app.AlertDialog dialog = new androidx.appcompat.app.AlertDialog.Builder(this)
+                .setView(dialogView)
+                .setCancelable(false)
+                .create();
+
+        // Bo góc cho dialog background
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        }
+
+        dialogView.findViewById(R.id.btnViewOrder).setOnClickListener(v -> {
+            dialog.dismiss();
+            Intent intent = new Intent(CheckoutActivity.this, OrderDetailActivity.class);
+            intent.putExtra("ORDER_ID", orderId);
+            startActivity(intent);
+            finish();
+        });
+
+        dialogView.findViewById(R.id.btnContinueShopping).setOnClickListener(v -> {
+            dialog.dismiss();
+            Intent intent = new Intent(CheckoutActivity.this, ProductActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            finish();
+        });
+
+        dialog.show();
     }
 
     @Override

@@ -3,6 +3,8 @@ package com.example.finalapp;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,7 +16,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.finalapp.adapters.CheckoutAdapter;
+import com.example.finalapp.models.CartItem;
 import com.example.finalapp.models.Order;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -68,16 +72,62 @@ public class OrderDetailActivity extends AppCompatActivity {
 
         rvOrderProducts.setLayoutManager(new LinearLayoutManager(this));
 
+        // Copy Order ID
         findViewById(R.id.btnCopyOrderId).setOnClickListener(v -> {
             ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-            ClipData clip = ClipData.newPlainText("Order ID", orderId);
+            ClipData clip = ClipData.newPlainText("Order ID", txtOrderId.getText().toString());
             clipboard.setPrimaryClip(clip);
             Toast.makeText(this, "Đã sao chép mã đơn hàng", Toast.LENGTH_SHORT).show();
         });
-        
-        findViewById(R.id.btnReorder).setOnClickListener(v -> {
-            // Logic to re-add items to cart can be implemented here
-            Toast.makeText(this, "Chức năng Mua lại đang được phát triển", Toast.LENGTH_SHORT).show();
+
+        // Support Section
+        findViewById(R.id.btnRefund).setOnClickListener(v -> {
+            Intent intent = new Intent(OrderDetailActivity.this, RefundSelectionActivity.class);
+            intent.putExtra("ORDER_ID", orderId);
+            startActivity(intent);
+        });
+
+        findViewById(R.id.btnContactShop).setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_DIAL);
+            intent.setData(Uri.parse("tel:0937325868"));
+            startActivity(intent);
+        });
+
+        // Footer Action
+        findViewById(R.id.btnReorder).setOnClickListener(v -> reorderItems());
+
+        // Extra Navigation: Store name click to go home
+        findViewById(R.id.layoutStoreHeader).setOnClickListener(v -> {
+            Intent intent = new Intent(OrderDetailActivity.this, MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(intent);
+        });
+    }
+
+    private void reorderItems() {
+        if (orderId == null || FirebaseAuth.getInstance().getCurrentUser() == null) return;
+
+        orderRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Order order = snapshot.getValue(Order.class);
+                if (order != null && order.items != null) {
+                    String uId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                    DatabaseReference cartRef = FirebaseDatabase.getInstance().getReference("cart").child(uId);
+
+                    for (CartItem item : order.items) {
+                        // Reset quantity if needed or just copy
+                        cartRef.child(item.productId).setValue(new CartItem(item.productId, item.quantity));
+                    }
+
+                    Toast.makeText(OrderDetailActivity.this, "Đã thêm các sản phẩm vào giỏ hàng", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(OrderDetailActivity.this, CartActivity.class);
+                    startActivity(intent);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {}
         });
     }
 

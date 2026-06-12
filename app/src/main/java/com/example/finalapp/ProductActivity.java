@@ -2,16 +2,21 @@ package com.example.finalapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -24,21 +29,18 @@ import com.example.finalapp.adapters.ProductAdapter;
 import com.example.finalapp.models.Category;
 import com.example.finalapp.models.Product;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import androidx.core.content.ContextCompat;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import com.example.finalapp.models.CartItem;
+import com.google.firebase.auth.FirebaseAuth;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class ProductActivity extends AppCompatActivity {
 
     private RecyclerView rvProducts, rvCategories;
     private ProductAdapter productAdapter;
@@ -52,12 +54,14 @@ public class MainActivity extends AppCompatActivity {
     private String currentCategoryId = "all";
     private TextView filterAll, filterPopular, filterNew;
     private String currentFilterType = "all";
+    private Handler searchHandler = new Handler(Looper.getMainLooper());
+    private Runnable searchRunnable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_product);
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -73,6 +77,70 @@ public class MainActivity extends AppCompatActivity {
         fetchAllProducts();
     }
 
+    private void setupBottomNavigation() {
+        FloatingActionButton fabCart = findViewById(R.id.fabCart);
+        if (fabCart != null) {
+            fabCart.setOnClickListener(v -> {
+                startActivity(new Intent(ProductActivity.this, CartActivity.class));
+                overridePendingTransition(0, 0);
+            });
+        }
+
+        // Home button
+        findViewById(R.id.btnHome).setOnClickListener(v -> {
+            startActivity(new Intent(ProductActivity.this, MainFinalActivity.class));
+            overridePendingTransition(0, 0);
+            finish();
+        });
+
+        // Shop button
+        findViewById(R.id.btnShop).setOnClickListener(v -> {
+            // Already on ProductActivity
+        });
+
+        // Cart button
+        findViewById(R.id.layoutBottomCart).setOnClickListener(v -> {
+            startActivity(new Intent(ProductActivity.this, CartActivity.class));
+            overridePendingTransition(0, 0);
+        });
+
+        // Community button
+        findViewById(R.id.btnCommunity).setOnClickListener(v -> {
+            startActivity(new Intent(ProductActivity.this, AboutActivity.class));
+            overridePendingTransition(0, 0);
+        });
+
+        // Profile button
+        findViewById(R.id.btnProfile).setOnClickListener(v -> {
+            startActivity(new Intent(ProductActivity.this, ProfileActivity.class));
+            overridePendingTransition(0, 0);
+        });
+
+        // Highlight "Cửa hàng" button as current page
+        setupBottomNavHighlight();
+    }
+
+    private void setupBottomNavHighlight() {
+        // Highlight "Cửa hàng" button as current page
+        View btnShop = findViewById(R.id.btnShop);
+        if (btnShop != null && btnShop instanceof android.view.ViewGroup) {
+            android.view.ViewGroup group = (android.view.ViewGroup) btnShop;
+            for (int i = 0; i < group.getChildCount(); i++) {
+                View child = group.getChildAt(i);
+                if (child instanceof ImageView) {
+                    ((ImageView) child).setColorFilter(
+                        ContextCompat.getColor(this, R.color.primary),
+                        android.graphics.PorterDuff.Mode.SRC_IN
+                    );
+                } else if (child instanceof TextView) {
+                    ((TextView) child).setTextColor(
+                        ContextCompat.getColor(this, R.color.primary)
+                    );
+                }
+            }
+        }
+    }
+
     private void initViews() {
         txtCurrentCategory = findViewById(R.id.txtCurrentCategoryName);
         if (txtCurrentCategory != null) txtCurrentCategory.setText("TẤT CẢ");
@@ -80,7 +148,6 @@ public class MainActivity extends AppCompatActivity {
         edtSearch = findViewById(R.id.edtSearch);
         setupSearch();
 
-        // Setup Categories
         rvCategories = findViewById(R.id.rvCategories);
         categoryList = new ArrayList<>();
         categoryAdapter = new CategoryAdapter(categoryList, category -> {
@@ -91,20 +158,20 @@ public class MainActivity extends AppCompatActivity {
         rvCategories.setLayoutManager(new LinearLayoutManager(this));
         rvCategories.setAdapter(categoryAdapter);
 
-        // Setup Products
         rvProducts = findViewById(R.id.rvProducts);
         allProductsList = new ArrayList<>();
         filteredProductsList = new ArrayList<>();
         productAdapter = new ProductAdapter(filteredProductsList, product -> {
-            Intent intent = new Intent(MainActivity.this, ProductDetailActivity.class);
+            Intent intent = new Intent(ProductActivity.this, ProductDetailActivity.class);
             intent.putExtra("PRODUCT_ID", product.id);
             startActivity(intent);
+        }, product -> {
+            addToCart(product);
         });
         rvProducts.setLayoutManager(new GridLayoutManager(this, 2));
         rvProducts.setNestedScrollingEnabled(false);
         rvProducts.setAdapter(productAdapter);
 
-        // Firebase references
         FirebaseDatabase db = FirebaseDatabase.getInstance("https://finalapp-c65a2-default-rtdb.firebaseio.com/");
         productsRef = db.getReference("products");
         categoriesRef = db.getReference("categories");
@@ -160,14 +227,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 categoryList.clear();
-                // Thêm mục "Tất cả" nếu muốn
                 categoryList.add(new Category("all", "Tất cả"));
 
                 Log.d("FirebaseDebug", "========== CATEGORIES DEBUG ==========");
                 for (DataSnapshot data : snapshot.getChildren()) {
                     Category category = data.getValue(Category.class);
                     if (category != null) {
-                        category.setId(data.getKey()); // Lấy key làm ID
+                        category.setId(data.getKey());
                         categoryList.add(category);
                         Log.d("FirebaseDebug", "Category ID: [" + data.getKey() + "] | Name: " + category.getName());
                     }
@@ -192,10 +258,9 @@ public class MainActivity extends AppCompatActivity {
                 for (DataSnapshot data : snapshot.getChildren()) {
                     Product product = data.getValue(Product.class);
                     if (product != null) {
-                        product.id = data.getKey(); // Quan trọng: Gán ID từ Key
+                        product.id = data.getKey();
                         allProductsList.add(product);
 
-                        // Debug logging for first few products
                         if (allProductsList.size() <= 3) {
                             Log.d("FirebaseDebug", "========== PRODUCT DEBUG ==========");
                             Log.d("FirebaseDebug", "Product ID: " + product.id);
@@ -211,7 +276,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
                 Log.d("FirebaseDebug", "Tổng số sản phẩm tải từ Firebase: " + allProductsList.size());
-                filterProducts(""); // Mặc định hiện tất cả
+                filterProducts("");
             }
 
             @Override
@@ -219,70 +284,6 @@ public class MainActivity extends AppCompatActivity {
                 Log.e("FirebaseDebug", "Lỗi Products: " + error.getMessage());
             }
         });
-    }
-
-    private void setupBottomNavigation() {
-        FloatingActionButton fabCart = findViewById(R.id.fabCart);
-        if (fabCart != null) {
-            fabCart.setOnClickListener(v -> {
-                startActivity(new Intent(MainActivity.this, CartActivity.class));
-                overridePendingTransition(0, 0);
-            });
-        }
-
-        // Home button
-        findViewById(R.id.btnHome).setOnClickListener(v -> {
-            startActivity(new Intent(MainActivity.this, MainFinalActivity.class));
-            overridePendingTransition(0, 0);
-            finish();
-        });
-
-        // Shop button (already on this page)
-        findViewById(R.id.btnShop).setOnClickListener(v -> {
-            // Already on MainActivity
-        });
-
-        // Cart button
-        findViewById(R.id.layoutBottomCart).setOnClickListener(v -> {
-            startActivity(new Intent(MainActivity.this, CartActivity.class));
-            overridePendingTransition(0, 0);
-        });
-
-        // Community button
-        findViewById(R.id.btnCommunity).setOnClickListener(v -> {
-            startActivity(new Intent(MainActivity.this, AboutActivity.class));
-            overridePendingTransition(0, 0);
-        });
-
-        // Profile button
-        findViewById(R.id.btnProfile).setOnClickListener(v -> {
-            startActivity(new Intent(MainActivity.this, ProfileActivity.class));
-            overridePendingTransition(0, 0);
-        });
-
-        // Highlight "Cửa hàng" button as current page
-        setupBottomNavHighlight();
-    }
-
-    private void setupBottomNavHighlight() {
-        // Highlight "Cửa hàng" button as current page
-        View btnShop = findViewById(R.id.btnShop);
-        if (btnShop != null && btnShop instanceof ViewGroup) {
-            ViewGroup group = (ViewGroup) btnShop;
-            for (int i = 0; i < group.getChildCount(); i++) {
-                View child = group.getChildAt(i);
-                if (child instanceof ImageView) {
-                    ((ImageView) child).setColorFilter(
-                            ContextCompat.getColor(this, R.color.primary),
-                            android.graphics.PorterDuff.Mode.SRC_IN
-                    );
-                } else if (child instanceof TextView) {
-                    ((TextView) child).setTextColor(
-                            ContextCompat.getColor(this, R.color.primary)
-                    );
-                }
-            }
-        }
     }
 
     private void setupSearch() {
@@ -293,7 +294,11 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                filterProducts(s.toString());
+                if (searchRunnable != null) {
+                    searchHandler.removeCallbacks(searchRunnable);
+                }
+                searchRunnable = () -> filterProducts(s.toString());
+                searchHandler.postDelayed(searchRunnable, 300);
             }
 
             @Override
@@ -306,19 +311,9 @@ public class MainActivity extends AppCompatActivity {
         String searchQuery = query.toLowerCase().trim();
         String targetCategoryId = (currentCategoryId != null) ? currentCategoryId.trim() : "all";
 
-        Log.d("FirebaseDebug", "--- LỌC SẢN PHẨM ---");
-        Log.d("FirebaseDebug", "Đang chọn Category ID: [" + targetCategoryId + "]");
-        Log.d("FirebaseDebug", "Tổng số SP trong bộ nhớ: " + allProductsList.size());
-
         for (Product p : allProductsList) {
             String pCategoryId = (p.getCategoryId() != null) ? p.getCategoryId().trim() : "";
 
-            // Log thử vài sản phẩm đầu tiên để xem dữ liệu thật
-            if (allProductsList.indexOf(p) < 5) {
-                Log.d("FirebaseDebug", "SP: " + p.getName() + " | CategoryID của SP: [" + pCategoryId + "] | Image: " + p.getImageUrl());
-            }
-
-            // Fix: Use equalsIgnoreCase for case-insensitive comparison
             boolean matchesCategory = targetCategoryId.equalsIgnoreCase("all") ||
                     pCategoryId.equalsIgnoreCase(targetCategoryId);
 
@@ -327,31 +322,54 @@ public class MainActivity extends AppCompatActivity {
 
             if (matchesCategory && matchesSearch) {
                 newList.add(p);
-                Log.d("FirebaseDebug", "✓ Matching: " + p.getName());
-            } else {
-                if (!matchesCategory) {
-                    Log.d("FirebaseDebug", "✗ Category mismatch: " + p.getName() + " (expect: " + targetCategoryId + ", got: " + pCategoryId + ")");
-                }
             }
         }
 
-        // Apply special filters (Popular/New) by taking random items
+        // Apply special filters (Popular/New)
         if (!currentFilterType.equals("all") && !newList.isEmpty()) {
-            Collections.shuffle(newList);
+            java.util.Collections.shuffle(newList);
             int limit = Math.min(newList.size(), 10);
             newList = new ArrayList<>(newList.subList(0, limit));
         }
 
         filteredProductsList.clear();
         filteredProductsList.addAll(newList);
-        Log.d("FirebaseDebug", "Kết quả tìm thấy: " + filteredProductsList.size());
         productAdapter.notifyDataSetChanged();
     }
 
-    // Xóa method cũ nếu còn
     private void filterProductsByCategory(String categoryId) {
         currentCategoryId = categoryId;
         filterProducts(edtSearch.getText().toString());
+    }
+
+    private void addToCart(Product product) {
+        String userId = FirebaseAuth.getInstance().getUid();
+        if (userId == null) {
+            Toast.makeText(this, "Vui lòng đăng nhập để mua hàng", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        DatabaseReference cartRef = FirebaseDatabase.getInstance("https://finalapp-c65a2-default-rtdb.firebaseio.com/")
+                .getReference("cart").child(userId).child(product.id);
+
+        cartRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int quantity = 1;
+                if (snapshot.exists()) {
+                    CartItem item = snapshot.getValue(CartItem.class);
+                    if (item != null) {
+                        quantity = item.quantity + 1;
+                    }
+                }
+                cartRef.setValue(new CartItem(product.id, quantity))
+                        .addOnSuccessListener(aVoid -> Toast.makeText(ProductActivity.this, "Đã thêm vào giỏ hàng", Toast.LENGTH_SHORT).show())
+                        .addOnFailureListener(e -> Toast.makeText(ProductActivity.this, "Lỗi: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {}
+        });
     }
 }
 

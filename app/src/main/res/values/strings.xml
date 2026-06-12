@@ -65,4 +65,15 @@
     <string name="str_error_email">Vui lòng nhập email hợp lệ</string>
     <string name="str_error_password">Vui lòng nhập mật khẩu</string>
     <string name="str_login_failed">Đăng nhập thất bại</string>
+    <string name="product_logo_desc">Logo</string>
+    <string name="product_header_title">PONSAI</string>
+    <string name="product_banner_title">Khám phá cây mới</string>
+    <string name="product_banner_desc">Mang thiên nhiên vào ngôi nhà của bạn với bộ sưu tập Bonsai mới nhất.</string>
+    <string name="product_banner_button">Xem thêm</string>
+    <string name="product_search_hint">Tìm kiếm sản phẩm...</string>
+    <string name="product_filter_all">Tất cả</string>
+    <string name="product_filter_popular">Phổ biến</string>
+    <string name="product_filter_new">Mới về</string>
+    <string name="product_category_all">ƯU ĐÃI</string>
+    <string name="product_cart_desc">Giỏ hàng</string>
 </resources>

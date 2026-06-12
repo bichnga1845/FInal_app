@@ -72,7 +72,8 @@ public class CartActivity extends AppCompatActivity {
         cartAdapter = new CartAdapter(cartItemList, new CartAdapter.OnCartChangeListener() {
             @Override
             public void onQuantityChange(CartItem item, int newQuantity) {
-                cartRef.child(item.productId).setValue(newQuantity);
+                // Chỉ cập nhật trường quantity trong object CartItem trên Firebase
+                cartRef.child(item.productId).child("quantity").setValue(newQuantity);
             }
 
             @Override
@@ -115,12 +116,16 @@ public class CartActivity extends AppCompatActivity {
                 final int[] loadedCount = {0};
 
                 for (DataSnapshot data : snapshot.getChildren()) {
-                    String pId = data.getKey();
-                    Integer qty = data.getValue(Integer.class);
-                    int quantity = (qty != null) ? qty : 1;
+                    CartItem item = data.getValue(CartItem.class);
+                    if (item == null) continue;
                     
-                    CartItem item = new CartItem(pId, quantity);
+                    // Nếu productId bị null trong object thì lấy từ key
+                    if (item.productId == null) {
+                        item.productId = data.getKey();
+                    }
+                    
                     cartItemList.add(item);
+                    String pId = item.productId;
 
                     productsRef.child(pId).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override

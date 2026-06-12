@@ -21,10 +21,15 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
     private List<Product> productList;
     private OnProductClickListener listener;
+    private OnAddToCartClickListener addToCartListener;
     private boolean isHorizontal = false;
 
     public interface OnProductClickListener {
         void onProductClick(Product product);
+    }
+
+    public interface OnAddToCartClickListener {
+        void onAddToCartClick(Product product);
     }
 
     public ProductAdapter(List<Product> productList) {
@@ -36,10 +41,23 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         this.listener = listener;
     }
 
+    public ProductAdapter(List<Product> productList, OnProductClickListener listener, OnAddToCartClickListener addToCartListener) {
+        this.productList = productList;
+        this.listener = listener;
+        this.addToCartListener = addToCartListener;
+    }
+
     public ProductAdapter(List<Product> productList, boolean isHorizontal, OnProductClickListener listener) {
         this.productList = productList;
         this.isHorizontal = isHorizontal;
         this.listener = listener;
+    }
+
+    public ProductAdapter(List<Product> productList, boolean isHorizontal, OnProductClickListener listener, OnAddToCartClickListener addToCartListener) {
+        this.productList = productList;
+        this.isHorizontal = isHorizontal;
+        this.listener = listener;
+        this.addToCartListener = addToCartListener;
     }
 
     @NonNull
@@ -82,10 +100,18 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         }
 
         holder.itemView.setOnClickListener(v -> {
-            if (listener != null) {
+            if (listener != null && product != null) {
                 listener.onProductClick(product);
             }
         });
+
+        if (holder.btnAddCart != null) {
+            holder.btnAddCart.setOnClickListener(v -> {
+                if (addToCartListener != null && product != null) {
+                    addToCartListener.onAddToCartClick(product);
+                }
+            });
+        }
     }
 
     @Override
@@ -94,12 +120,16 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     }
 
     public static class ProductViewHolder extends RecyclerView.ViewHolder {
-        ImageView imgProduct;
+        ImageView imgProduct, btnAddCart;
         TextView txtName, txtPrice, txtOldPrice, txtSpecies;
 
         public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
             imgProduct = itemView.findViewById(R.id.imgProduct);
+            btnAddCart = itemView.findViewById(R.id.btnAddCart);
+            if (btnAddCart == null) {
+                btnAddCart = itemView.findViewById(R.id.btnQuickAdd);
+            }
             txtName = itemView.findViewById(R.id.txtProductName);
             txtPrice = itemView.findViewById(R.id.txtProductPrice);
             txtOldPrice = itemView.findViewById(R.id.txtProductOldPrice);

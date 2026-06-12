@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".MainActivity">
+    tools:context=".ProductActivity">
 
     <!-- Header / Brand -->
     <LinearLayout
@@ -23,7 +23,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:src="@mipmap/ic_logo_new"
-            android:contentDescription="Logo"
+            android:contentDescription="@string/product_logo_desc"
             android:scaleType="fitCenter" />
 
         <TextView
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:fontFamily="sans-serif-black"
-            android:text="PONSAI"
+            android:text="@string/product_header_title"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -61,7 +61,9 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:fillViewport="true">
+            android:fillViewport="true"
+            android:paddingBottom="100dp"
+            android:clipToPadding="false">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -91,16 +93,16 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="sans-serif-medium"
-                                android:text="Khám phá cây mới"
-                                android:textColor="@color/text_main"
+                                android:text="@string/product_banner_title"
+                                android:textColor="#546B41"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="4dp"
-                                android:text="Mang thiên nhiên vào ngôi nhà của bạn với bộ sưu tập Bonsai mới nhất."
-                                android:textColor="@color/text_description"
+                                android:text="@string/product_banner_desc"
+                                android:textColor="#434343"
                                 android:textSize="12sp" />
                         </LinearLayout>
                         <Button
@@ -110,7 +112,8 @@
                             android:layout_marginStart="8dp"
                             android:backgroundTint="@color/primary"
                             android:paddingHorizontal="12dp"
-                            android:text="Xem thêm"
+                            android:text="@string/product_banner_button"
+                            android:textColor="#FFF8EC"
                             android:textAllCaps="false"
                             android:textSize="12sp" />
                     </LinearLayout>
@@ -123,17 +126,18 @@
                     android:orientation="vertical"
                     android:paddingHorizontal="16dp">
                     <EditText
-                    android:id="@+id/edtSearch"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:background="@drawable/bg_input"
-                    android:drawableStart="@android:drawable/ic_menu_search"
-                    android:drawablePadding="8dp"
-                    android:hint="Tìm kiếm sản phẩm..."
-                    android:paddingHorizontal="16dp"
-                    android:inputType="text"
-                    android:maxLines="1"
-                    android:textSize="14sp" />
+                        android:id="@+id/edtSearch"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:background="@drawable/bg_input"
+                        android:drawableStart="@android:drawable/ic_menu_search"
+                        android:drawablePadding="8dp"
+                        android:hint="@string/product_search_hint"
+                        android:paddingHorizontal="16dp"
+                        android:autofillHints="search"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:textSize="14sp" />
                     <HorizontalScrollView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -150,7 +154,7 @@
                                 android:background="@drawable/bg_primary_rounded"
                                 android:paddingHorizontal="16dp"
                                 android:paddingVertical="8dp"
-                                android:text="Tất cả"
+                                android:text="@string/product_filter_all"
                                 android:textColor="@color/white"
                                 android:textStyle="bold" />
                             <TextView
@@ -160,7 +164,7 @@
                                 android:layout_marginStart="8dp"
                                 android:paddingHorizontal="16dp"
                                 android:paddingVertical="8dp"
-                                android:text="Phổ biến"
+                                android:text="@string/product_filter_popular"
                                 android:textColor="@color/text_description" />
                             <TextView
                                 android:id="@+id/filter_new"
@@ -169,7 +173,7 @@
                                 android:layout_marginStart="8dp"
                                 android:paddingHorizontal="16dp"
                                 android:paddingVertical="8dp"
-                                android:text="Mới về"
+                                android:text="@string/product_filter_new"
                                 android:textColor="@color/text_description" />
                         </LinearLayout>
                     </HorizontalScrollView>
@@ -189,7 +193,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="12dp"
                         android:layout_marginStart="8dp"
-                        android:text="ƯU ĐÃI"
+                        android:text="@string/product_category_all"
                         android:textColor="@color/primary"
                         android:textSize="14sp"
                         android:textStyle="bold" />
@@ -210,3 +214,5 @@
     <include layout="@layout/include_bottom_nav" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+

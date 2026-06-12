@@ -24,6 +24,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import com.example.finalapp.models.CartItem;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -169,12 +170,13 @@ public class ProductDetailActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 int quantity = 1;
                 if (snapshot.exists()) {
-                    Integer currentQty = snapshot.getValue(Integer.class);
-                    if (currentQty != null) {
-                        quantity = currentQty + 1;
+                    CartItem existingItem = snapshot.getValue(CartItem.class);
+                    if (existingItem != null) {
+                        quantity = existingItem.quantity + 1;
                     }
                 }
-                itemRef.setValue(quantity)
+                CartItem newItem = new CartItem(productId, quantity);
+                itemRef.setValue(newItem)
                         .addOnSuccessListener(aVoid -> Toast.makeText(ProductDetailActivity.this, "Đã thêm vào giỏ hàng!", Toast.LENGTH_SHORT).show())
                         .addOnFailureListener(e -> Toast.makeText(ProductDetailActivity.this, "Lỗi: " + e.getMessage(), Toast.LENGTH_SHORT).show());
             }
