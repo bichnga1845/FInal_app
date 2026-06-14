@@ -5,7 +5,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -72,27 +71,27 @@ public class ChangePasswordActivity extends AppCompatActivity {
 
         // ===== Validate input =====
         if (TextUtils.isEmpty(current)) {
-            etCurrent.setError("Vui lòng nhập mật khẩu hiện tại");
+            etCurrent.setError(getString(R.string.str_cp_err_current_required));
             etCurrent.requestFocus();
             return;
         }
         if (TextUtils.isEmpty(pwNew)) {
-            etNew.setError("Vui lòng nhập mật khẩu mới");
+            etNew.setError(getString(R.string.str_cp_err_new_required));
             etNew.requestFocus();
             return;
         }
         if (pwNew.length() < 6) {
-            etNew.setError("Mật khẩu mới phải có ít nhất 6 ký tự");
+            etNew.setError(getString(R.string.str_cp_err_new_too_short));
             etNew.requestFocus();
             return;
         }
         if (pwNew.equals(current)) {
-            etNew.setError("Mật khẩu mới phải khác mật khẩu hiện tại");
+            etNew.setError(getString(R.string.str_cp_err_new_same));
             etNew.requestFocus();
             return;
         }
         if (!pwNew.equals(confirm)) {
-            etConfirm.setError("Xác nhận mật khẩu không khớp");
+            etConfirm.setError(getString(R.string.str_cp_err_confirm_mismatch));
             etConfirm.requestFocus();
             return;
         }
@@ -100,9 +99,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
         // ===== Kiem tra da dang nhap chua =====
         FirebaseUser user = auth.getCurrentUser();
         if (user == null || TextUtils.isEmpty(user.getEmail())) {
-            Toast.makeText(this,
-                    "Bạn cần đăng nhập trước. Vui lòng đăng nhập lại.",
-                    Toast.LENGTH_LONG).show();
+            AppToast.showLong(this, getString(R.string.str_cp_need_login));
             return;
         }
 
@@ -114,25 +111,20 @@ public class ChangePasswordActivity extends AppCompatActivity {
                 .addOnCompleteListener(reauthTask -> {
                     if (!reauthTask.isSuccessful()) {
                         btnSave.setEnabled(true);
-                        Toast.makeText(this,
-                                "Mật khẩu hiện tại không đúng",
-                                Toast.LENGTH_SHORT).show();
+                        AppToast.show(this, R.string.str_cp_wrong_current);
                         return;
                     }
                     user.updatePassword(pwNew)
                             .addOnCompleteListener(updateTask -> {
                                 btnSave.setEnabled(true);
                                 if (updateTask.isSuccessful()) {
-                                    Toast.makeText(this,
-                                            "Đổi mật khẩu thành công",
-                                            Toast.LENGTH_SHORT).show();
+                                    AppToast.show(this, R.string.str_cp_success);
                                     finish();
                                 } else {
                                     String msg = updateTask.getException() != null
                                             ? updateTask.getException().getMessage()
-                                            : "Loi khong xac dinh";
-                                    Toast.makeText(this,
-                                            "Lỗi: " + msg, Toast.LENGTH_LONG).show();
+                                            : "";
+                                    AppToast.showLong(this, getString(R.string.str_cp_error, msg));
                                 }
                             });
                 });
