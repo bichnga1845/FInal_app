@@ -53,4 +53,136 @@
         <string name="str_expand">Mở rộng</string>
         <string name="str_terms_agree">Tôi đồng ý với chính sách điều khoản của KATINAT</string>
         <string name="str_register_btn">Đăng ký</string>
+
+    <!-- ============ 6 MAN CUA DAO ============ -->
+
+    <!-- Dung chung -->
+    <string name="str_save">Lưu</string>
+    <string name="str_cancel">Hủy</string>
+    <string name="str_delete">Xóa</string>
+    <string name="str_confirm">Xác nhận</string>
+    <string name="str_logout">Đăng xuất</string>
+    <string name="str_not_updated">Chưa cập nhật</string>
+    <string name="str_loading">Đang tải…</string>
+    <string name="str_address">Địa chỉ</string>
+    <string name="str_email_label">Email</string>
+    <string name="str_back_to_login">Quay lại đăng nhập</string>
+    <string name="str_cd_back">Quay lại</string>
+    <string name="str_coming_soon">Màn hình đang được hoàn thiện</string>
+
+    <!-- Man Ho so (Profile) -->
+    <string name="str_profile_welcome_back">CHÀO MỪNG TRỞ LẠI</string>
+    <string name="str_profile_email_example">email@example.com</string>
+    <string name="str_profile_user_default">USER</string>
+    <string name="str_profile_account_info">Thông tin tài khoản</string>
+    <string name="str_menu_edit_profile">Chỉnh sửa\nhồ sơ</string>
+    <string name="str_menu_change_password">Đổi\nmật khẩu</string>
+    <string name="str_menu_forgot_password">Quên\nmật khẩu</string>
+    <string name="str_menu_address">Địa chỉ\ngiao hàng</string>
+    <string name="str_menu_payment">Phương thức\nthanh toán</string>
+    <string name="str_profile_contact_info">THÔNG TIN LIÊN HỆ</string>
+    <string name="str_account_type">Loại tài khoản</string>
+    <string name="str_role_customer">Khách hàng</string>
+    <string name="str_role_admin">Quản trị viên</string>
+    <string name="str_profile_user_not_found">Không tìm thấy thông tin người dùng</string>
+    <string name="str_profile_invalid_data">Dữ liệu không hợp lệ</string>
+    <string name="str_profile_load_error">Lỗi tải dữ liệu: %1$s</string>
+    <string name="str_profile_no_name">Chưa có tên</string>
+    <string name="str_profile_no_email">Chưa có email</string>
+
+    <!-- Man Chinh sua ho so (EditProfile) -->
+    <string name="str_edit_profile_title">Chỉnh sửa hồ sơ</string>
+    <string name="str_edit_avatar">Ảnh đại diện</string>
+    <string name="str_full_name_label">Họ và tên</string>
+    <string name="str_edit_email_readonly">Email (không sửa được)</string>
+    <string name="str_hint_address_detail">Nhập địa chỉ chi tiết</string>
+    <string name="str_save_changes">Lưu thay đổi</string>
+    <string name="str_edit_user_not_found">Không tìm thấy người dùng</string>
+    <string name="str_err_name_required">Vui lòng nhập họ và tên</string>
+    <string name="str_err_name_too_short">Họ tên phải có ít nhất 2 ký tự</string>
+    <string name="str_err_phone_invalid">Số điện thoại không hợp lệ (10-11 số, bắt đầu 0)</string>
+    <string name="str_edit_saved">Đã lưu thay đổi</string>
+    <string name="str_edit_save_error">Lỗi lưu: %1$s</string>
+
+    <!-- Man Doi mat khau (ChangePassword) -->
+    <string name="str_change_password_title">Đổi mật khẩu</string>
+    <string name="str_cp_heading">Đặt mật khẩu mới</string>
+    <string name="str_cp_subtitle">Mật khẩu mới ít nhất 6 ký tự để đảm bảo an toàn</string>
+    <string name="str_cp_current">Mật khẩu hiện tại</string>
+    <string name="str_cp_hint_current">Nhập mật khẩu hiện tại</string>
+    <string name="str_cp_new">Mật khẩu mới</string>
+    <string name="str_cp_hint_new">Nhập mật khẩu mới (≥ 6 ký tự)</string>
+    <string name="str_cp_confirm">Xác nhận mật khẩu mới</string>
+    <string name="str_cp_hint_confirm">Nhập lại mật khẩu mới</string>
+    <string name="str_cp_button">Đổi mật khẩu</string>
+    <string name="str_cp_err_current_required">Vui lòng nhập mật khẩu hiện tại</string>
+    <string name="str_cp_err_new_required">Vui lòng nhập mật khẩu mới</string>
+    <string name="str_cp_err_new_too_short">Mật khẩu mới phải có ít nhất 6 ký tự</string>
+    <string name="str_cp_err_new_same">Mật khẩu mới phải khác mật khẩu hiện tại</string>
+    <string name="str_cp_err_confirm_mismatch">Xác nhận mật khẩu không khớp</string>
+    <string name="str_cp_need_login">Bạn cần đăng nhập trước. Vui lòng đăng nhập lại.</string>
+    <string name="str_cp_wrong_current">Mật khẩu hiện tại không đúng</string>
+    <string name="str_cp_success">Đổi mật khẩu thành công</string>
+    <string name="str_cp_error">Lỗi: %1$s</string>
+
+    <!-- Man Quen mat khau (ForgotPassword) -->
+    <string name="str_forgot_password_title">Quên mật khẩu</string>
+    <string name="str_fp_heading">Khôi phục mật khẩu</string>
+    <string name="str_fp_subtitle">Nhập email đã đăng ký, chúng tôi sẽ gửi link đặt lại mật khẩu vào hộp thư của bạn.</string>
+    <string name="str_fp_hint_email">Nhập email đã đăng ký</string>
+    <string name="str_fp_button">Gửi email đặt lại mật khẩu</string>
+    <string name="str_fp_err_email_required">Vui lòng nhập email</string>
+    <string name="str_fp_err_email_invalid">Email không hợp lệ</string>
+    <string name="str_fp_sent">Đã gửi email đặt lại mật khẩu. Vui lòng kiểm tra hộp thư (cả mục Spam).</string>
+    <string name="str_fp_email_not_found">Email này chưa được đăng ký tài khoản</string>
+    <string name="str_fp_error">Không gửi được: %1$s</string>
+
+    <!-- Man Chon dia chi (SelectAddress) -->
+    <string name="str_select_address_title">Địa chỉ giao hàng</string>
+    <string name="str_addr_empty_title">Chưa có địa chỉ nào</string>
+    <string name="str_addr_empty_subtitle">Thêm địa chỉ đầu tiên để bắt đầu đặt cây cảnh</string>
+    <string name="str_addr_add_new">Thêm mới</string>
+    <string name="str_addr_default_badge">Mặc định</string>
+    <string name="str_addr_set_default">Đặt mặc định</string>
+    <string name="str_addr_receiver_placeholder">Tên người nhận</string>
+    <string name="str_addr_detail_placeholder">123 Đường ABC, Quận XYZ, TP. HCM</string>
+    <string name="str_addr_dialog_title">Thêm địa chỉ mới</string>
+    <string name="str_addr_receiver">Tên người nhận *</string>
+    <string name="str_addr_hint_receiver">VD: Nguyễn Văn A</string>
+    <string name="str_addr_phone">Số điện thoại *</string>
+    <string name="str_addr_hint_phone">VD: 0901234567</string>
+    <string name="str_addr_detail">Địa chỉ chi tiết *</string>
+    <string name="str_addr_hint_detail">Số nhà, đường, phường/xã, quận/huyện, tỉnh/TP</string>
+    <string name="str_addr_set_default_checkbox">Đặt làm địa chỉ mặc định</string>
+    <string name="str_addr_load_error">Lỗi tải địa chỉ: %1$s</string>
+    <string name="str_addr_err_receiver">Nhập tên người nhận</string>
+    <string name="str_addr_err_phone">SĐT không hợp lệ</string>
+    <string name="str_addr_err_detail">Địa chỉ quá ngắn</string>
+    <string name="str_addr_no_id">Không tạo được ID</string>
+    <string name="str_addr_added">Đã thêm địa chỉ</string>
+    <string name="str_addr_save_error">Lỗi lưu: %1$s</string>
+    <string name="str_addr_set_default_done">Đã đặt làm mặc định</string>
+    <string name="str_addr_delete_confirm_title">Xác nhận xóa</string>
+    <string name="str_addr_delete_confirm_msg">Xóa địa chỉ này?</string>
+    <string name="str_addr_deleted">Đã xóa</string>
+    <string name="str_addr_select_required">Vui lòng chọn một địa chỉ</string>
+
+    <!-- Man Phuong thuc thanh toan (PaymentMethod) -->
+    <string name="str_payment_method_title">Phương thức thanh toán</string>
+    <string name="str_pay_choose">Chọn phương thức thanh toán</string>
+    <string name="str_pay_subtitle">Bạn có thể thanh toán khi nhận hàng hoặc chuyển khoản trước</string>
+    <string name="str_pay_cod_title">Thanh toán khi nhận hàng (COD)</string>
+    <string name="str_pay_cod_desc">Trả tiền mặt cho người giao hàng</string>
+    <string name="str_pay_bank_title">Chuyển khoản ngân hàng</string>
+    <string name="str_pay_bank_desc">Chuyển khoản trước khi giao hàng</string>
+    <string name="str_pay_bank_info">THÔNG TIN CHUYỂN KHOẢN</string>
+    <string name="str_pay_bank_name_label">Ngân hàng</string>
+    <string name="str_pay_bank_name">Vietcombank</string>
+    <string name="str_pay_bank_acc_label">Số tài khoản</string>
+    <string name="str_pay_bank_acc">0123 456 789</string>
+    <string name="str_pay_bank_owner_label">Chủ tài khoản</string>
+    <string name="str_pay_bank_owner">CONG TY BONSAI VN</string>
+    <string name="str_pay_bank_note">Nội dung chuyển khoản: BONSAI + Mã đơn hàng</string>
+    <string name="str_pay_cod_label">Thanh toán khi nhận hàng</string>
+    <string name="str_pay_selected">Đã chọn: %1$s</string>
 </resources>
