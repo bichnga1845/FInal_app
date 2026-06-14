@@ -3,10 +3,8 @@ package com.example.finalapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -69,8 +67,15 @@ public class ProfileActivity extends AppCompatActivity {
 
         bindViews();
         resolveUid();
-        loadUserFromFirebase();
         setupMenuClicks();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Tai lai du lieu moi khi quay ve man Ho so (vd: sau khi sua o EditProfile)
+        // => Ho so tu cap nhat ngay, khong can thoat ra vao lai.
+        loadUserFromFirebase();
     }
 
     private void bindViews() {
@@ -104,16 +109,12 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (!snapshot.exists()) {
-                    Toast.makeText(ProfileActivity.this,
-                            "Khong tim thay thong tin nguoi dung",
-                            Toast.LENGTH_SHORT).show();
+                    AppToast.show(ProfileActivity.this, R.string.str_profile_user_not_found);
                     return;
                 }
                 User user = snapshot.getValue(User.class);
                 if (user == null) {
-                    Toast.makeText(ProfileActivity.this,
-                            "Du lieu khong hop le",
-                            Toast.LENGTH_SHORT).show();
+                    AppToast.show(ProfileActivity.this, R.string.str_profile_invalid_data);
                     return;
                 }
                 user.uid = currentUid;
@@ -122,26 +123,27 @@ public class ProfileActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(ProfileActivity.this,
-                        "Loi tai du lieu: " + error.getMessage(),
-                        Toast.LENGTH_SHORT).show();
+                AppToast.showLong(ProfileActivity.this,
+                        getString(R.string.str_profile_load_error, error.getMessage()));
             }
         });
     }
 
     private void bindUserToUi(User user) {
-        String name = TextUtils.isEmpty(user.name) ? "Chua co ten" : user.name;
-        String email = TextUtils.isEmpty(user.email) ? "Chua co email" : user.email;
+        String name = TextUtils.isEmpty(user.name) ? getString(R.string.str_profile_no_name) : user.name;
+        String email = TextUtils.isEmpty(user.email) ? getString(R.string.str_profile_no_email) : user.email;
 
         tvName.setText(name);
         tvWelcomeEmail.setText(email);
         tvWelcomeNameBig.setText(name.toUpperCase());
 
-        tvPhone.setText(TextUtils.isEmpty(user.phone) ? "Chưa cập nhật" : user.phone);
-        tvAddress.setText(TextUtils.isEmpty(user.address) ? "Chưa cập nhật" : user.address);
+        tvPhone.setText(TextUtils.isEmpty(user.phone) ? getString(R.string.str_not_updated) : user.phone);
+        tvAddress.setText(TextUtils.isEmpty(user.address) ? getString(R.string.str_not_updated) : user.address);
         tvEmail.setText(email);
 
-        String roleLabel = "admin".equalsIgnoreCase(user.role) ? "Quản trị viên" : "Khách hàng";
+        String roleLabel = "admin".equalsIgnoreCase(user.role)
+                ? getString(R.string.str_role_admin)
+                : getString(R.string.str_role_customer);
         tvRole.setText(roleLabel);
     }
 
@@ -150,41 +152,32 @@ public class ProfileActivity extends AppCompatActivity {
         tvHeaderLogout.setOnClickListener(v -> handleLogout());
 
         // Grid menu items
-        menuEditProfile.setOnClickListener(v -> openActivity("com.example.finalapp.EditProfileActivity",
-                "Man Chinh sua ho so se duoc lam sau"));
-
-        menuChangePassword.setOnClickListener(v -> openActivity("com.example.finalapp.ChangePasswordActivity",
-                "Man Doi mat khau se duoc lam sau"));
-
-        menuForgotPassword.setOnClickListener(v -> openActivity("com.example.finalapp.ForgotPasswordActivity",
-                "Man Quen mat khau se duoc lam sau"));
-
-        menuAddress.setOnClickListener(v -> openActivity("com.example.finalapp.SelectAddressActivity",
-                "Man Dia chi se duoc lam sau"));
-
-        menuPayment.setOnClickListener(v -> openActivity("com.example.finalapp.PaymentMethodActivity",
-                "Man Thanh toan se duoc lam sau"));
+        menuEditProfile.setOnClickListener(v -> openActivity("com.example.finalapp.EditProfileActivity"));
+        menuChangePassword.setOnClickListener(v -> openActivity("com.example.finalapp.ChangePasswordActivity"));
+        menuForgotPassword.setOnClickListener(v -> openActivity("com.example.finalapp.ForgotPasswordActivity"));
+        menuAddress.setOnClickListener(v -> openActivity("com.example.finalapp.SelectAddressActivity"));
+        menuPayment.setOnClickListener(v -> openActivity("com.example.finalapp.PaymentMethodActivity"));
 
         menuLogout.setOnClickListener(v -> handleLogout());
     }
 
     /**
-     * Mo activity neu ton tai trong project, neu chua co thi show Toast.
+     * Mo activity neu ton tai trong project, neu chua co thi show popup.
      * Cho phep tao stub man hinh truoc khi tat ca cac man duoc code xong.
      */
-    private void openActivity(String fullyQualifiedName, String notReadyMessage) {
+    private void openActivity(String fullyQualifiedName) {
         try {
             Class<?> cls = Class.forName(fullyQualifiedName);
             Intent intent = new Intent(this, cls);
             intent.putExtra(EXTRA_UID, currentUid);
             startActivity(intent);
         } catch (ClassNotFoundException e) {
-            Toast.makeText(this, notReadyMessage, Toast.LENGTH_SHORT).show();
+            AppToast.show(this, R.string.str_coming_soon);
         }
     }
 
     private void handleLogout() {
-        Toast.makeText(this, "Đăng xuất", Toast.LENGTH_SHORT).show();
+        AppToast.show(this, R.string.str_logout);
         // Sau khi tich hop Firebase Auth: FirebaseAuth.getInstance().signOut();
         finish();
     }
