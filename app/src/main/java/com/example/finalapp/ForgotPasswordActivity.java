@@ -6,7 +6,6 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +15,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 
 // Man Quen mat khau - dung Firebase Auth sendPasswordResetEmail()
 public class ForgotPasswordActivity extends AppCompatActivity {
@@ -57,12 +57,12 @@ public class ForgotPasswordActivity extends AppCompatActivity {
 
         // ===== Validate =====
         if (TextUtils.isEmpty(email)) {
-            etEmail.setError("Vui lòng nhập email");
+            etEmail.setError(getString(R.string.str_fp_err_email_required));
             etEmail.requestFocus();
             return;
         }
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            etEmail.setError("Email không hợp lệ");
+            etEmail.setError(getString(R.string.str_fp_err_email_invalid));
             etEmail.requestFocus();
             return;
         }
@@ -73,17 +73,18 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                 .addOnCompleteListener(task -> {
                     btnSend.setEnabled(true);
                     if (task.isSuccessful()) {
-                        Toast.makeText(this,
-                                "Đã gửi email đặt lại mật khẩu. Vui lòng kiểm tra hộp thư.",
-                                Toast.LENGTH_LONG).show();
-                        finish();
+                        // Khong dong man ngay de nguoi dung kip doc thong bao
+                        AppToast.showLong(this, getString(R.string.str_fp_sent));
+                    } else if (task.getException() instanceof FirebaseAuthInvalidUserException) {
+                        // Email chua duoc dang ky tai khoan Auth
+                        etEmail.setError(getString(R.string.str_fp_email_not_found));
+                        etEmail.requestFocus();
+                        AppToast.showLong(this, getString(R.string.str_fp_email_not_found));
                     } else {
                         String msg = task.getException() != null
                                 ? task.getException().getMessage()
-                                : "Loi khong xac dinh";
-                        Toast.makeText(this,
-                                "Không gửi được: " + msg,
-                                Toast.LENGTH_LONG).show();
+                                : "";
+                        AppToast.showLong(this, getString(R.string.str_fp_error, msg));
                     }
                 });
     }

@@ -5,7 +5,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -84,9 +83,7 @@ public class EditProfileActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (!snapshot.exists()) {
-                    Toast.makeText(EditProfileActivity.this,
-                            "Khong tim thay nguoi dung",
-                            Toast.LENGTH_SHORT).show();
+                    AppToast.show(EditProfileActivity.this, R.string.str_edit_user_not_found);
                     return;
                 }
                 User user = snapshot.getValue(User.class);
@@ -99,9 +96,8 @@ public class EditProfileActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(EditProfileActivity.this,
-                        "Loi tai du lieu: " + error.getMessage(),
-                        Toast.LENGTH_SHORT).show();
+                AppToast.showLong(EditProfileActivity.this,
+                        getString(R.string.str_profile_load_error, error.getMessage()));
             }
         });
     }
@@ -123,19 +119,19 @@ public class EditProfileActivity extends AppCompatActivity {
 
         // ===== Validate =====
         if (TextUtils.isEmpty(name)) {
-            etName.setError("Vui lòng nhập họ và tên");
+            etName.setError(getString(R.string.str_err_name_required));
             etName.requestFocus();
             return;
         }
         if (name.length() < 2) {
-            etName.setError("Họ tên phải có ít nhất 2 ký tự");
+            etName.setError(getString(R.string.str_err_name_too_short));
             etName.requestFocus();
             return;
         }
         if (!TextUtils.isEmpty(phone)) {
             // Validate SDT VN: 10-11 so, bat dau 0
             if (!phone.matches("^0\\d{9,10}$")) {
-                etPhone.setError("Số điện thoại không hợp lệ (10-11 số, bắt đầu 0)");
+                etPhone.setError(getString(R.string.str_err_phone_invalid));
                 etPhone.requestFocus();
                 return;
             }
@@ -151,14 +147,12 @@ public class EditProfileActivity extends AppCompatActivity {
         userRef.updateChildren(updates, (error, ref) -> {
             btnSave.setEnabled(true);
             if (error == null) {
-                Toast.makeText(EditProfileActivity.this,
-                        "Đã lưu thay đổi", Toast.LENGTH_SHORT).show();
+                AppToast.show(EditProfileActivity.this, R.string.str_edit_saved);
                 setResult(RESULT_OK);
                 finish();
             } else {
-                Toast.makeText(EditProfileActivity.this,
-                        "Lỗi lưu: " + error.getMessage(),
-                        Toast.LENGTH_LONG).show();
+                AppToast.showLong(EditProfileActivity.this,
+                        getString(R.string.str_edit_save_error, error.getMessage()));
             }
         });
     }

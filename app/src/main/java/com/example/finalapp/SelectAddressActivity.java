@@ -8,8 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -127,9 +125,8 @@ public class SelectAddressActivity extends AppCompatActivity
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(SelectAddressActivity.this,
-                        "Loi tai dia chi: " + error.getMessage(),
-                        Toast.LENGTH_SHORT).show();
+                AppToast.showLong(SelectAddressActivity.this,
+                        getString(R.string.str_addr_load_error, error.getMessage()));
             }
         });
     }
@@ -157,8 +154,8 @@ public class SelectAddressActivity extends AppCompatActivity
 
         AlertDialog dialog = new AlertDialog.Builder(this)
                 .setView(dialogView)
-                .setPositiveButton("Lưu", null) // override ben duoi de khong dong khi validate fail
-                .setNegativeButton("Hủy", (d, w) -> d.dismiss())
+                .setPositiveButton(R.string.str_save, null) // override ben duoi de khong dong khi validate fail
+                .setNegativeButton(R.string.str_cancel, (d, w) -> d.dismiss())
                 .create();
 
         dialog.setOnShowListener(d -> {
@@ -169,15 +166,15 @@ public class SelectAddressActivity extends AppCompatActivity
                 boolean setDefault = cbDefault.isChecked();
 
                 if (TextUtils.isEmpty(receiver)) {
-                    etReceiver.setError("Nhập tên người nhận");
+                    etReceiver.setError(getString(R.string.str_addr_err_receiver));
                     return;
                 }
                 if (!phone.matches("^0\\d{9,10}$")) {
-                    etPhone.setError("SĐT không hợp lệ");
+                    etPhone.setError(getString(R.string.str_addr_err_phone));
                     return;
                 }
                 if (TextUtils.isEmpty(detail) || detail.length() < 5) {
-                    etDetail.setError("Địa chỉ quá ngắn");
+                    etDetail.setError(getString(R.string.str_addr_err_detail));
                     return;
                 }
 
@@ -192,7 +189,7 @@ public class SelectAddressActivity extends AppCompatActivity
     private void saveNewAddress(Address address) {
         String newId = addressesRef.push().getKey();
         if (newId == null) {
-            Toast.makeText(this, "Khong tao duoc ID", Toast.LENGTH_SHORT).show();
+            AppToast.show(this, R.string.str_addr_no_id);
             return;
         }
         address.addressId = newId;
@@ -208,13 +205,23 @@ public class SelectAddressActivity extends AppCompatActivity
     private void writeAddress(String id, Address address) {
         addressesRef.child(id).setValue(address.toMap(), (error, ref) -> {
             if (error == null) {
-                Toast.makeText(this, "Đã thêm địa chỉ", Toast.LENGTH_SHORT).show();
+                AppToast.show(this, R.string.str_addr_added);
+                // Dia chi mac dinh -> dong bo sang /users/{uid}/address
+                // de man dat hang (doc dia chi cua user) lay dung dia chi moi.
+                if (address.isDefault) {
+                    mirrorAddressToUser(address.detail);
+                }
             } else {
-                Toast.makeText(this,
-                        "Loi luu: " + error.getMessage(),
-                        Toast.LENGTH_LONG).show();
+                AppToast.showLong(this, getString(R.string.str_addr_save_error, error.getMessage()));
             }
         });
+    }
+
+    // Dong bo dia chi giao hang dang dung sang node user de cac man khac (dat hang) khop du lieu
+    private void mirrorAddressToUser(String detail) {
+        if (TextUtils.isEmpty(detail)) return;
+        FirebaseDatabase.getInstance().getReference("users")
+                .child(currentUid).child("address").setValue(detail);
     }
 
     private void unsetAllDefaults(Runnable onDone) {
@@ -247,7 +254,9 @@ public class SelectAddressActivity extends AppCompatActivity
             addressesRef.child(address.addressId).child("isDefault").setValue(true,
                     (error, ref) -> {
                         if (error == null) {
-                            Toast.makeText(this, "Đã đặt làm mặc định", Toast.LENGTH_SHORT).show();
+                            AppToast.show(this, R.string.str_addr_set_default_done);
+                            // Dong bo dia chi mac dinh sang node user
+                            mirrorAddressToUser(address.detail);
                         }
                     });
         });
@@ -256,27 +265,34 @@ public class SelectAddressActivity extends AppCompatActivity
     @Override
     public void onDelete(Address address) {
         new AlertDialog.Builder(this)
-                .setTitle("Xác nhận xóa")
-                .setMessage("Xóa địa chỉ này?")
-                .setPositiveButton("Xóa", (d, w) -> {
+                .setTitle(R.string.str_addr_delete_confirm_title)
+                .setMessage(R.string.str_addr_delete_confirm_msg)
+                .setPositiveButton(R.string.str_delete, (d, w) -> {
                     addressesRef.child(address.addressId).removeValue((error, ref) -> {
                         if (error == null) {
-                            Toast.makeText(this, "Đã xóa", Toast.LENGTH_SHORT).show();
+                            AppToast.show(this, R.string.str_addr_deleted);
                             if (address.addressId.equals(adapter.getSelectedAddressId())) {
                                 adapter.setSelectedAddressId(null);
                             }
                         }
                     });
                 })
-                .setNegativeButton("Hủy", null)
+                .setNegativeButton(R.string.str_cancel, null)
                 .show();
     }
 
     private void confirmSelection() {
         String selectedId = adapter.getSelectedAddressId();
         if (TextUtils.isEmpty(selectedId)) {
-            Toast.makeText(this, "Vui lòng chọn một địa chỉ", Toast.LENGTH_SHORT).show();
+            AppToast.show(this, R.string.str_addr_select_required);
             return;
+        }
+        // Dong bo dia chi vua chon sang /users/{uid}/address de man dat hang dung dia chi nay
+        for (Address a : addressList) {
+            if (selectedId.equals(a.addressId)) {
+                mirrorAddressToUser(a.detail);
+                break;
+            }
         }
         Intent result = new Intent();
         result.putExtra(RESULT_SELECTED_ADDRESS_ID, selectedId);

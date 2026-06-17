@@ -43,7 +43,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginStart="12dp"
-                    android:text="Đang tải..."
+                    android:text="@string/str_loading"
                     android:textColor="@color/text_main"
                     android:textSize="18sp"
                     android:fontFamily="sans-serif-medium"
@@ -55,7 +55,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="8dp"
-                    android:text="Đăng xuất"
+                    android:text="@string/str_logout"
                     android:textColor="@color/timestamp"
                     android:textSize="14sp"
                     android:fontFamily="sans-serif-medium"
@@ -81,7 +81,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="CHÀO MỪNG TRỞ LẠI"
+                        android:text="@string/str_profile_welcome_back"
                         android:textColor="@color/text_button"
                         android:textSize="14sp"
                         android:letterSpacing="0.1"
@@ -92,7 +92,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
-                        android:text="email@example.com"
+                        android:text="@string/str_profile_email_example"
                         android:textColor="@color/text_button"
                         android:textSize="13sp"
                         android:alpha="0.85"
@@ -105,7 +105,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|start"
                     android:layout_margin="20dp"
-                    android:text="USER"
+                    android:text="@string/str_profile_user_default"
                     android:textColor="@color/text_button"
                     android:textSize="22sp"
                     android:letterSpacing="0.05"
@@ -126,7 +126,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:text="Thông tin tài khoản"
+                android:text="@string/str_profile_account_info"
                 android:textColor="@color/text_main"
                 android:textSize="16sp"
                 android:fontFamily="sans-serif-medium"/>
@@ -169,7 +169,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="6dp"
                             android:gravity="center"
-                            android:text="Chỉnh sửa\nhồ sơ"
+                            android:text="@string/str_menu_edit_profile"
                             android:textColor="@color/text_main"
                             android:textSize="12sp"
                             android:fontFamily="sans-serif-medium"/>
@@ -198,7 +198,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="6dp"
                             android:gravity="center"
-                            android:text="Đổi\nmật khẩu"
+                            android:text="@string/str_menu_change_password"
                             android:textColor="@color/text_main"
                             android:textSize="12sp"
                             android:fontFamily="sans-serif-medium"/>
@@ -227,7 +227,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="6dp"
                             android:gravity="center"
-                            android:text="Quên\nmật khẩu"
+                            android:text="@string/str_menu_forgot_password"
                             android:textColor="@color/text_main"
                             android:textSize="12sp"
                             android:fontFamily="sans-serif-medium"/>
@@ -271,7 +271,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="6dp"
                             android:gravity="center"
-                            android:text="Địa chỉ\ngiao hàng"
+                            android:text="@string/str_menu_address"
                             android:textColor="@color/text_main"
                             android:textSize="12sp"
                             android:fontFamily="sans-serif-medium"/>
@@ -300,7 +300,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="6dp"
                             android:gravity="center"
-                            android:text="Phương thức\nthanh toán"
+                            android:text="@string/str_menu_payment"
                             android:textColor="@color/text_main"
                             android:textSize="12sp"
                             android:fontFamily="sans-serif-medium"/>
@@ -329,7 +329,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="6dp"
                             android:gravity="center"
-                            android:text="Đăng xuất"
+                            android:text="@string/str_logout"
                             android:textColor="@color/text_main"
                             android:textSize="12sp"
                             android:fontFamily="sans-serif-medium"/>
@@ -350,7 +350,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="THÔNG TIN LIÊN HỆ"
+                    android:text="@string/str_profile_contact_info"
                     android:textColor="@color/text_main"
                     android:textSize="13sp"
                     android:letterSpacing="0.05"
@@ -361,7 +361,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:text="Số điện thoại"
+                    android:text="@string/str_phone_number"
                     android:textColor="@color/text_description"
                     android:textSize="12sp"
                     android:fontFamily="sans-serif-light"/>
@@ -371,7 +371,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:text="Chưa cập nhật"
+                    android:text="@string/str_not_updated"
                     android:textColor="@color/text_main"
                     android:textSize="15sp"
                     android:fontFamily="sans-serif-medium"/>
@@ -387,7 +387,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Địa chỉ"
+                    android:text="@string/str_address"
                     android:textColor="@color/text_description"
                     android:textSize="12sp"
                     android:fontFamily="sans-serif-light"/>
@@ -397,7 +397,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:text="Chưa cập nhật"
+                    android:text="@string/str_not_updated"
                     android:textColor="@color/text_main"
                     android:textSize="15sp"
                     android:fontFamily="sans-serif-medium"/>
@@ -413,7 +413,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Email"
+                    android:text="@string/str_email_label"
                     android:textColor="@color/text_description"
                     android:textSize="12sp"
                     android:fontFamily="sans-serif-light"/>
@@ -423,7 +423,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:text="email@example.com"
+                    android:text="@string/str_profile_email_example"
                     android:textColor="@color/text_main"
                     android:textSize="15sp"
                     android:fontFamily="sans-serif-medium"/>
@@ -439,7 +439,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Loại tài khoản"
+                    android:text="@string/str_account_type"
                     android:textColor="@color/text_description"
                     android:textSize="12sp"
                     android:fontFamily="sans-serif-light"/>
@@ -449,7 +449,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:text="Khách hàng"
+                    android:text="@string/str_role_customer"
                     android:textColor="@color/text_main"
                     android:textSize="15sp"
                     android:fontFamily="sans-serif-medium"/>

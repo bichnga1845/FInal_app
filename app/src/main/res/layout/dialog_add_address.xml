@@ -12,7 +12,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Thêm địa chỉ mới"
+            android:text="@string/str_addr_dialog_title"
             android:textColor="@color/text_main"
             android:textSize="18sp"
             android:fontFamily="sans-serif-medium"/>
@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Tên người nhận *"
+            android:text="@string/str_addr_receiver"
             android:textColor="@color/text_main"
             android:textSize="13sp"
             android:fontFamily="sans-serif-medium"/>
@@ -33,7 +33,7 @@
             android:layout_height="@dimen/input_height"
             android:layout_marginTop="4dp"
             android:background="@drawable/bg_input"
-            android:hint="VD: Nguyễn Văn A"
+            android:hint="@string/str_addr_hint_receiver"
             android:inputType="textPersonName|textCapWords"
             android:maxLines="1"
             android:paddingHorizontal="16dp"
@@ -47,7 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="Số điện thoại *"
+            android:text="@string/str_addr_phone"
             android:textColor="@color/text_main"
             android:textSize="13sp"
             android:fontFamily="sans-serif-medium"/>
@@ -58,7 +58,7 @@
             android:layout_height="@dimen/input_height"
             android:layout_marginTop="4dp"
             android:background="@drawable/bg_input"
-            android:hint="VD: 0901234567"
+            android:hint="@string/str_addr_hint_phone"
             android:inputType="phone"
             android:maxLength="11"
             android:maxLines="1"
@@ -73,7 +73,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="Địa chỉ chi tiết *"
+            android:text="@string/str_addr_detail"
             android:textColor="@color/text_main"
             android:textSize="13sp"
             android:fontFamily="sans-serif-medium"/>
@@ -86,7 +86,7 @@
             android:layout_marginTop="4dp"
             android:background="@drawable/bg_input"
             android:gravity="top|start"
-            android:hint="Số nhà, đường, phường/xã, quận/huyện, tỉnh/TP"
+            android:hint="@string/str_addr_hint_detail"
             android:inputType="textPostalAddress|textCapSentences|textMultiLine"
             android:maxLines="3"
             android:padding="12dp"
@@ -102,7 +102,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="Đặt làm địa chỉ mặc định"
+            android:text="@string/str_addr_set_default_checkbox"
             android:textColor="@color/text_main"
             android:textSize="13sp"/>
     </LinearLayout>

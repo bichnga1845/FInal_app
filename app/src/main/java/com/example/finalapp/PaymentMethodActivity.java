@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -90,11 +89,9 @@ public class PaymentMethodActivity extends AppCompatActivity {
 
     private void confirmSelection() {
         String label = METHOD_COD.equals(selectedMethod)
-                ? "Thanh toán khi nhận hàng"
-                : "Chuyển khoản ngân hàng";
-        Toast.makeText(this,
-                "Đã chọn: " + label,
-                Toast.LENGTH_SHORT).show();
+                ? getString(R.string.str_pay_cod_label)
+                : getString(R.string.str_pay_bank_title);
+        AppToast.show(this, getString(R.string.str_pay_selected, label));
 
         Intent result = new Intent();
         result.putExtra(RESULT_PAYMENT_METHOD, selectedMethod);
