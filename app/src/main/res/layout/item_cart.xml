@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="16dp"
@@ -51,7 +52,7 @@
                     android:ellipsize="end"
                     android:fontFamily="sans-serif-medium"
                     android:maxLines="1"
-                    android:text="Bonsai Tùng La Hán"
+                    tools:text="Bonsai Tùng La Hán"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
@@ -60,15 +61,14 @@
                     android:layout_width="32dp"
                     android:layout_height="32dp"
                     android:background="?attr/selectableItemBackgroundBorderless"
-                    android:src="@android:drawable/ic_menu_delete"
-                    app:tint="@color/text_description" />
+                    android:src="@drawable/ic_delete_green" />
             </LinearLayout>
 
             <TextView
                 android:id="@+id/txtCartProductDesc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Dáng trực, 5 năm tuổi"
+                tools:text="Dáng trực, 5 năm tuổi"
                 android:textColor="@color/text_description"
                 android:textSize="12sp" />
 
@@ -91,38 +91,36 @@
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bg_detail_info"
+                    android:layout_height="32dp"
+                    android:background="@drawable/bg_qty_control"
                     android:gravity="center"
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="4dp"
-                    android:paddingVertical="2dp">
+                    android:orientation="horizontal">
 
                     <ImageButton
                         android:id="@+id/btnMinus"
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
+                        android:layout_width="32dp"
+                        android:layout_height="match_parent"
                         android:background="?attr/selectableItemBackgroundBorderless"
-                        android:src="@android:drawable/button_onoff_indicator_off"
-                        app:tint="@color/text_description" />
+                        android:src="@drawable/ic_minus_thin"
+                        android:padding="6dp" />
 
                     <TextView
                         android:id="@+id/txtQuantity"
-                        android:layout_width="32dp"
+                        android:layout_width="28dp"
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="1"
-                        android:textColor="@color/black"
-                        android:textSize="15sp"
+                        android:textColor="#4A5E35"
+                        android:textSize="14sp"
                         android:textStyle="bold" />
 
                     <ImageButton
                         android:id="@+id/btnPlus"
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
+                        android:layout_width="32dp"
+                        android:layout_height="match_parent"
                         android:background="?attr/selectableItemBackgroundBorderless"
-                        android:src="@android:drawable/ic_input_add"
-                        app:tint="@color/text_description" />
+                        android:src="@drawable/ic_plus_thin"
+                        android:padding="6dp" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

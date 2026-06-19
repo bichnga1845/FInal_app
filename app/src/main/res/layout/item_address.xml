@@ -17,7 +17,7 @@
         android:layout_height="32dp"
         android:layout_marginTop="2dp"
         android:src="@drawable/ic_menu_address"
-        android:contentDescription="location"/>
+        android:contentDescription="@string/shipping_address" />
 
     <!-- Noi dung -->
     <LinearLayout
@@ -54,7 +54,7 @@
                 android:paddingVertical="2dp"
                 android:text="@string/str_addr_default_badge"
                 android:textColor="@color/text_button"
-                android:textSize="10sp"
+                android:textSize="11sp"
                 android:fontFamily="sans-serif-medium"
                 android:visibility="gone"/>
         </LinearLayout>

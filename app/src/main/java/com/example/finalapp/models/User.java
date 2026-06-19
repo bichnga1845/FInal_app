@@ -12,6 +12,7 @@ public class User {
     public String address;
     public String role;
     public String avatar;
+    public String avatarUrl;
     public long createdAt;
 
     public User() {}

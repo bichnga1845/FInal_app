@@ -8,14 +8,20 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.button.MaterialButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-// Man chon phuong thuc thanh toan: COD hoac chuyen khoan
 public class PaymentMethodActivity extends AppCompatActivity {
 
     public static final String EXTRA_INITIAL_METHOD = "extra_initial_method";
@@ -33,6 +39,7 @@ public class PaymentMethodActivity extends AppCompatActivity {
     private ImageView btnBack;
 
     private String selectedMethod = METHOD_COD;
+    private DatabaseReference userRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,19 +55,47 @@ public class PaymentMethodActivity extends AppCompatActivity {
         });
 
         bindViews();
-
-        // Phuong thuc mac dinh truyen vao (neu co)
-        String initial = getIntent().getStringExtra(EXTRA_INITIAL_METHOD);
-        if (METHOD_BANK.equals(initial)) {
-            selectMethod(METHOD_BANK);
-        } else {
-            selectMethod(METHOD_COD);
-        }
+        setupUserRef();
+        loadSavedMethod();
 
         optionCod.setOnClickListener(v -> selectMethod(METHOD_COD));
         optionBank.setOnClickListener(v -> selectMethod(METHOD_BANK));
         btnBack.setOnClickListener(v -> finish());
         btnConfirm.setOnClickListener(v -> confirmSelection());
+    }
+
+    private void setupUserRef() {
+        String uid = null;
+        String uidFromIntent = getIntent().getStringExtra("extra_uid");
+        if (uidFromIntent != null && !uidFromIntent.isEmpty()) {
+            uid = uidFromIntent;
+        } else if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+            uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        }
+        if (uid != null) {
+            userRef = FirebaseDatabase.getInstance().getReference("users").child(uid);
+        }
+    }
+
+    private void loadSavedMethod() {
+        if (userRef == null) {
+            selectMethod(METHOD_COD);
+            return;
+        }
+        btnConfirm.setEnabled(false);
+        userRef.child("paymentMethod").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String saved = snapshot.getValue(String.class);
+                selectMethod(METHOD_BANK.equals(saved) ? METHOD_BANK : METHOD_COD);
+                btnConfirm.setEnabled(true);
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                selectMethod(METHOD_COD);
+                btnConfirm.setEnabled(true);
+            }
+        });
     }
 
     private void bindViews() {
@@ -88,6 +123,11 @@ public class PaymentMethodActivity extends AppCompatActivity {
     }
 
     private void confirmSelection() {
+        // Lưu vào Firebase
+        if (userRef != null) {
+            userRef.child("paymentMethod").setValue(selectedMethod);
+        }
+
         String label = METHOD_COD.equals(selectedMethod)
                 ? getString(R.string.str_pay_cod_label)
                 : getString(R.string.str_pay_bank_title);

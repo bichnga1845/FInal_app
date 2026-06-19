@@ -76,39 +76,6 @@ public class NotificationListActivity extends AppCompatActivity {
         btnBack.setOnClickListener(v -> finish());
         
         btnMarkAllRead.setOnClickListener(v -> markAllAsRead());
-
-        // Test: Long click vào tiêu đề để tạo thông báo mẫu
-        findViewById(R.id.txtHeaderTitle).setOnLongClickListener(v -> {
-            createTestNotifications();
-            return true;
-        });
-    }
-
-    private void createTestNotifications() {
-        String[] titles = {"Đơn hàng thành công", "Khuyến mãi cực hot", "Chào mừng bạn mới", "Hệ thống bảo trì"};
-        String[] messages = {
-            "Đơn hàng #BS123 của bạn đã được giao thành công. Đừng quên đánh giá sản phẩm nhé!",
-            "Nhập mã BONSAI50 để được giảm giá 50% cho tất cả các loại cây trong hôm nay.",
-            "Cảm ơn bạn đã tham gia cộng đồng Bonsai Shop. Hãy bắt đầu mua sắm ngay thôi!",
-            "Hệ thống sẽ bảo trì từ 0h đến 2h sáng mai. Rất xin lỗi vì sự bất tiện này."
-        };
-        String[] types = {"order", "promo", "system", "system"};
-
-        for (int i = 0; i < titles.length; i++) {
-            String id = notificationsRef.push().getKey();
-            Notification notif = new Notification(
-                id,
-                titles[i],
-                messages[i],
-                types[i],
-                System.currentTimeMillis() - (i * 3600000L), // Mỗi cái cách nhau 1 giờ
-                "test_target_id"
-            );
-            if (id != null) {
-                notificationsRef.child(id).setValue(notif);
-            }
-        }
-        android.widget.Toast.makeText(this, "Đã tạo 4 thông báo mẫu", android.widget.Toast.LENGTH_SHORT).show();
     }
 
     private void markAllAsRead() {

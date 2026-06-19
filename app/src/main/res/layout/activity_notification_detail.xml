@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FAF9F6">
@@ -24,7 +25,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:tint="@color/white"
-        android:contentDescription="Back" />
+        android:contentDescription="@string/product_cart_desc" />
 
     <TextView
         android:id="@+id/txtHeaderTitle"
@@ -32,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:fontFamily="sans-serif-black"
-        android:text="Chi tiết thông báo"
+        android:text="@string/notification_detail_title"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@id/btnBack"
@@ -69,7 +70,7 @@
                     android:layout_gravity="center"
                     android:src="@drawable/ic_notifications"
                     app:tint="@color/primary"
-                    android:contentDescription="Type Icon" />
+                    android:contentDescription="@string/notifications_title" />
             </androidx.cardview.widget.CardView>
 
             <TextView
@@ -79,7 +80,7 @@
                 android:layout_marginTop="16dp"
                 android:fontFamily="sans-serif-black"
                 android:gravity="center"
-                android:text="Tiêu đề thông báo"
+                tools:text="Tiêu đề thông báo"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
@@ -104,7 +105,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:lineSpacingExtra="4dp"
-                android:text="Nội dung thông báo chi tiết sẽ được hiển thị ở đây. Chào mừng bạn đến với Bonsai App, nơi bạn có thể tìm thấy những tác phẩm nghệ thuật sống động."
+                tools:text="Nội dung thông báo..."
                 android:textColor="@color/text_description"
                 android:textSize="14sp" />
 
@@ -115,7 +116,7 @@
                 android:layout_marginTop="32dp"
                 android:backgroundTint="@color/primary"
                 android:fontFamily="sans-serif-black"
-                android:text="Xem chi tiết"
+                android:text="@string/view_details_action"
                 android:textColor="@color/white"
                 app:cornerRadius="28dp" />
 

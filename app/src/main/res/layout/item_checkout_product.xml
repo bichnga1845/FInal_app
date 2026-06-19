@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginVertical="8dp"
     app:cardCornerRadius="24dp"
-    app:cardElevation="2dp">
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="#FFF8EC">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -41,7 +43,7 @@
                 android:ellipsize="end"
                 android:fontFamily="sans-serif-black"
                 android:maxLines="1"
-                android:text="Ponsai Pine Zen"
+                tools:text="Ponsai Pine Zen"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
@@ -49,7 +51,7 @@
                 android:id="@+id/txtProductDesc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Size: Medium | Gốm sứ"
+                tools:text="Size: Medium | Gốm sứ"
                 android:textColor="@color/text_description"
                 android:textSize="12sp" />
 
@@ -72,7 +74,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:text="x1"
+                    tools:text="x1"
                     android:textColor="@color/text_description"
                     android:textSize="14sp" />
             </RelativeLayout>

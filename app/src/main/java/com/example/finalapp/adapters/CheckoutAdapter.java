@@ -35,21 +35,22 @@ public class CheckoutAdapter extends RecyclerView.Adapter<CheckoutAdapter.Checko
     public void onBindViewHolder(@NonNull CheckoutViewHolder holder, int position) {
         CartItem item = cartItems.get(position);
         if (item.product != null) {
-            holder.txtName.setText(item.product.getName());
+            holder.txtName.setText(item.product.getLocalizedName());
             
-            String desc = (item.product.species != null ? item.product.species : "Bonsai") + 
-                          " | " + (item.product.age != null ? item.product.age : "Nghệ thuật");
+            android.content.Context ctx = holder.itemView.getContext();
+            String desc = (item.product.species != null ? item.product.species : ctx.getString(R.string.str_species_default)) +
+                          " | " + (item.product.age != null ? item.product.age : ctx.getString(R.string.str_age_default));
             holder.txtDesc.setText(desc);
-            
+
             DecimalFormat df = new DecimalFormat("#,###đ");
             holder.txtPrice.setText(df.format(item.product.getVndPrice()));
-            
-            Glide.with(holder.itemView.getContext())
+
+            Glide.with(ctx)
                     .load(item.product.getImageUrl())
                     .placeholder(R.mipmap.ic_banner)
                     .into(holder.imgProduct);
         }
-        holder.txtQuantity.setText("x" + item.quantity);
+        holder.txtQuantity.setText(holder.itemView.getContext().getString(R.string.str_quantity_prefix) + item.quantity);
     }
 
     @Override

@@ -32,24 +32,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:fontFamily="sans-serif-black"
-        android:text="Giỏ hàng của bạn"
+        android:text="@string/cart_title"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@id/btnBack"
         app:layout_constraintStart_toEndOf="@id/btnBack"
         app:layout_constraintTop_toTopOf="@id/btnBack" />
-
-    <ImageButton
-        android:id="@+id/btnClearCart"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="16dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:src="@android:drawable/ic_menu_delete"
-        app:layout_constraintBottom_toBottomOf="@id/txtHeaderTitle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/txtHeaderTitle"
-        app:tint="@color/white" />
 
     <!-- List Items -->
     <androidx.recyclerview.widget.RecyclerView
@@ -62,6 +50,59 @@
         app:layout_constraintBottom_toTopOf="@+id/layoutSummary"
         app:layout_constraintTop_toBottomOf="@id/txtHeaderTitle" />
 
+    <!-- Empty state — full area từ dưới header tới đáy màn hình -->
+    <LinearLayout
+        android:id="@+id/layoutEmpty"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtHeaderTitle">
+
+        <ImageView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:alpha="0.35"
+            android:src="@drawable/ic_shopping_cart"
+            app:tint="@color/primary"
+            android:contentDescription="Giỏ hàng trống" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/str_cart_empty"
+            android:textColor="@color/text_main"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-medium" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:gravity="center"
+            android:paddingHorizontal="32dp"
+            android:text="@string/str_cart_empty_desc"
+            android:textColor="@color/text_description"
+            android:textSize="13sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnGoShopping"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/bg_btn_go_shopping"
+            android:paddingHorizontal="32dp"
+            android:text="@string/str_explore_products"
+            android:textAllCaps="false"
+            android:textColor="#FFF8EC"
+            android:textSize="14sp" />
+    </LinearLayout>
+
     <!-- Summary Area -->
     <androidx.cardview.widget.CardView
         android:id="@+id/layoutSummary"
@@ -70,6 +111,7 @@
         android:layout_margin="16dp"
         app:cardCornerRadius="24dp"
         app:cardElevation="4dp"
+        app:cardBackgroundColor="@android:color/white"
         app:layout_constraintBottom_toTopOf="@id/btnCheckout">
 
         <LinearLayout
@@ -87,8 +129,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Tạm tính"
-                    android:textColor="@color/text_description" />
+                    android:text="@string/subtotal_label"
+                    android:textColor="#4A5E35" />
                 <TextView
                     android:id="@+id/txtSubtotal"
                     android:layout_width="wrap_content"
@@ -107,8 +149,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Phí vận chuyển"
-                    android:textColor="@color/text_description" />
+                    android:text="@string/shipping_fee_label"
+                    android:textColor="#4A5E35" />
                 <TextView
                     android:id="@+id/txtShipping"
                     android:layout_width="wrap_content"
@@ -122,7 +164,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginVertical="12dp"
-                android:background="#EEEEEE" />
+                android:background="#4A5E35" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -132,8 +174,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Tổng cộng"
-                    android:textColor="@color/text_main"
+                    android:text="@string/total_label"
+                    android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold" />
                 <TextView
@@ -155,7 +197,7 @@
         android:layout_margin="16dp"
         android:backgroundTint="@color/primary"
         android:fontFamily="sans-serif-black"
-        android:text="THANH TOÁN NGAY"
+        android:text="@string/checkout_button"
         android:textColor="@color/text_button"
         app:cornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent" />

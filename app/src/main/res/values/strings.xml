@@ -24,36 +24,36 @@
     <string name="str_google_login">Đăng nhập với Google</string>
     <string name="str_facebook_login">Đăng nhập với Facebook</string>
 
-        <string name="str_register_title">ĐĂNG KÝ TÀI KHOẢN MỚI</string>
-        <string name="str_register_subtitle">Hãy điền thêm thông tin để nhận ngay phần thưởng chỉ dành riêng cho Katies mới lần đầu tiên đăng ký!</string>
+    <string name="str_register_title">ĐĂNG KÝ TÀI KHOẢN MỚI</string>
+    <string name="str_register_subtitle">Hãy điền thêm thông tin để nhận ngay phần thưởng chỉ dành riêng cho bạn mới lần đầu tiên đăng ký!</string>
 
-        <string name="str_email">Email</string>
-        <string name="str_hint_email">Nhập địa chỉ email</string>
+    <string name="str_email">Email</string>
+    <string name="str_hint_email">Nhập địa chỉ email</string>
 
-        <string name="str_full_name">Họ và tên *</string>
-        <string name="str_hint_full_name">Nhập họ và tên</string>
+    <string name="str_full_name">Họ và tên *</string>
+    <string name="str_hint_full_name">Nhập họ và tên</string>
 
-        <string name="str_gender">Giới tính *</string>
-        <string name="str_hint_gender">Chọn giới tính</string>
+    <string name="str_gender">Giới tính *</string>
+    <string name="str_hint_gender">Chọn giới tính</string>
 
-        <string name="str_dob">Ngày sinh *</string>
-        <string name="str_hint_dob">dd/mm/yyyy</string>
+    <string name="str_dob">Ngày sinh *</string>
+    <string name="str_hint_dob">dd/mm/yyyy</string>
 
-        <string name="str_province">Tỉnh thành *</string>
-        <string name="str_hint_province">Chọn tỉnh thành</string>
+    <string name="str_province">Tỉnh thành *</string>
+    <string name="str_hint_province">Chọn tỉnh thành</string>
 
-        <string name="str_auth_info">THÔNG TIN ĐĂNG NHẬP</string>
+    <string name="str_auth_info">THÔNG TIN ĐĂNG NHẬP</string>
 
-        <string name="str_re_password">Nhập lại mật khẩu *</string>
-        <string name="str_hint_re_password">Nhập lại mật khẩu</string>
+    <string name="str_re_password">Nhập lại mật khẩu *</string>
+    <string name="str_hint_re_password">Nhập lại mật khẩu</string>
 
-        <string name="str_referral_code">Nhập mã giới thiệu (nếu có)</string>
-        <string name="str_hint_referral_code">Nhập mã giới thiệu</string>
+    <string name="str_referral_code">Nhập mã giới thiệu (nếu có)</string>
+    <string name="str_hint_referral_code">Nhập mã giới thiệu</string>
 
-        <string name="str_other_info">THÔNG TIN KHÁC</string>
-        <string name="str_expand">Mở rộng</string>
-        <string name="str_terms_agree">Tôi đồng ý với chính sách điều khoản của KATINAT</string>
-        <string name="str_register_btn">Đăng ký</string>
+    <string name="str_other_info">THÔNG TIN KHÁC</string>
+    <string name="str_expand">Mở rộng</string>
+    <string name="str_terms_agree">Tôi đồng ý với chính sách điều khoản của BONSAI</string>
+    <string name="str_register_btn">Đăng ký</string>
 
     <string name="home_discover_title">Khám phá cây mới</string>
     <string name="home_discover_desc">Mang thiên nhiên vào ngôi nhà của bạn với bộ sưu tập Bonsai mới nhất.</string>
@@ -74,6 +74,7 @@
     <string name="product_filter_all">Tất cả</string>
     <string name="product_filter_popular">Phổ biến</string>
     <string name="product_filter_new">Mới về</string>
+
     <string name="product_category_all">ƯU ĐÃI</string>
     <string name="product_cart_desc">Giỏ hàng</string>
 
@@ -208,4 +209,417 @@
     <string name="str_pay_bank_note">Nội dung chuyển khoản: BONSAI + Mã đơn hàng</string>
     <string name="str_pay_cod_label">Thanh toán khi nhận hàng</string>
     <string name="str_pay_selected">Đã chọn: %1$s</string>
+
+    <!-- Bottom Navigation -->
+    <string name="nav_home">Trang chủ</string>
+    <string name="nav_product">Sản phẩm</string>
+    <string name="nav_promo">Ưu đãi</string>
+    <string name="nav_about">Về chúng tôi</string>
+    <string name="nav_account">Tài khoản</string>
+    <string name="nav_shop">Cửa hàng</string>
+    <string name="nav_cart">Giỏ hàng</string>
+    <string name="nav_community">Về chúng tôi</string>
+    <string name="nav_profile">Cá nhân</string>
+
+    <!-- Cart Strings -->
+    <string name="cart_title">Giỏ hàng của bạn</string>
+    <string name="subtotal_label">Tạm tính</string>
+    <string name="shipping_fee_label">Phí vận chuyển</string>
+    <string name="total_label">Tổng cộng</string>
+    <string name="checkout_button">THANH TOÁN NGAY</string>
+    <string name="cart_empty_message">Giỏ hàng của bạn đang trống</string>
+
+    <!-- Profile Strings -->
+    <string name="loading">Đang tải...</string>
+    <string name="welcome_back">CHÀO MỪNG TRỞ LẠI</string>
+    <string name="account_info_title">Thông tin tài khoản</string>
+    <string name="edit_profile">Chỉnh sửa\nhồ sơ</string>
+    <string name="change_password">Đổi\nmật khẩu</string>
+    <string name="forgot_password_title">Quên\nmật khẩu</string>
+    <string name="shipping_address_title">Địa chỉ\ngiao hàng</string>
+    <string name="payment_method_title">Phương thức\nthanh toán</string>
+    <string name="contact_info_title">THÔNG TIN LIÊN HỆ</string>
+    <string name="not_updated">Chưa cập nhật</string>
+    <string name="account_type">Loại tài khoản</string>
+    <string name="customer_role">Khách hàng</string>
+    <string name="admin_role">Quản trị viên</string>
+    <string name="str_no_name">Chưa có tên</string>
+    <string name="str_no_email">Chưa có email</string>
+
+    <!-- Order Detail Strings -->
+    <string name="order_detail_title">Thông tin đơn hàng</string>
+    <string name="order_status_completed">Đơn hàng đã hoàn thành</string>
+    <string name="order_status_thanks">Cảm ơn bạn đã mua sắm tại Bonsai Shop!</string>
+    <string name="shipping_info">Thông tin vận chuyển</string>
+    <string name="shipping_carrier_default">Nhanh - Giao Hàng Tiết Kiệm</string>
+    <string name="shipping_address">Địa chỉ nhận hàng</string>
+    <string name="shop_name">BONSAI SHOP</string>
+    <string name="total_amount_label">Thành tiền:</string>
+    <string name="support_question">Bạn cần hỗ trợ?</string>
+    <string name="request_refund">Gửi yêu cầu Trả hàng/Hoàn tiền</string>
+    <string name="contact_shop">Liên hệ Shop</string>
+    <string name="order_id_label">Mã đơn hàng</string>
+    <string name="copy_action">SAO CHÉP</string>
+    <string name="payment_method_label">Phương thức thanh toán</string>
+    <string name="payment_cash">Tiền mặt</string>
+    <string name="order_time_label">Thời gian đặt hàng</string>
+    <string name="completion_time_label">Thời gian dự kiến hoàn thành</string>
+    <string name="reorder_button">Mua lại</string>
+    <string name="str_error_order_id_not_found">Không tìm thấy mã đơn hàng</string>
+    <string name="str_order_id_copied">Đã sao chép mã đơn hàng</string>
+    <string name="str_items_added_to_cart">Đã thêm các sản phẩm vào giỏ hàng</string>
+    <string name="receiver_info_label">Thông tin người nhận</string>
+    <string name="delivery_success">Giao hàng thành công</string>
+    <string name="expected_delivery">Dự kiến 2-3 ngày</string>
+    <string name="processing_label">Đang xử lý...</string>
+    <string name="status_pending">Chờ xác nhận</string>
+    <string name="status_preparing">Đang chuẩn bị hàng</string>
+    <string name="status_shipping">Đang giao hàng</string>
+    <string name="status_cancelled">Đã hủy</string>
+    <string name="status_default_desc">Đơn hàng của bạn đang được hệ thống xử lý.</string>
+    <string name="status_cancelled_desc">Đơn hàng đã được hủy thành công.</string>
+    <string name="status_shipping_desc">Đơn hàng đang trên đường đến tay bạn.</string>
+    <string name="status_preparing_desc">Chúng tôi sẽ sớm giao hàng cho bạn.</string>
+
+    <!-- Product Detail Strings -->
+    <string name="premium_collection">BỘ SƯU TẬP CAO CẤP</string>
+    <string name="species_label">Loài: %1$s</string>
+    <string name="shipping_included">Bao gồm phí vận\nchuyển</string>
+    <string name="age_label">TUỔI</string>
+    <string name="height_label">CHIỀU CAO</string>
+    <string name="difficulty_label">ĐỘ KHÓ</string>
+    <string name="watering_label">Tưới nước</string>
+    <string name="light_label">Ánh sáng</string>
+    <string name="about_masterpiece">Về kiệt tác này</string>
+    <string name="add_to_cart">THÊM VÀO GIỎ HÀNG</string>
+    <string name="related_bonsai">Bonsai liên quan</string>
+    <string name="years_old">%1$s Năm</string>
+    <string name="difficulty_expert">Chuyên gia</string>
+    <string name="watering_freq">Mỗi 2-3 Ngày</string>
+    <string name="light_full">Toàn phần</string>
+    <string name="str_error_product_not_found">Không tìm thấy sản phẩm!</string>
+    <string name="bonsai_art">Bonsai nghệ thuật</string>
+    <string name="no_description">Chưa có mô tả.</string>
+    <string name="str_error_login_required">Vui lòng đăng nhập để mua hàng!</string>
+    <string name="str_added_to_cart">Đã thêm vào giỏ hàng!</string>
+    <string name="error_prefix">Lỗi: </string>
+    <string name="str_error_firebase_connection">Lỗi kết nối Firebase</string>
+
+    <!-- Checkout Strings -->
+    <string name="checkout_title">Thanh toán</string>
+    <string name="change_action">Thay đổi</string>
+    <string name="home_address_label">Nhà riêng</string>
+    <string name="default_label">MẶC ĐỊNH</string>
+    <string name="order_summary">Tóm tắt đơn hàng</string>
+    <string name="total_payment_label">Tổng thanh toán</string>
+    <string name="confirm_payment_button">Xác nhận thanh toán</string>
+    <string name="payment_on_delivery">Thanh toán khi nhận hàng</string>
+    <string name="cod_label">COD</string>
+    <string name="use_promo_code">Sử dụng mã giảm giá</string>
+    <string name="select_promo_action">Chọn mã</string>
+    <string name="str_promo_feature_not_ready">Tính năng mã giảm giá đang phát triển</string>
+    <string name="str_error_select_address">Vui lòng chọn địa chỉ nhận hàng</string>
+    <string name="str_error_place_order">Lỗi khi đặt hàng</string>
+
+    <!-- Notification Strings -->
+    <string name="notifications_title">Thông báo</string>
+    <string name="mark_all_read">Đã đọc tất cả</string>
+    <string name="no_notifications">Không có thông báo nào</string>
+    <string name="notification_detail_title">Chi tiết thông báo</string>
+    <string name="view_details_action">Xem chi tiết</string>
+
+    <!-- About Us Strings -->
+    <string name="about_hero_quote">Mang nghệ thuật bonsai đến mọi không gian sống.</string>
+    <string name="about_hero_desc">Khám phá những chậu bonsai được tuyển chọn tinh tế để tạo nên góc xanh bình yên, hiện đại và đầy cảm hứng.</string>
+    <string name="explore_collection">Khám phá bộ sưu tập</string>
+    <string name="buy_now">Mua ngay</string>
+    <string name="our_story_title">OUR STORY</string>
+    <string name="brand_story">Câu chuyện thương hiệu</string>
+    <string name="brand_story_desc">Chúng tôi bắt đầu từ niềm yêu thích những chậu bonsai nhỏ mang lại cảm giác bình yên giữa cuộc sống bận rộn. Ứng dụng này được tạo ra để giúp người trẻ và những người luôn thiếu thời gian có thể dễ dàng khám phá, chọn mua và chăm sóc bonsai theo cách gần gũi nhất.</string>
+    <string name="brand_story_quote">Mỗi sản phẩm là một câu chuyện nhỏ về sự kiên nhẫn, cân bằng và vẻ đẹp sống chậm.</string>
+    <string name="mission_vision">Sứ mệnh &amp; Tầm nhìn</string>
+    <string name="mission_title">Mission</string>
+    <string name="mission_desc">Giúp mọi người dễ dàng tiếp cận nghệ thuật bonsai và mang thiên nhiên vào không gian sống hiện đại.</string>
+    <string name="vision_title">Vision</string>
+    <string name="vision_desc">Trở thành nền tảng bonsai trực tuyến hàng đầu Việt Nam, nơi nghệ thuật và lối sống xanh gặp nhau.</string>
+    <string name="core_values">Giá trị cốt lõi</string>
+    <string name="sustainable_living">Sustainable Living</string>
+    <string name="sustainable_desc">Ưu tiên cây khỏe, chậu bền vững và lối sống xanh.</string>
+    <string name="quality_first">Quality First</string>
+    <string name="quality_desc">Mỗi chậu bonsai đều được chọn lọc và chăm sóc kỹ.</string>
+    <string name="customer_care">Customer Care</string>
+    <string name="customer_care_desc">Hỗ trợ người mới từ chọn cây đến chăm cây.</string>
+    <string name="artistic_lifestyle">Artistic Lifestyle</string>
+    <string name="artistic_desc">Bonsai như một phần của phong cách sống tinh tế.</string>
+    <string name="why_choose_us">Vì sao chọn chúng tôi?</string>
+    <string name="benefit_1">Bonsai được chăm sóc kỹ trước khi đến tay bạn</string>
+    <string name="benefit_2">Giao hàng an toàn, hạn chế tối đa rung lắc</string>
+    <string name="benefit_3">Hướng dẫn chăm cây cho người mới bắt đầu</string>
+    <string name="benefit_4">Tư vấn tận tâm để chọn bonsai phù hợp không gian</string>
+    <string name="meet_our_team">Meet Our Team</string>
+    <string name="achievements">Achievements</string>
+    <string name="customers_count">khách hàng</string>
+    <string name="trees_delivered">cây đã giao</string>
+    <string name="avg_rating">đánh giá trung bình</string>
+    <string name="support_consult">tư vấn hỗ trợ</string>
+    <string name="cta_start_journey">Hãy bắt đầu hành trình xanh của bạn hôm nay.</string>
+    <string name="cta_explore_desc">Khám phá bộ sưu tập bonsai phù hợp với phong cách sống của bạn.</string>
+
+    <!-- Change Password Strings -->
+    <string name="change_password_title">Đổi mật khẩu</string>
+    <string name="set_new_password">Đặt mật khẩu mới</string>
+    <string name="password_requirement">Mật khẩu mới ít nhất 6 ký tự để đảm bảo an toàn</string>
+    <string name="current_password_label">Mật khẩu hiện tại</string>
+    <string name="hint_current_password">Nhập mật khẩu hiện tại</string>
+    <string name="new_password_label">Mật khẩu mới</string>
+    <string name="hint_new_password">Nhập mật khẩu mới (≥ 6 ký tự)</string>
+    <string name="confirm_new_password_label">Xác nhận mật khẩu mới</string>
+    <string name="hint_confirm_new_password">Nhập lại mật khẩu mới</string>
+    <string name="cancel_button">Hủy</string>
+
+    <!-- Edit Profile Strings -->
+    <string name="edit_profile_title">Chỉnh sửa hồ sơ</string>
+    <string name="avatar_label">Ảnh đại diện</string>
+    <string name="full_name_label">Họ và tên</string>
+    <string name="hint_full_name">Nhập họ và tên</string>
+    <string name="email_readonly_label">Email (không sửa được)</string>
+    <string name="phone_label">Số điện thoại</string>
+    <string name="hint_phone">Nhập số điện thoại</string>
+    <string name="address_label">Địa chỉ</string>
+    <string name="hint_address_detail">Nhập địa chỉ chi tiết</string>
+    <string name="save_changes_button">Lưu thay đổi</string>
+
+    <!-- Select Address Strings -->
+    <string name="no_addresses">Chưa có địa chỉ nào</string>
+    <string name="add_first_address_hint">Thêm địa chỉ đầu tiên để bắt đầu đặt cây cảnh</string>
+    <string name="add_new_action">Thêm mới</string>
+    <string name="confirm_action">Xác nhận</string>
+    <string name="set_default_action">Đặt mặc định</string>
+    <string name="delete_action">Xóa</string>
+
+    <!-- Dialog Add Address Strings -->
+    <string name="add_new_address_title">Thêm địa chỉ mới</string>
+    <string name="receiver_name_label">Tên người nhận *</string>
+    <string name="hint_receiver_name">VD: Nguyễn Văn A</string>
+    <string name="phone_required_label">Số điện thoại *</string>
+    <string name="hint_phone_example">VD: 0901234567</string>
+    <string name="address_detail_required_label">Địa chỉ chi tiết *</string>
+    <string name="hint_address_full">Số nhà, đường, phường/xã, quận/huyện, tỉnh/TP</string>
+    <string name="set_as_default">Đặt làm địa chỉ mặc định</string>
+
+    <!-- Forgot Password Strings -->
+    <string name="recover_password">Khôi phục mật khẩu</string>
+    <string name="forgot_password_desc">Nhập email đã đăng ký, chúng tôi sẽ gửi link đặt lại mật khẩu vào hộp thư của bạn.</string>
+    <string name="hint_registered_email">Nhập email đã đăng ký</string>
+    <string name="send_reset_button">Gửi email đặt lại mật khẩu</string>
+    <string name="back_to_login">Quay lại đăng nhập</string>
+
+    <!-- Payment Success Strings -->
+    <string name="payment_success_title">Thanh toán thành công!</string>
+    <string name="payment_success_desc">Cảm ơn bạn đã tin tưởng và mua sắm tại Bonsai Shop. Đơn hàng của bạn đang được xử lý.</string>
+    <string name="view_order_details">Xem chi tiết đơn hàng</string>
+    <string name="continue_shopping">Tiếp tục mua sắm</string>
+
+    <!-- Payment Method Strings -->
+    <string name="select_payment_method">Chọn phương thức thanh toán</string>
+    <string name="payment_method_desc">Bạn có thể thanh toán khi nhận hàng hoặc chuyển khoản trước</string>
+    <string name="cod_full_label">Thanh toán khi nhận hàng (COD)</string>
+    <string name="cod_desc">Trả tiền mặt cho người giao hàng</string>
+    <string name="bank_transfer_label">Chuyển khoản ngân hàng</string>
+    <string name="bank_transfer_desc">Chuyển khoản trước khi giao hàng</string>
+    <string name="bank_transfer_info">THÔNG TIN CHUYỂN KHOẢN</string>
+    <string name="bank_label">Ngân hàng</string>
+    <string name="account_number_label">Số tài khoản</string>
+    <string name="account_holder_label">Chủ tài khoản</string>
+    <string name="bank_transfer_note">Nội dung chuyển khoản: BONSAI + Mã đơn hàng</string>
+
+    <!-- Refund Strings -->
+    <string name="refund_request_title">Yêu cầu Trả hàng/Hoàn tiền</string>
+    <string name="product_variant_label">Phân loại hàng</string>
+    <string name="reason_label">Lý do *</string>
+    <string name="select_reason_hint">Chọn lý do</string>
+    <string name="solution_label">Phương án *</string>
+    <string name="total_refund_amount">Tổng tiền hoàn</string>
+    <string name="price_after_promo">Giá sản phẩm sau khuyến mãi</string>
+    <string name="description_label">Mô tả</string>
+    <string name="hint_additional_notes">Ghi chú thêm</string>
+    <string name="submit_request_button">Gửi yêu cầu</string>
+    <string name="refund_selection_title">Tình huống bạn đang gặp?</string>
+    <string name="received_issue_title">Đã nhận hàng nhưng có vấn đề (Cây bị héo, gãy cành, vỡ chậu, sai mẫu...) - Miễn ship hoàn về</string>
+    <string name="received_issue_note">Lưu ý: Đối với cây cảnh, vui lòng cung cấp video khui hàng để Bonsai Shop hỗ trợ tốt nhất.</string>
+    <string name="not_received_title">Chưa nhận được cây hoặc thiếu phụ kiện (phân bón, dụng cụ)</string>
+    <string name="not_received_note">Lưu ý: Thời gian giao cây quá lâu ảnh hưởng đến sức khỏe cây, bạn có quyền từ chối nhận.</string>
+
+    <!-- Register Error Strings -->
+    <string name="str_error_phone">Vui lòng nhập số điện thoại hợp lệ</string>
+    <string name="str_error_name">Vui lòng nhập họ tên</string>
+    <string name="str_error_password_length">Mật khẩu phải có ít nhất 6 ký tự</string>
+    <string name="str_error_password_mismatch">Mật khẩu nhập lại không khớp</string>
+    <string name="str_error_terms">Vui lòng đồng ý điều khoản</string>
+    <string name="str_register_failed">Đăng ký thất bại</string>
+    <string name="str_error_firebase_user">Không lấy được tài khoản vừa tạo</string>
+    <string name="str_error_save_user">Không lưu được thông tin người dùng</string>
+    <string name="str_error_user_not_found">Không tìm thay thông tin người dùng</string>
+    <string name="str_error_invalid_data">Dữ liệu không hợp lệ</string>
+    <string name="str_error_load_failed">Lỗi tải dữ liệu</string>
+
+    <!-- Localization -->
+    <string name="str_filter_all_caps">TẤT CẢ</string>
+    <string name="str_login_required_purchase">Vui lòng đăng nhập để mua hàng</string>
+    <string name="str_default_product_desc">Bonsai nghệ thuật</string>
+    <string name="addr_hint_province">-- Chọn Tỉnh/Thành phố --</string>
+    <string name="addr_hint_district">-- Chọn Quận/Huyện --</string>
+    <string name="addr_hint_ward">-- Chọn Phường/Xã --</string>
+    <string name="addr_hint_select_province_first">-- Chọn Tỉnh/TP trước --</string>
+    <string name="addr_hint_select_district_first">-- Chọn Quận/Huyện trước --</string>
+    <string name="loading_hint">-- Đang tải... --</string>
+    <string name="addr_select_province_required">Vui lòng chọn Tỉnh/Thành phố</string>
+    <string name="addr_select_district_required">Vui lòng chọn Quận/Huyện</string>
+    <string name="addr_select_ward_required">Vui lòng chọn Phường/Xã</string>
+    <string name="addr_err_detail_required">Vui lòng nhập địa chỉ cụ thể</string>
+    <string name="notification_order_detail_btn">Xem chi tiết đơn hàng</string>
+    <string name="notification_promo_btn">Dùng ngay</string>
+    <string name="notification_product_btn">Xem sản phẩm</string>
+    <string name="img_hero_bonsai_desc">Hình ảnh Bonsai nổi bật</string>
+    <string name="str_not_found">Không tìm thấy sản phẩm</string>
+    <!-- Banner -->
+    <string name="banner1_tag">BỘ SƯU TẬP MỚI</string>
+    <string name="banner1_title">Bonsai Thiên Nhiên</string>
+    <string name="banner1_desc">Mang vẻ đẹp tự nhiên vào không gian sống của bạn</string>
+    <string name="banner2_tag">PHONG CÁCH NHẬT BẢN</string>
+    <string name="banner2_title">Nghệ Thuật Wabi-Sabi</string>
+    <string name="banner2_desc">Sự hoàn hảo trong từng đường nét giản dị</string>
+    <string name="banner3_tag">CHĂM SÓC DỄ DÀNG</string>
+    <string name="banner3_title">Cây Cho Người Mới</string>
+    <string name="banner3_desc">Bắt đầu hành trình bonsai của bạn hôm nay</string>
+    <string name="banner4_tag">HIẾM &amp; ĐỘC ĐÁO</string>
+    <string name="banner4_title">Bộ Sưu Tập Quý Hiếm</string>
+    <string name="banner4_desc">Những loài bonsai độc đáo dành cho người sành</string>
+    <!-- Reviews -->
+    <string name="review1_name">Nguyễn Văn A</string>
+    <string name="review1_text">Cây rất đẹp, đóng gói cẩn thận, giao hàng nhanh. Rất hài lòng!</string>
+    <string name="review1_date">01/06/2025</string>
+    <string name="review2_name">Trần Thị B</string>
+    <string name="review2_text">Bonsai chất lượng cao, trồng 2 tuần vẫn xanh tốt. Shop tư vấn nhiệt tình.</string>
+    <string name="review2_date">05/06/2025</string>
+    <string name="review3_name">Lê Minh C</string>
+    <string name="review3_text">Sản phẩm đúng như mô tả, giá hợp lý. Sẽ mua thêm lần sau.</string>
+    <string name="review3_date">10/06/2025</string>
+    <string name="review4_name">Phạm Thu D</string>
+    <string name="review4_text">Cây đến trong tình trạng hoàn hảo. Nhân viên hỗ trợ rất tốt!</string>
+    <!-- Home screen -->
+    <string name="str_greeting">CHÀO BUỔI CHIỀU,</string>
+    <string name="str_default_username">Người yêu Bonsai</string>
+    <string name="cat_indoor">Bonsai trong nhà</string>
+    <string name="cat_outdoor">Bonsai ngoài trời</string>
+    <string name="cat_beginner">Cây cho người mới</string>
+    <string name="cat_rare">Bộ sưu tập hiếm</string>
+    <string name="str_best_sellers">Bán chạy nhất</string>
+    <string name="str_view_all">Xem tất cả</string>
+    <string name="str_new_arrivals">Hàng mới về</string>
+    <string name="str_customer_reviews">Khách hàng nói gì về Bonsai</string>
+    <string name="str_cta_headline">Bonsai ơi,</string>
+    <string name="str_cta_subheadline">Bắt đầu hành trình của bạn ngay!</string>
+    <string name="hint_search_products">Tìm kiếm cây cảnh yêu thích...</string>
+    <!-- Cart screen -->
+    <string name="str_cart_empty">Giỏ hàng của bạn đang trống</string>
+    <string name="str_cart_empty_desc">Hãy khám phá và thêm sản phẩm bạn yêu thích vào giỏ nhé!</string>
+    <string name="str_explore_products">Khám phá sản phẩm</string>
+    <!-- Checkout -->
+    <string name="str_add_shipping_address">+ Thêm địa chỉ nhận hàng</string>
+    <!-- Product detail -->
+    <string name="str_size_label">KÍCH THƯỚC</string>
+    <string name="str_product_desc_placeholder">Mô tả sản phẩm...</string>
+    <!-- Profile -->
+    <string name="str_logout_confirm">Bạn có chắc muốn đăng xuất không?</string>
+    <!-- Register -->
+    <string name="str_select_gender">Chọn giới tính</string>
+    <string name="str_gender_male">Nam</string>
+    <string name="str_gender_female">Nữ</string>
+    <string name="str_gender_other">Khác</string>
+    <string name="str_register_success_title">Đăng ký thành công!</string>
+    <string name="str_register_success_msg">Tài khoản của bạn đã được tạo. Vui lòng đăng nhập để tiếp tục.</string>
+    <string name="str_login_now">Đăng nhập ngay</string>
+    <!-- Refund reasons -->
+    <string name="str_refund_reason1">Cây bị héo, khô hoặc chết</string>
+    <string name="str_refund_reason2">Cây bị gãy cành, rụng lá nghiêm trọng</string>
+    <string name="str_refund_reason3">Chậu sứ bị vỡ, nứt</string>
+    <string name="str_refund_reason4">Cây không đúng kích thước/dáng thế</string>
+    <string name="str_refund_reason5">Giao sai loại cây</string>
+    <string name="str_refund_solution1">Hoàn tiền &amp; Trả cây</string>
+    <string name="str_refund_solution2">Hoàn tiền ngay (Không trả cây)</string>
+    <string name="str_refund_solution3">Đổi cây mới (Gửi bù cây khác)</string>
+    <string name="str_refund_reason_placeholder">Chọn lý do</string>
+    <!-- Notification time -->
+    <string name="str_just_now">Vừa xong</string>
+    <string name="str_minutes_ago"> phút trước</string>
+    <string name="str_hours_ago"> giờ trước</string>
+    <!-- Adapter defaults -->
+    <string name="str_all_category">Tất cả</string>
+    <string name="str_species_default">Bonsai</string>
+    <string name="str_age_default">Nghệ thuật</string>
+    <string name="str_quantity_prefix">x</string>
+    <!-- About team -->
+    <string name="about_member1_name">Bích Nga</string>
+    <string name="about_member1_role">UI/UX Designer</string>
+    <string name="about_member2_name">Hoàng Sang</string>
+    <string name="about_member2_role">Bonsai Care</string>
+    <string name="about_member3_name">Khánh Ly</string>
+    <string name="about_member3_role">Nature Brand</string>
+    <string name="about_member4_name">Cẩm Đào</string>
+    <string name="about_member4_role">Developer</string>
+    <string name="review4_date">15/06/2025</string>
+    <!-- Address form labels -->
+    <string name="addr_label_province">Tỉnh / Thành phố *</string>
+    <string name="addr_label_district">Quận / Huyện *</string>
+    <string name="addr_label_ward">Phường / Xã *</string>
+    <string name="addr_label_detail">Địa chỉ cụ thể *</string>
+    <!-- Refund success dialog -->
+    <string name="refund_success_title">Gửi yêu cầu thành công!</string>
+    <string name="refund_success_msg">Shop đã nhận được yêu cầu của bạn và sẽ xem xét, phản hồi trong vòng 1–3 ngày làm việc.</string>
+    <string name="refund_success_btn">Về trang chủ</string>
+    <!-- Notification messages -->
+    <string name="notif_order_placed_title">Đặt hàng thành công! 🎉</string>
+    <string name="notif_order_placed_msg">Đơn hàng #%1$s đã được tiếp nhận. Chúng tôi sẽ xử lý trong thời gian sớm nhất.</string>
+    <string name="notif_order_confirmed_title">Đơn hàng đã được xác nhận</string>
+    <string name="notif_order_confirmed_msg">Đơn #%1$s đã được cửa hàng xác nhận và đang chuẩn bị.</string>
+    <string name="notif_order_shipping_title">Đơn hàng đang giao</string>
+    <string name="notif_order_shipping_msg">Đơn #%1$s đang trên đường đến bạn. Vui lòng chú ý điện thoại!</string>
+    <string name="notif_order_delivered_title">Giao hàng thành công</string>
+    <string name="notif_order_delivered_msg">Đơn #%1$s đã giao thành công. Cảm ơn bạn đã tin tưởng Ponsai!</string>
+    <string name="notif_order_cancelled_title">Đơn hàng đã bị huỷ</string>
+    <string name="notif_order_cancelled_msg">Đơn #%1$s đã được huỷ. Liên hệ hỗ trợ nếu cần thêm thông tin.</string>
+    <string name="notif_order_updated_title">Cập nhật đơn hàng</string>
+    <string name="notif_order_updated_msg">Đơn #%1$s vừa có cập nhật mới.</string>
+    <string name="str_shop_name">Ponsai Shop</string>
+    <string name="str_chat_online">Đang hoạt động</string>
+    <string name="str_chat_hint">Nhắn tin với shop...</string>
+    <string name="str_chat_send">Gửi</string>
+    <string name="str_chat_attach">Đính kèm ảnh</string>
+    <string name="str_chat_with_shop">Nhắn tin với shop</string>
+    <string name="str_asking_about">Bạn đang hỏi về sản phẩm này</string>
+    <string name="str_cancel_order">Huỷ đơn hàng</string>
+    <string name="str_cancel_order_title">Huỷ đơn hàng</string>
+    <string name="str_cancel_reason_hint">Chọn lý do huỷ đơn...</string>
+    <string name="str_cancel_reason1">Tôi muốn thay đổi địa chỉ giao hàng</string>
+    <string name="str_cancel_reason2">Tôi muốn thay đổi sản phẩm</string>
+    <string name="str_cancel_reason3">Tôi tìm được nơi mua rẻ hơn</string>
+    <string name="str_cancel_reason4">Tôi đặt nhầm sản phẩm</string>
+    <string name="str_cancel_reason5">Tôi không muốn mua nữa</string>
+    <string name="str_cancel_confirm_btn">Xác nhận huỷ đơn</string>
+    <string name="str_cancel_success">Đơn hàng đã được huỷ thành công</string>
+    <string name="str_cancel_select_reason">Vui lòng chọn lý do huỷ</string>
+    <string name="str_menu_orders">Đơn hàng</string>
+    <string name="str_orders_title">Theo dõi đơn hàng</string>
+    <string name="str_tab_all">Tất cả</string>
+    <string name="str_tab_pending">Chờ xác nhận</string>
+    <string name="str_tab_processing">Chờ lấy hàng</string>
+    <string name="str_tab_shipped">Chờ giao hàng</string>
+    <string name="str_tab_delivered">Đã giao</string>
+    <string name="str_tab_refund">Trả hàng</string>
+    <string name="str_tab_cancelled">Đã huỷ</string>
+    <string name="str_order_empty">Không có đơn hàng nào</string>
+    <string name="str_uploading_avatar">Đang tải ảnh lên...</string>
+    <string name="str_avatar_updated">Cập nhật ảnh đại diện thành công!</string>
+    <string name="str_avatar_upload_failed">Tải ảnh thất bại: %1$s</string>
 </resources>

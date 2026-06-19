@@ -1,8 +1,19 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.FinalApp" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.FinalApp" parent="Theme.Material3.Light.NoActionBar">
         <!-- Customize your light theme here. -->
         <item name="colorPrimary">@color/primary</item>
+        <item name="colorOnPrimary">@color/toolbar_content</item>
+        <item name="colorPrimaryContainer">@color/primary_variant</item>
+        <item name="colorSecondary">@color/primary</item>
+        <item name="colorOnSecondary">@color/toolbar_content</item>
+        <item name="colorSecondaryContainer">@color/primary_variant</item>
+        <item name="colorTertiary">@color/primary</item>
+        <item name="colorControlActivated">@color/primary</item>
+        <item name="colorControlHighlight">@color/primary_variant</item>
+        <item name="android:colorAccent">@color/primary</item>
+        <item name="android:statusBarColor">@color/toolbar_background</item>
+        <item name="android:navigationBarColor">@color/background</item>
         <item name="android:windowBackground">@color/background</item>
 
         <!-- Thiết lập font mặc định cho toàn App -->
@@ -10,7 +21,8 @@
         <item name="textAppearanceBodyMedium">@style/TextAppearance.App.Content</item>
     </style>
 
-    <style name="Theme.FinalApp" parent="Base.Theme.FinalApp" />
+    <style name="Theme.FinalApp" parent="Base.Theme.FinalApp">
+    </style>
 
     <!-- Button Style -->
     <style name="Widget.App.Button" parent="Widget.Material3.Button">

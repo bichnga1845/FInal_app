@@ -36,8 +36,8 @@
         android:layout_height="42dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="52dp"
-        android:background="@mipmap/ic_back"
-        android:padding="11dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="8dp"
         android:src="@drawable/ic_arrow_back_black_24"
         android:tint="@android:color/white"
         app:layout_constraintStart_toStartOf="parent"
@@ -253,39 +253,6 @@
                         tools:ignore="UseAppTint" />
                 </FrameLayout>
 
-                <TextView
-                    android:id="@+id/txtProvinceLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/str_province"
-                    android:textColor="@color/primary"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_marginTop="8dp"
-                    android:background="@drawable/bg_input">
-
-                    <Spinner
-                        android:id="@+id/spinnerProvince"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@android:color/transparent"
-                        android:paddingHorizontal="16dp"
-                        android:spinnerMode="dropdown" />
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_gravity="end|center_vertical"
-                        android:layout_marginEnd="16dp"
-                        android:src="@drawable/mtrl_ic_arrow_drop_down"
-                        android:tint="@color/primary"
-                        tools:ignore="UseAppTint" />
-                </FrameLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -405,22 +372,6 @@
                     android:textSize="16sp"
                     tools:ignore="Autofill" />
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="28dp">
-
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:text="@string/str_expand"
-                        android:textColor="@color/timestamp"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-                </RelativeLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -446,17 +397,18 @@
                         android:textSize="13sp" />
                 </LinearLayout>
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btnRegister"
+                    style="@style/Widget.AppCompat.Button"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_marginTop="28dp"
-                    android:background="@drawable/bg_button_primary"
+                    android:background="@drawable/bg_button_green"
                     android:elevation="4dp"
                     android:stateListAnimator="@null"
                     android:text="@string/str_register_btn"
-                    android:textAllCaps="false"
-                    android:textColor="@color/primary"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 

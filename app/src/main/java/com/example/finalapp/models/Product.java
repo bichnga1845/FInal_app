@@ -1,25 +1,29 @@
 package com.example.finalapp.models;
 
+import android.content.Context;
+
 import com.google.firebase.database.IgnoreExtraProperties;
+
+import java.util.Locale;
 
 @IgnoreExtraProperties
 public class Product {
     public String id;
     public String name;
+    public String nameVi;
     public String description;
+    public String descriptionVi;
     public double price;
     
     public double originalPrice;
     public double oldPrice;
 
-    public static final double EXCHANGE_RATE = 25000;
-
     public double getVndPrice() {
-        return price * EXCHANGE_RATE;
+        return price;
     }
 
     public double getVndOldPrice() {
-        return getOldPrice() * EXCHANGE_RATE;
+        return getOldPrice();
     }
 
     public String primaryImage;
@@ -37,12 +41,36 @@ public class Product {
     public String careLevel;
     public String waterInfo;
     public String lightInfo;
+    public String size; // kích thước chậu (VD: "5cm", "15 x 10cm")
+
+    public boolean isPot() {
+        String cat = getCategoryId().toLowerCase();
+        String n = (name != null ? name : "").toLowerCase();
+        return cat.contains("pot") || cat.contains("chậu") || cat.contains("dish") || cat.contains("bowl")
+            || n.contains(" pot ") || n.contains(" pot\n") || n.endsWith(" pot")
+            || n.contains("dish") || n.contains("stoneware") || n.contains("ceramic pot")
+            || n.contains("bonsai pot") || n.contains("cube pot");
+    }
 
     public Product() {}
 
     public String getId() { return id; }
     public String getName() { return name; }
     public double getPrice() { return price; }
+
+    public String getLocalizedName() {
+        if (isVietnamese() && nameVi != null && !nameVi.isEmpty()) return nameVi;
+        return name != null ? name : "";
+    }
+
+    public String getLocalizedDescription() {
+        if (isVietnamese() && descriptionVi != null && !descriptionVi.isEmpty()) return descriptionVi;
+        return description != null ? description : "";
+    }
+
+    private static boolean isVietnamese() {
+        return Locale.getDefault().getLanguage().equals("vi");
+    }
 
     public String getImageUrl() {
         // Check primaryImage first, then imageUrl, then image_url

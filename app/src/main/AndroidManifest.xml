@@ -20,9 +20,7 @@
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
+
         <activity
             android:name=".ProductActivity"
             android:exported="false" />
@@ -31,7 +29,8 @@
             android:exported="false" />
         <activity
             android:name=".MainFinalActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ProductDetailActivity"
             android:exported="false" />
@@ -80,10 +79,23 @@
             android:name=".OrderDetailActivity"
             android:exported="false" />
         <activity
+            android:name=".OrderTrackingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CancelOrderActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ChatActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
             android:name=".RefundSelectionActivity"
             android:exported="false" />
         <activity
             android:name=".RefundRequestActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CategoryProductActivity"
             android:exported="false" />
     </application>
 

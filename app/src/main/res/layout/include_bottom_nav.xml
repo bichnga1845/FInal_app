@@ -2,18 +2,6 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!-- Floating Cart FAB -->
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabCart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="24dp"
-        android:src="@drawable/ic_shopping_cart"
-        app:backgroundTint="@color/primary"
-        app:layout_constraintBottom_toTopOf="@id/bottomNavCard"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:tint="@color/white" />
-
     <!-- Floating Custom Bottom Nav -->
     <androidx.cardview.widget.CardView
         android:id="@+id/bottomNavCard"
@@ -30,6 +18,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="horizontal"
+            android:background="#546B41"
             android:paddingHorizontal="16dp">
 
             <LinearLayout
@@ -38,17 +27,23 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@mipmap/ic_homepage"
-                    app:tint="#888888" />
+                    android:duplicateParentState="true"
+                    app:tint="@color/bottom_nav_item"
+                    android:contentDescription="@string/nav_home" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Trang chủ"
-                    android:textColor="#888888"
+                    android:text="@string/nav_home"
+                    android:duplicateParentState="true"
+                    android:textColor="@color/bottom_nav_item"
                     android:textSize="10sp" />
             </LinearLayout>
 
@@ -58,17 +53,23 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@mipmap/ic_category_bonsai_trees"
-                    app:tint="#888888" />
+                    android:duplicateParentState="true"
+                    app:tint="@color/bottom_nav_item"
+                    android:contentDescription="@string/nav_shop" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cửa hàng"
-                    android:textColor="#888888"
+                    android:text="@string/nav_shop"
+                    android:duplicateParentState="true"
+                    android:textColor="@color/bottom_nav_item"
                     android:textSize="10sp" />
             </LinearLayout>
 
@@ -78,17 +79,23 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/ic_shopping_cart"
-                    app:tint="#888888" />
+                    android:duplicateParentState="true"
+                    app:tint="@color/bottom_nav_item"
+                    android:contentDescription="@string/nav_cart" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Giỏ hàng"
-                    android:textColor="#888888"
+                    android:text="@string/nav_cart"
+                    android:duplicateParentState="true"
+                    android:textColor="@color/bottom_nav_item"
                     android:textSize="10sp" />
             </LinearLayout>
 
@@ -98,17 +105,23 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@mipmap/ic_about_us"
-                    app:tint="#888888" />
+                    android:duplicateParentState="true"
+                    app:tint="@color/bottom_nav_item"
+                    android:contentDescription="@string/nav_community" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cộng đồng"
-                    android:textColor="#888888"
+                    android:text="@string/nav_community"
+                    android:duplicateParentState="true"
+                    android:textColor="@color/bottom_nav_item"
                     android:textSize="10sp" />
             </LinearLayout>
 
@@ -118,17 +131,23 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@mipmap/ic_account"
-                    app:tint="#888888" />
+                    android:duplicateParentState="true"
+                    app:tint="@color/bottom_nav_item"
+                    android:contentDescription="@string/nav_profile" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cá nhân"
-                    android:textColor="#888888"
+                    android:text="@string/nav_profile"
+                    android:duplicateParentState="true"
+                    android:textColor="@color/bottom_nav_item"
                     android:textSize="10sp" />
             </LinearLayout>
 

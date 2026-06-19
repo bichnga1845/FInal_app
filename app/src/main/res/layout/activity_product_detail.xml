@@ -1,15 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FAF9F6">
 
-    <androidx.core.widget.NestedScrollView
+    <!-- Fixed top bar: back + cart icons -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutDetailTopBar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:layout_height="56dp"
+        android:paddingHorizontal="16dp"
+        android:background="@android:color/transparent"
+        android:elevation="4dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@drawable/bg_badge_soft"
+            android:padding="8dp"
+            android:src="@drawable/ic_arrow_back"
+            app:tint="@color/primary"
+            android:contentDescription="@string/product_cart_desc"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <!-- Nút chat với shop -->
+        <ImageView
+            android:id="@+id/btnChatDetail"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@drawable/bg_badge_soft"
+            android:padding="8dp"
+            android:src="@drawable/ic_chat"
+            app:tint="@color/primary"
+            android:contentDescription="@string/str_chat_with_shop"
+            app:layout_constraintEnd_toStartOf="@id/btnCartDetail"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="10dp"/>
+
+        <ImageView
+            android:id="@+id/btnCartDetail"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@drawable/bg_badge_soft"
+            android:padding="8dp"
+            android:src="@drawable/ic_shopping_cart"
+            app:tint="@color/primary"
+            android:contentDescription="@string/product_cart_desc"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollDetail"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -19,39 +78,16 @@
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="350dp">
+                android:layout_height="300dp">
 
                 <ImageView
                     android:id="@+id/imgProductLarge"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@mipmap/ic_banner" />
+                    android:src="@mipmap/ic_banner"
+                    android:contentDescription="@string/product_logo_desc" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_gravity="top"
-                    android:background="@drawable/bg_hero_overlay" />
-
-                <ImageButton
-                    android:id="@+id/btnBack"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_margin="16dp"
-                    android:background="@drawable/bg_avatar_circle"
-                    android:src="@android:drawable/ic_menu_revert"
-                    app:tint="@color/primary" />
-
-                <ImageButton
-                    android:id="@+id/btnFavorite"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="end"
-                    android:layout_margin="16dp"
-                    android:background="@drawable/bg_avatar_circle"
-                    android:src="@android:drawable/btn_star"
-                    app:tint="@color/primary" />
             </FrameLayout>
 
             <androidx.cardview.widget.CardView
@@ -60,7 +96,8 @@
                 android:layout_marginTop="-40dp"
                 android:layout_marginHorizontal="16dp"
                 app:cardCornerRadius="32dp"
-                app:cardElevation="4dp">
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="#FFF8EC">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -82,7 +119,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="BỘ SƯU TẬP CAO CẤP"
+                                android:text="@string/premium_collection"
                                 android:textColor="@color/tab_inactive"
                                 android:textSize="10sp"
                                 android:textStyle="bold" />
@@ -93,7 +130,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="4dp"
                                 android:fontFamily="sans-serif-black"
-                                android:text="Shimpaku Juniper"
+                                tools:text="Shimpaku Juniper"
                                 android:textColor="@color/text_main"
                                 android:textSize="24sp" />
 
@@ -101,7 +138,7 @@
                                 android:id="@+id/txtDetailSpecies"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Loài: Juniperus chinensis"
+                                tools:text="Loài: Juniperus chinensis"
                                 android:textColor="@color/text_description"
                                 android:textSize="12sp" />
                         </LinearLayout>
@@ -119,7 +156,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="sans-serif-black"
-                                android:text="$1,250"
+                                tools:text="$1,250"
                                 android:textColor="@color/primary"
                                 android:textSize="20sp" />
 
@@ -127,7 +164,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:gravity="end"
-                                android:text="Bao gồm phí vận\nchuyển"
+                                android:text="@string/shipping_included"
                                 android:textColor="@color/placeholder"
                                 android:textSize="9sp" />
                         </LinearLayout>
@@ -139,7 +176,9 @@
                         android:layout_marginVertical="20dp"
                         android:background="#F0F0F0" />
 
+                    <!-- Stats cho Bonsai: Tuổi / Chiều cao / Độ khó -->
                     <LinearLayout
+                        android:id="@+id/layoutBonsaiStats"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
@@ -154,11 +193,12 @@
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
                                 android:src="@mipmap/ic_about_us"
-                                app:tint="@color/primary_variant" />
+                                app:tint="@color/primary_variant"
+                                android:contentDescription="@string/age_label" />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="TUỔI"
+                                android:text="@string/age_label"
                                 android:textColor="@color/placeholder"
                                 android:textSize="9sp" />
                             <TextView
@@ -180,11 +220,12 @@
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
                                 android:src="@mipmap/ic_category_bonsai_trees"
-                                app:tint="@color/primary_variant" />
+                                app:tint="@color/primary_variant"
+                                android:contentDescription="@string/height_label" />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="CHIỀU CAO"
+                                android:text="@string/height_label"
                                 android:textColor="@color/placeholder"
                                 android:textSize="9sp" />
                             <TextView
@@ -206,11 +247,12 @@
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
                                 android:src="@drawable/ic_logo_large"
-                                app:tint="@color/primary_variant" />
+                                app:tint="@color/primary_variant"
+                                android:contentDescription="@string/difficulty_label" />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="ĐỘ KHÓ"
+                                android:text="@string/difficulty_label"
                                 android:textColor="@color/placeholder"
                                 android:textSize="9sp" />
                             <TextView
@@ -218,12 +260,44 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="sans-serif-medium"
-                                android:text="Chuyên gia"
+                                android:text="@string/difficulty_expert"
                                 android:textColor="@color/text_main" />
                         </LinearLayout>
                     </LinearLayout>
 
+                    <!-- Stats cho Chậu: Kích thước -->
                     <LinearLayout
+                        android:id="@+id/layoutPotStats"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+                        <ImageView
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:src="@mipmap/ic_category_bonsai_trees"
+                            app:tint="@color/primary_variant"
+                            android:contentDescription="Kích thước" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="@string/str_size_label"
+                            android:textColor="@color/placeholder"
+                            android:textSize="9sp" />
+                        <TextView
+                            android:id="@+id/txtDetailSize"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-medium"
+                            tools:text="—"
+                            android:textColor="@color/text_main"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layoutWaterLight"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
@@ -242,7 +316,8 @@
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
                                 android:src="@drawable/ic_leaf"
-                                app:tint="@color/primary" />
+                                app:tint="@color/primary"
+                                android:contentDescription="@string/watering_label" />
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -251,7 +326,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Tưới nước"
+                                    android:text="@string/watering_label"
                                     android:textColor="@color/placeholder"
                                     android:textSize="9sp" />
                                 <TextView
@@ -259,7 +334,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="sans-serif-medium"
-                                    android:text="Mỗi 2-3 Ngày"
+                                    android:text="@string/watering_freq"
                                     android:textColor="@color/text_main"
                                     android:textSize="11sp" />
                             </LinearLayout>
@@ -278,7 +353,8 @@
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
                                 android:src="@android:drawable/ic_menu_compass"
-                                app:tint="@color/primary" />
+                                app:tint="@color/primary"
+                                android:contentDescription="@string/light_label" />
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -287,7 +363,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Ánh sáng"
+                                    android:text="@string/light_label"
                                     android:textColor="@color/placeholder"
                                     android:textSize="9sp" />
                                 <TextView
@@ -295,7 +371,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="sans-serif-medium"
-                                    android:text="Toàn phần"
+                                    android:text="@string/light_full"
                                     android:textColor="@color/text_main"
                                     android:textSize="11sp" />
                             </LinearLayout>
@@ -307,7 +383,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="24dp"
                         android:fontFamily="sans-serif-medium"
-                        android:text="Về kiệt tác này"
+                        android:text="@string/about_masterpiece"
                         android:textColor="@color/text_main"
                         android:textSize="16sp" />
 
@@ -317,7 +393,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:lineSpacingExtra="4dp"
-                        android:text="Mô tả sản phẩm..."
+                        android:text="@string/str_product_desc_placeholder"
                         android:textColor="@color/text_description"
                         android:textSize="13sp" />
 
@@ -328,7 +404,7 @@
                         android:layout_marginTop="32dp"
                         android:backgroundTint="@color/primary"
                         android:fontFamily="sans-serif-black"
-                        android:text="THÊM VÀO GIỎ HÀNG"
+                        android:text="@string/add_to_cart"
                         android:textColor="@color/white"
                         app:cornerRadius="16dp" />
 
@@ -340,7 +416,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="24dp"
                 android:fontFamily="sans-serif-medium"
-                android:text="Bonsai liên quan"
+                android:text="@string/related_bonsai"
                 android:textColor="@color/text_main"
                 android:textSize="18sp" />
 
@@ -354,4 +430,4 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

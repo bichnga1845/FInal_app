@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="160dp"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
@@ -26,6 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:background="#FFFFFF"
             android:padding="12dp">
 
             <TextView
@@ -34,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:text="Tên sản phẩm"
+                tools:text="Tên sản phẩm"
                 android:textColor="@color/text_main"
                 android:textSize="14sp"
                 android:textStyle="bold" />
@@ -43,7 +45,7 @@
                 android:id="@+id/txtProductSpecies"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Species"
+                tools:text="Species"
                 android:textColor="@color/placeholder"
                 android:textSize="10sp" />
 

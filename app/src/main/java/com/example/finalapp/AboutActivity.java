@@ -37,7 +37,6 @@ public class AboutActivity extends AppCompatActivity {
     }
 
     private void openCatalog() {
-        startActivity(new Intent(this, MainActivity.class));
-        finish();
+        startActivity(new Intent(this, ProductActivity.class));
     }
 }

@@ -25,13 +25,14 @@
             android:layout_height="48dp"
             android:layout_marginTop="-64dp"
             android:src="@drawable/ic_leaf"
-            app:tint="@color/primary" />
+            app:tint="@color/primary"
+            android:contentDescription="@string/payment_success_title" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="Thanh toán thành công!"
+            android:text="@string/payment_success_title"
             android:textColor="@color/primary"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -41,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:gravity="center"
-            android:text="Cảm ơn bạn đã tin tưởng và mua sắm tại Bonsai Shop. Đơn hàng của bạn đang được xử lý."
+            android:text="@string/payment_success_desc"
             android:textColor="@color/text_description"
             android:textSize="14sp" />
 
@@ -51,7 +52,7 @@
             android:layout_height="54dp"
             android:layout_marginTop="24dp"
             android:backgroundTint="@color/primary"
-            android:text="Xem chi tiết đơn hàng"
+            android:text="@string/view_order_details"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="16sp"
@@ -63,7 +64,7 @@
             android:layout_width="match_parent"
             android:layout_height="54dp"
             android:layout_marginTop="8dp"
-            android:text="Tiếp tục mua sắm"
+            android:text="@string/continue_shopping"
             android:textAllCaps="false"
             android:textColor="@color/primary"
             android:textSize="16sp" />

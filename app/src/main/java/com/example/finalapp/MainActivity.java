@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initViews() {
         txtCurrentCategory = findViewById(R.id.txtCurrentCategoryName);
-        if (txtCurrentCategory != null) txtCurrentCategory.setText("TẤT CẢ");
+        if (txtCurrentCategory != null) txtCurrentCategory.setText(getString(R.string.str_filter_all_caps));
 
         edtSearch = findViewById(R.id.edtSearch);
         setupSearch();
@@ -161,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 categoryList.clear();
                 // Thêm mục "Tất cả" nếu muốn
-                categoryList.add(new Category("all", "Tất cả"));
+                categoryList.add(new Category("all", getString(R.string.str_all_category)));
 
                 Log.d("FirebaseDebug", "========== CATEGORIES DEBUG ==========");
                 for (DataSnapshot data : snapshot.getChildren()) {
@@ -222,14 +222,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupBottomNavigation() {
-        FloatingActionButton fabCart = findViewById(R.id.fabCart);
-        if (fabCart != null) {
-            fabCart.setOnClickListener(v -> {
-                startActivity(new Intent(MainActivity.this, CartActivity.class));
-                overridePendingTransition(0, 0);
-            });
-        }
-
         // Home button
         findViewById(R.id.btnHome).setOnClickListener(v -> {
             startActivity(new Intent(MainActivity.this, MainFinalActivity.class));

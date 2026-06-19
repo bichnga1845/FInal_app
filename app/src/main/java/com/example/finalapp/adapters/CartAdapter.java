@@ -43,12 +43,12 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     public void onBindViewHolder(@NonNull CartViewHolder holder, int position) {
         CartItem item = cartItems.get(position);
         if (item.product != null) {
-            holder.txtName.setText(item.product.getName());
+            holder.txtName.setText(item.product.getLocalizedName());
             
             // Hiển thị mô tả (loài hoặc tuổi cây)
             String desc = (item.product.species != null ? item.product.species : "") + 
                           (item.product.age != null ? ", " + item.product.age : "");
-            holder.txtDesc.setText(desc.isEmpty() ? "Bonsai nghệ thuật" : desc);
+            holder.txtDesc.setText(desc.isEmpty() ? holder.itemView.getContext().getString(R.string.str_default_product_desc) : desc);
             
             DecimalFormat df = new DecimalFormat("#,###đ");
             holder.txtPrice.setText(df.format(item.product.getVndPrice()));

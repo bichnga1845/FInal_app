@@ -11,7 +11,7 @@
         android:id="@+id/imgAboutHero"
         android:layout_width="0dp"
         android:layout_height="360dp"
-        android:contentDescription="Bonsai hero image"
+        android:contentDescription="@string/img_hero_bonsai_desc"
         android:scaleType="centerCrop"
         android:src="@mipmap/ic_banner"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,25 +32,13 @@
         android:layout_height="40dp"
         android:layout_margin="16dp"
         android:background="@drawable/bg_badge_soft"
-        android:contentDescription="Quay lại"
+        android:contentDescription="@string/product_cart_desc"
         android:padding="8dp"
         android:src="@mipmap/ic_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:tint="#546B41" />
 
-    <ImageView
-        android:id="@+id/btnNotify"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_margin="16dp"
-        android:background="@drawable/bg_badge_soft"
-        android:contentDescription="Thông báo"
-        android:padding="8dp"
-        android:src="@mipmap/ic_notify"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tint="#546B41" />
 
     <LinearLayout
         android:layout_width="0dp"
@@ -69,7 +57,8 @@
             android:layout_width="120dp"
             android:layout_height="60dp"
             android:scaleType="fitCenter"
-            android:src="@mipmap/ic_logo_new" />
+            android:src="@mipmap/ic_logo_new"
+            android:contentDescription="@string/product_logo_desc" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -77,7 +66,7 @@
             android:layout_marginTop="12dp"
             android:gravity="center"
             android:letterSpacing="0.08"
-            android:text="Mang nghệ thuật bonsai đến mọi không gian sống."
+            android:text="@string/about_hero_quote"
             android:textColor="#F5EBDD"
             android:textSize="14sp"
             android:textStyle="bold" />
@@ -88,7 +77,7 @@
             android:layout_marginTop="8dp"
             android:gravity="center"
             android:lineSpacingExtra="4dp"
-            android:text="Khám phá những chậu bonsai được tuyển chọn tinh tế để tạo nên góc xanh bình yên, hiện đại và đầy cảm hứng."
+            android:text="@string/about_hero_desc"
             android:textColor="#FFFFFF"
             android:textSize="13sp" />
 
@@ -106,26 +95,35 @@
                 android:background="@drawable/bg_button_primary"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
-                android:text="Khám phá bộ sưu tập"
+                android:text="@string/explore_collection"
                 android:textAllCaps="false"
                 android:textColor="@color/text_button"
                 android:textSize="12sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:maxLines="1"
+                android:ellipsize="end"
+                app:autoSizeTextType="uniform"
+                app:autoSizeMinTextSize="9sp"
+                app:autoSizeMaxTextSize="12sp" />
+
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="0dp" />
 
             <Button
                 android:id="@+id/btnBuyNow"
                 android:layout_width="0dp"
                 android:layout_height="54dp"
-                android:layout_marginStart="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/bg_button_primary"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
-                android:text="Mua ngay"
+                android:text="@string/buy_now"
                 android:textAllCaps="false"
                 android:textColor="@color/text_button"
                 android:textSize="12sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:maxLines="1" />
         </LinearLayout>
     </LinearLayout>
 
@@ -175,7 +173,7 @@
                         android:background="@drawable/bg_badge_soft"
                         android:paddingHorizontal="12dp"
                         android:paddingVertical="6dp"
-                        android:text="OUR STORY"
+                        android:text="@string/our_story_title"
                         android:textColor="@color/primary"
                         android:textSize="11sp"
                         android:textStyle="bold" />
@@ -184,7 +182,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
-                        android:text="Câu chuyện thương hiệu"
+                        android:text="@string/brand_story"
                         android:textColor="@color/text_main"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -194,7 +192,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:lineSpacingExtra="5dp"
-                        android:text="Chúng tôi bắt đầu từ niềm yêu thích những chậu bonsai nhỏ mang lại cảm giác bình yên giữa cuộc sống bận rộn. Ứng dụng này được tạo ra để giúp người trẻ và những người luôn thiếu thời gian có thể dễ dàng khám phá, chọn mua và chăm sóc bonsai theo cách gần gũi nhất."
+                        android:text="@string/brand_story_desc"
                         android:textColor="@color/text_description"
                         android:textSize="14sp" />
 
@@ -205,7 +203,7 @@
                         android:background="@drawable/bg_badge_soft"
                         android:lineSpacingExtra="4dp"
                         android:padding="14dp"
-                        android:text="Mỗi sản phẩm là một câu chuyện nhỏ về sự kiên nhẫn, cân bằng và vẻ đẹp sống chậm."
+                        android:text="@string/brand_story_quote"
                         android:textColor="@color/primary"
                         android:textSize="13sp"
                         android:textStyle="bold" />
@@ -216,7 +214,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:text="Sứ mệnh &amp; Tầm nhìn"
+                android:text="@string/mission_vision"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -254,7 +252,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
-                            android:text="Mission"
+                            android:text="@string/mission_title"
                             android:textColor="@color/text_main"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -263,7 +261,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="Giúp mọi người dễ dàng tiếp cận nghệ thuật bonsai và mang thiên nhiên vào không gian sống hiện đại."
+                            android:text="@string/mission_desc"
                             android:textColor="@color/text_description"
                             android:textSize="13sp" />
                     </LinearLayout>
@@ -294,7 +292,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
-                            android:text="Vision"
+                            android:text="@string/vision_title"
                             android:textColor="@color/text_main"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -303,7 +301,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="Trở thành nền tảng bonsai trực tuyến hàng đầu Việt Nam, nơi nghệ thuật và lối sống xanh gặp nhau."
+                            android:text="@string/vision_desc"
                             android:textColor="@color/text_description"
                             android:textSize="13sp" />
                     </LinearLayout>
@@ -314,7 +312,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:text="Giá trị cốt lõi"
+                android:text="@string/core_values"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -353,7 +351,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="Sustainable Living"
+                            android:text="@string/sustainable_living"
                             android:textColor="@color/text_main"
                             android:textSize="13sp"
                             android:textStyle="bold" />
@@ -363,7 +361,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="6dp"
                             android:gravity="center"
-                            android:text="Ưu tiên cây khỏe, chậu bền vững và lối sống xanh."
+                            android:text="@string/sustainable_desc"
                             android:textColor="@color/text_description"
                             android:textSize="12sp" />
                     </LinearLayout>
@@ -395,7 +393,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="Quality First"
+                            android:text="@string/quality_first"
                             android:textColor="@color/text_main"
                             android:textSize="13sp"
                             android:textStyle="bold" />
@@ -405,7 +403,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="6dp"
                             android:gravity="center"
-                            android:text="Mỗi chậu bonsai đều được chọn lọc và chăm sóc kỹ."
+                            android:text="@string/quality_desc"
                             android:textColor="@color/text_description"
                             android:textSize="12sp" />
                     </LinearLayout>
@@ -446,7 +444,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="Customer Care"
+                            android:text="@string/customer_care"
                             android:textColor="@color/text_main"
                             android:textSize="13sp"
                             android:textStyle="bold" />
@@ -456,7 +454,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="6dp"
                             android:gravity="center"
-                            android:text="Hỗ trợ người mới từ chọn cây đến chăm cây."
+                            android:text="@string/customer_care_desc"
                             android:textColor="@color/text_description"
                             android:textSize="12sp" />
                     </LinearLayout>
@@ -488,7 +486,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="Artistic Lifestyle"
+                            android:text="@string/artistic_lifestyle"
                             android:textColor="@color/text_main"
                             android:textSize="13sp"
                             android:textStyle="bold" />
@@ -498,7 +496,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="6dp"
                             android:gravity="center"
-                            android:text="Bonsai như một phần của phong cách sống tinh tế."
+                            android:text="@string/artistic_desc"
                             android:textColor="@color/text_description"
                             android:textSize="12sp" />
                     </LinearLayout>
@@ -509,7 +507,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:text="Vì sao chọn chúng tôi?"
+                android:text="@string/why_choose_us"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -549,7 +547,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="12dp"
                             android:layout_weight="1"
-                            android:text="Bonsai được chăm sóc kỹ trước khi đến tay bạn"
+                            android:text="@string/benefit_1"
                             android:textColor="@color/text_main"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -580,7 +578,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="12dp"
                             android:layout_weight="1"
-                            android:text="Giao hàng an toàn, hạn chế tối đa rung lắc"
+                            android:text="@string/benefit_2"
                             android:textColor="@color/text_main"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -611,7 +609,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="12dp"
                             android:layout_weight="1"
-                            android:text="Hướng dẫn chăm cây cho người mới bắt đầu"
+                            android:text="@string/benefit_3"
                             android:textColor="@color/text_main"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -642,7 +640,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="12dp"
                             android:layout_weight="1"
-                            android:text="Tư vấn tận tâm để chọn bonsai phù hợp không gian"
+                            android:text="@string/benefit_4"
                             android:textColor="@color/text_main"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -654,7 +652,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:text="Meet Our Team"
+                android:text="@string/meet_our_team"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -694,7 +692,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
-                            android:text="Bích Nga"
+                            android:text="@string/about_member1_name"
                             android:textColor="@color/white"
                             android:textSize="15sp"
                             android:textStyle="bold" />
@@ -702,7 +700,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="UI/UX Designer"
+                            android:text="@string/about_member1_role"
                             android:textColor="#DCCCAC"
                             android:textSize="12sp" />
                     </LinearLayout>
@@ -729,7 +727,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
-                            android:text="Hoàng Sang"
+                            android:text="@string/about_member2_name"
                             android:textColor="@color/white"
                             android:textSize="15sp"
                             android:textStyle="bold" />
@@ -737,7 +735,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Bonsai Care"
+                            android:text="@string/about_member2_role"
                             android:textColor="#DCCCAC"
                             android:textSize="12sp" />
                     </LinearLayout>
@@ -773,7 +771,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
-                            android:text="Khánh Ly"
+                            android:text="@string/about_member3_name"
                             android:textColor="@color/white"
                             android:textSize="15sp"
                             android:textStyle="bold" />
@@ -781,7 +779,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Nature Brand"
+                            android:text="@string/about_member3_role"
                             android:textColor="#DCCCAC"
                             android:textSize="12sp" />
                     </LinearLayout>
@@ -808,7 +806,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
-                            android:text="Cẩm Đào"
+                            android:text="@string/about_member4_name"
                             android:textColor="@color/white"
                             android:textSize="15sp"
                             android:textStyle="bold" />
@@ -816,7 +814,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Developer"
+                            android:text="@string/about_member4_role"
                             android:textColor="#DCCCAC"
                             android:textSize="12sp" />
                     </LinearLayout>
@@ -827,7 +825,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:text="Achievements"
+                android:text="@string/achievements"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -868,7 +866,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
-                            android:text="khách hàng"
+                            android:text="@string/customers_count"
                             android:textColor="@color/text_description"
                             android:textSize="12sp" />
                     </LinearLayout>
@@ -902,7 +900,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
-                            android:text="cây đã giao"
+                            android:text="@string/trees_delivered"
                             android:textColor="@color/text_description"
                             android:textSize="12sp" />
                     </LinearLayout>
@@ -945,7 +943,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
-                            android:text="đánh giá trung bình"
+                            android:text="@string/avg_rating"
                             android:textColor="@color/text_description"
                             android:textSize="12sp" />
                     </LinearLayout>
@@ -979,7 +977,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
-                            android:text="tư vấn hỗ trợ"
+                            android:text="@string/support_consult"
                             android:textColor="@color/text_description"
                             android:textSize="12sp" />
                     </LinearLayout>
@@ -1004,7 +1002,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="Hãy bắt đầu hành trình xanh của bạn hôm nay."
+                        android:text="@string/cta_start_journey"
                         android:textColor="@color/white"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -1014,7 +1012,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
                         android:gravity="center"
-                        android:text="Khám phá bộ sưu tập bonsai phù hợp với phong cách sống của bạn."
+                        android:text="@string/cta_explore_desc"
                         android:textColor="#F5EBDD"
                         android:textSize="13sp" />
 
@@ -1025,7 +1023,7 @@
                         android:layout_marginTop="12dp"
                         android:backgroundTint="@color/white"
                         android:paddingVertical="10dp"
-                        android:text="Khám phá bộ sưu tập"
+                        android:text="@string/explore_collection"
                         android:textAllCaps="false"
                         android:textColor="@color/primary"
                         android:textSize="14sp"

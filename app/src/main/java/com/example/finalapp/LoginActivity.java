@@ -3,6 +3,8 @@ package com.example.finalapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Patterns;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,6 +31,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
+        getWindow().setStatusBarColor(getResources().getColor(R.color.primary, getTheme()));
         setContentView(R.layout.activity_login);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -37,10 +40,6 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         auth = FirebaseAuth.getInstance();
-        if (auth.getCurrentUser() != null) {
-            openMainScreen();
-            return;
-        }
 
         edtEmail = findViewById(R.id.edtEmail);
         edtPassword = findViewById(R.id.edtPassword);
@@ -58,6 +57,27 @@ public class LoginActivity extends AppCompatActivity {
         TextView txtSignUp = findViewById(R.id.txtSignUp);
         txtSignUp.setOnClickListener(v ->
                 startActivity(new Intent(LoginActivity.this, RegisterActivity.class)));
+
+        ImageView imgTogglePassword = findViewById(R.id.imgTogglePassword);
+        if (imgTogglePassword != null) {
+            imgTogglePassword.setOnClickListener(v -> {
+                boolean isHidden = edtPassword.getTransformationMethod()
+                        instanceof PasswordTransformationMethod;
+                if (isHidden) {
+                    edtPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    imgTogglePassword.setImageResource(R.drawable.ic_eye_on);
+                } else {
+                    edtPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    imgTogglePassword.setImageResource(R.drawable.ic_eye_off);
+                }
+                edtPassword.setSelection(edtPassword.getText().length());
+            });
+        }
+
+        if (auth.getCurrentUser() != null) {
+            openMainScreen();
+            return;
+        }
     }
 
     private void attemptLogin() {

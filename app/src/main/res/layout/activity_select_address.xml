@@ -28,7 +28,7 @@
             android:background="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"
             android:focusable="true"
-            android:contentDescription="Quay lai"
+            android:contentDescription="@string/product_cart_desc"
             app:tint="@color/toolbar_content"/>
 
         <TextView
@@ -70,7 +70,7 @@
             android:layout_height="80dp"
             android:alpha="0.4"
             android:src="@drawable/ic_menu_address"
-            android:contentDescription="empty"/>
+            android:contentDescription="@string/no_addresses"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -107,6 +107,8 @@
             android:layout_width="0dp"
             android:layout_height="@dimen/button_height"
             android:layout_weight="1"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
             android:text="@string/str_addr_add_new"
             android:textAllCaps="false"
             android:textColor="@color/primary"
@@ -120,6 +122,8 @@
             android:layout_height="@dimen/button_height"
             android:layout_weight="1"
             android:layout_marginStart="12dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
             android:text="@string/str_confirm"
             android:textAllCaps="false"/>
     </LinearLayout>

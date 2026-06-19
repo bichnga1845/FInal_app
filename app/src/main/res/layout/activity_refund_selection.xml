@@ -21,7 +21,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tình huống bạn đang gặp?"
+                android:text="@string/refund_selection_title"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:fontFamily="sans-serif-medium" />
@@ -44,7 +44,8 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/ic_notifications"
-            app:tint="@color/primary" />
+            app:tint="@color/primary"
+            android:contentDescription="@string/received_issue_title" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -56,7 +57,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Đã nhận hàng nhưng có vấn đề (Cây bị héo, gãy cành, vỡ chậu, sai mẫu...) - Miễn ship hoàn về"
+                android:text="@string/received_issue_title"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
 
@@ -64,7 +65,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="Lưu ý: Đối với cây cảnh, vui lòng cung cấp video khui hàng để Bonsai Shop hỗ trợ tốt nhất."
+                android:text="@string/received_issue_note"
                 android:textColor="@color/text_description"
                 android:textSize="12sp" />
         </LinearLayout>
@@ -75,7 +76,8 @@
             android:layout_gravity="center_vertical"
             android:rotation="180"
             android:src="@drawable/ic_arrow_back"
-            app:tint="@color/text_description" />
+            app:tint="@color/text_description"
+            android:contentDescription="@string/product_cart_desc" />
     </LinearLayout>
 
     <LinearLayout
@@ -94,7 +96,8 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/ic_notifications"
-            app:tint="@color/primary" />
+            app:tint="@color/primary"
+            android:contentDescription="@string/not_received_title" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -106,7 +109,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Chưa nhận được cây hoặc thiếu phụ kiện (phân bón, dụng cụ)"
+                android:text="@string/not_received_title"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
 
@@ -114,7 +117,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="Lưu ý: Thời gian giao cây quá lâu ảnh hưởng đến sức khỏe cây, bạn có quyền từ chối nhận."
+                android:text="@string/not_received_note"
                 android:textColor="@color/text_description"
                 android:textSize="12sp" />
         </LinearLayout>
@@ -125,7 +128,8 @@
             android:layout_gravity="center_vertical"
             android:rotation="180"
             android:src="@drawable/ic_arrow_back"
-            app:tint="@color/text_description" />
+            app:tint="@color/text_description"
+            android:contentDescription="@string/product_cart_desc" />
     </LinearLayout>
 
 </LinearLayout>

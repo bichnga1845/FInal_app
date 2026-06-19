@@ -6,8 +6,14 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
+
+import com.example.finalapp.utils.VietnamAddressApi;
+import com.example.finalapp.utils.VietnamAddressApi.Item;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -143,47 +149,142 @@ public class SelectAddressActivity extends AppCompatActivity
                 .inflate(R.layout.dialog_add_address, null, false);
 
         EditText etReceiver = dialogView.findViewById(R.id.et_dlg_receiver);
-        EditText etPhone = dialogView.findViewById(R.id.et_dlg_phone);
-        EditText etDetail = dialogView.findViewById(R.id.et_dlg_detail);
+        EditText etPhone    = dialogView.findViewById(R.id.et_dlg_phone);
+        EditText etDetail   = dialogView.findViewById(R.id.et_dlg_detail);
         MaterialCheckBox cbDefault = dialogView.findViewById(R.id.cb_set_default);
+        Spinner spProvince  = dialogView.findViewById(R.id.spinner_province);
+        Spinner spDistrict  = dialogView.findViewById(R.id.spinner_district);
+        Spinner spWard      = dialogView.findViewById(R.id.spinner_ward);
 
-        // Neu chua co dia chi nao, tu dong tick "mac dinh"
-        if (addressList.isEmpty()) {
-            cbDefault.setChecked(true);
-        }
+        if (addressList.isEmpty()) cbDefault.setChecked(true);
+
+        // State
+        final Item[] selectedProvince = {null};
+        final Item[] selectedDistrict = {null};
+        final Item[] selectedWard     = {null};
+
+        // Placeholder list ban đầu
+        java.util.List<Item> districtHint  = new java.util.ArrayList<>();
+        java.util.List<Item> wardHint      = new java.util.ArrayList<>();
+        districtHint.add(new Item(-1, getString(R.string.addr_hint_select_province_first)));
+        wardHint.add(new Item(-1, getString(R.string.addr_hint_select_district_first)));
+
+        java.util.List<Item> loadingHint = new java.util.ArrayList<>();
+        loadingHint.add(new Item(-1, getString(R.string.loading_hint)));
+        spProvince.setAdapter(spinnerAdapter(loadingHint));
+        spDistrict.setAdapter(spinnerAdapter(districtHint));
+        spWard.setAdapter(spinnerAdapter(wardHint));
+
+        // Load tỉnh thành
+        VietnamAddressApi.getProvinces(provinces -> {
+            java.util.List<Item> list = new java.util.ArrayList<>();
+            list.add(new Item(-1, getString(R.string.addr_hint_province)));
+            list.addAll(provinces);
+            spProvince.setAdapter(spinnerAdapter(list));
+        });
+
+        spProvince.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override public void onNothingSelected(AdapterView<?> p) {}
+            @Override public void onItemSelected(AdapterView<?> p, View v, int pos, long id) {
+                Item item = (Item) p.getItemAtPosition(pos);
+                if (item.code == -1) { selectedProvince[0] = null; return; }
+                selectedProvince[0] = item;
+                selectedDistrict[0] = null;
+                selectedWard[0]     = null;
+                spDistrict.setEnabled(false);
+                spWard.setEnabled(false);
+                java.util.List<Item> loading = new java.util.ArrayList<>();
+                loading.add(new Item(-1, getString(R.string.loading_hint)));
+                spDistrict.setAdapter(spinnerAdapter(loading));
+                spWard.setAdapter(spinnerAdapter(wardHint));
+                VietnamAddressApi.getDistricts(item.code, districts -> {
+                    java.util.List<Item> list = new java.util.ArrayList<>();
+                    list.add(new Item(-1, getString(R.string.addr_hint_district)));
+                    list.addAll(districts);
+                    spDistrict.setAdapter(spinnerAdapter(list));
+                    spDistrict.setEnabled(true);
+                });
+            }
+        });
+
+        spDistrict.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override public void onNothingSelected(AdapterView<?> p) {}
+            @Override public void onItemSelected(AdapterView<?> p, View v, int pos, long id) {
+                Item item = (Item) p.getItemAtPosition(pos);
+                if (item.code == -1) { selectedDistrict[0] = null; return; }
+                selectedDistrict[0] = item;
+                selectedWard[0]     = null;
+                spWard.setEnabled(false);
+                java.util.List<Item> loading = new java.util.ArrayList<>();
+                loading.add(new Item(-1, getString(R.string.loading_hint)));
+                spWard.setAdapter(spinnerAdapter(loading));
+                VietnamAddressApi.getWards(item.code, wards -> {
+                    java.util.List<Item> list = new java.util.ArrayList<>();
+                    list.add(new Item(-1, getString(R.string.addr_hint_ward)));
+                    list.addAll(wards);
+                    spWard.setAdapter(spinnerAdapter(list));
+                    spWard.setEnabled(true);
+                });
+            }
+        });
+
+        spWard.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override public void onNothingSelected(AdapterView<?> p) {}
+            @Override public void onItemSelected(AdapterView<?> p, View v, int pos, long id) {
+                Item item = (Item) p.getItemAtPosition(pos);
+                selectedWard[0] = item.code == -1 ? null : item;
+            }
+        });
 
         AlertDialog dialog = new AlertDialog.Builder(this)
                 .setView(dialogView)
-                .setPositiveButton(R.string.str_save, null) // override ben duoi de khong dong khi validate fail
+                .setPositiveButton(R.string.str_save, null)
                 .setNegativeButton(R.string.str_cancel, (d, w) -> d.dismiss())
                 .create();
 
         dialog.setOnShowListener(d -> {
             dialog.getButton(DialogInterface.BUTTON_POSITIVE).setOnClickListener(v -> {
                 String receiver = etReceiver.getText().toString().trim();
-                String phone = etPhone.getText().toString().trim();
-                String detail = etDetail.getText().toString().trim();
+                String phone    = etPhone.getText().toString().trim();
+                String specific = etDetail.getText().toString().trim();
                 boolean setDefault = cbDefault.isChecked();
 
                 if (TextUtils.isEmpty(receiver)) {
-                    etReceiver.setError(getString(R.string.str_addr_err_receiver));
-                    return;
+                    etReceiver.setError(getString(R.string.str_addr_err_receiver)); return;
                 }
                 if (!phone.matches("^0\\d{9,10}$")) {
-                    etPhone.setError(getString(R.string.str_addr_err_phone));
-                    return;
+                    etPhone.setError(getString(R.string.str_addr_err_phone)); return;
                 }
-                if (TextUtils.isEmpty(detail) || detail.length() < 5) {
-                    etDetail.setError(getString(R.string.str_addr_err_detail));
-                    return;
+                if (selectedProvince[0] == null) {
+                    android.widget.Toast.makeText(this, getString(R.string.addr_select_province_required), android.widget.Toast.LENGTH_SHORT).show(); return;
+                }
+                if (selectedDistrict[0] == null) {
+                    android.widget.Toast.makeText(this, getString(R.string.addr_select_district_required), android.widget.Toast.LENGTH_SHORT).show(); return;
+                }
+                if (selectedWard[0] == null) {
+                    android.widget.Toast.makeText(this, getString(R.string.addr_select_ward_required), android.widget.Toast.LENGTH_SHORT).show(); return;
+                }
+                if (TextUtils.isEmpty(specific)) {
+                    etDetail.setError(getString(R.string.addr_err_detail_required)); return;
                 }
 
-                saveNewAddress(new Address(receiver, phone, detail, setDefault));
+                // Ghép địa chỉ đầy đủ
+                String fullDetail = specific + ", " + selectedWard[0].name
+                        + ", " + selectedDistrict[0].name
+                        + ", " + selectedProvince[0].name;
+
+                saveNewAddress(new Address(receiver, phone, fullDetail, setDefault));
                 dialog.dismiss();
             });
         });
 
         dialog.show();
+    }
+
+    private ArrayAdapter<Item> spinnerAdapter(java.util.List<Item> items) {
+        ArrayAdapter<Item> a = new ArrayAdapter<>(this, R.layout.item_spinner, items);
+        a.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        return a;
     }
 
     private void saveNewAddress(Address address) {

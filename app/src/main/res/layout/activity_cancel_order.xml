@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cancel_order_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background">
+
+    <!-- Header -->
+    <LinearLayout
+        android:id="@+id/cancel_order_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="56dp"
+        android:background="@color/primary"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="4dp"
+        android:paddingEnd="16dp">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="10dp"
+            android:src="@drawable/ic_arrow_back"
+            app:tint="@color/text_button"
+            android:contentDescription="@string/product_cart_desc"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_marginEnd="48dp"
+            android:text="@string/str_cancel_order_title"
+            android:textColor="@color/text_button"
+            android:textSize="18sp"
+            android:fontFamily="sans-serif-medium"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vui lòng chọn lý do huỷ đơn"
+                android:textColor="@color/text_main"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif-medium"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Danh sách lý do (RadioGroup) -->
+            <RadioGroup
+                android:id="@+id/rgReasons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_profile_card"
+                android:padding="8dp">
+
+                <RadioButton
+                    android:id="@+id/rb_reason1"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:paddingStart="12dp"
+                    android:text="@string/str_cancel_reason1"
+                    android:textColor="@color/text_main"
+                    android:textSize="14sp"
+                    android:buttonTint="@color/primary"/>
+
+                <RadioButton
+                    android:id="@+id/rb_reason2"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:paddingStart="12dp"
+                    android:text="@string/str_cancel_reason2"
+                    android:textColor="@color/text_main"
+                    android:textSize="14sp"
+                    android:buttonTint="@color/primary"/>
+
+                <RadioButton
+                    android:id="@+id/rb_reason3"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:paddingStart="12dp"
+                    android:text="@string/str_cancel_reason3"
+                    android:textColor="@color/text_main"
+                    android:textSize="14sp"
+                    android:buttonTint="@color/primary"/>
+
+                <RadioButton
+                    android:id="@+id/rb_reason4"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:paddingStart="12dp"
+                    android:text="@string/str_cancel_reason4"
+                    android:textColor="@color/text_main"
+                    android:textSize="14sp"
+                    android:buttonTint="@color/primary"/>
+
+                <RadioButton
+                    android:id="@+id/rb_reason5"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:paddingStart="12dp"
+                    android:text="@string/str_cancel_reason5"
+                    android:textColor="@color/text_main"
+                    android:textSize="14sp"
+                    android:buttonTint="@color/primary"/>
+            </RadioGroup>
+
+            <!-- Nút xác nhận huỷ -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnConfirmCancel"
+                style="@style/Widget.App.Button"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginTop="32dp"
+                android:text="@string/str_cancel_confirm_btn"
+                android:textAllCaps="false"
+                app:backgroundTint="#FFE53935"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

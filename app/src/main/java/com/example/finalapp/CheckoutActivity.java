@@ -81,10 +81,44 @@ public class CheckoutActivity extends AppCompatActivity {
         btnBack = findViewById(R.id.btnBack);
         btnSelectPromo = findViewById(R.id.btnSelectPromo);
 
+        // Load avatar của account đang đăng nhập
+        android.widget.ImageView imgProfile = findViewById(R.id.imgProfile);
+        if (imgProfile != null) {
+            FirebaseDatabase.getInstance().getReference("users").child(userId)
+                    .addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            String photoUrl = snapshot.child("photoUrl").getValue(String.class);
+                            if (photoUrl == null || photoUrl.isEmpty()) {
+                                photoUrl = snapshot.child("avatarUrl").getValue(String.class);
+                            }
+                            if (photoUrl != null && !photoUrl.isEmpty()) {
+                                com.bumptech.glide.Glide.with(CheckoutActivity.this)
+                                        .load(photoUrl).circleCrop().into(imgProfile);
+                            } else {
+                                com.google.firebase.auth.FirebaseUser u =
+                                        FirebaseAuth.getInstance().getCurrentUser();
+                                if (u != null && u.getPhotoUrl() != null) {
+                                    com.bumptech.glide.Glide.with(CheckoutActivity.this)
+                                            .load(u.getPhotoUrl()).circleCrop().into(imgProfile);
+                                }
+                            }
+                        }
+                        @Override public void onCancelled(@NonNull DatabaseError e) {}
+                    });
+        }
+
         cartItemList = new ArrayList<>();
         checkoutAdapter = new CheckoutAdapter(cartItemList);
         rvOrderItems.setLayoutManager(new LinearLayoutManager(this));
         rvOrderItems.setAdapter(checkoutAdapter);
+
+        android.view.View btnAddAddress = findViewById(R.id.btnAddAddress);
+        btnAddAddress.setOnClickListener(v -> {
+            Intent intent = new Intent(CheckoutActivity.this, SelectAddressActivity.class);
+            intent.putExtra(SelectAddressActivity.EXTRA_UID, userId);
+            startActivityForResult(intent, REQUEST_CODE_ADDRESS);
+        });
 
         findViewById(R.id.cardAddress).setOnClickListener(v -> {
             Intent intent = new Intent(CheckoutActivity.this, SelectAddressActivity.class);
@@ -99,7 +133,7 @@ public class CheckoutActivity extends AppCompatActivity {
         });
 
         btnSelectPromo.setOnClickListener(v -> {
-            Toast.makeText(this, "Tính năng mã giảm giá đang phát triển", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.str_promo_feature_not_ready), Toast.LENGTH_SHORT).show();
         });
 
         btnBack.setOnClickListener(v -> finish());
@@ -169,19 +203,34 @@ public class CheckoutActivity extends AppCompatActivity {
                         if (addr != null) {
                             selectedAddressId = data.getKey();
                             updateAddressUI(addr);
+                            showAddressCard(true);
+                            return;
                         }
                     }
                 }
+                // Chưa có địa chỉ nào
+                showAddressCard(false);
             }
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {}
+            public void onCancelled(@NonNull DatabaseError error) {
+                showAddressCard(false);
+            }
         });
+    }
+
+    private void showAddressCard(boolean hasAddress) {
+        findViewById(R.id.cardAddress).setVisibility(hasAddress ? View.VISIBLE : View.GONE);
+        findViewById(R.id.btnAddAddress).setVisibility(hasAddress ? View.GONE : View.VISIBLE);
     }
 
     private void updateAddressUI(Address addr) {
         txtAddressLabel.setText(addr.receiverName);
         txtReceiverPhone.setText(addr.phone);
         txtAddressDetail.setText(addr.detail);
+        View badge = findViewById(R.id.txtDefaultBadge);
+        if (badge != null) {
+            badge.setVisibility(addr.isDefault ? View.VISIBLE : View.GONE);
+        }
     }
 
     private void updateSummary() {
@@ -191,12 +240,12 @@ public class CheckoutActivity extends AppCompatActivity {
 
     private void placeOrder() {
         if (selectedAddressId == null) {
-            Toast.makeText(this, "Vui lòng chọn địa chỉ nhận hàng", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.str_error_select_address), Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (cartItemList.isEmpty()) {
-            Toast.makeText(this, "Giỏ hàng trống", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.cart_empty_message), Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -221,9 +270,11 @@ public class CheckoutActivity extends AppCompatActivity {
             if (task.isSuccessful()) {
                 // Clear cart
                 FirebaseDatabase.getInstance().getReference("cart").child(userId).removeValue();
+                // Gửi thông báo đặt hàng thành công
+                com.example.finalapp.utils.NotificationHelper.orderPlaced(CheckoutActivity.this, userId, orderId);
                 showSuccessDialog(orderId);
             } else {
-                Toast.makeText(CheckoutActivity.this, "Lỗi khi đặt hàng", Toast.LENGTH_SHORT).show();
+                Toast.makeText(CheckoutActivity.this, getString(R.string.str_error_place_order), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -272,8 +323,8 @@ public class CheckoutActivity extends AppCompatActivity {
             } else if (requestCode == REQUEST_CODE_PAYMENT) {
                 selectedPaymentMethod = data.getStringExtra(PaymentMethodActivity.RESULT_PAYMENT_METHOD);
                 String label = PaymentMethodActivity.METHOD_COD.equals(selectedPaymentMethod)
-                        ? "Thanh toán khi nhận hàng"
-                        : "Chuyển khoản ngân hàng";
+                        ? getString(R.string.payment_on_delivery)
+                        : getString(R.string.bank_transfer_label);
                 txtPaymentMethodDesc.setText(label);
             }
         }
@@ -287,6 +338,7 @@ public class CheckoutActivity extends AppCompatActivity {
                 Address addr = snapshot.getValue(Address.class);
                 if (addr != null) {
                     updateAddressUI(addr);
+                    showAddressCard(true);
                 }
             }
             @Override

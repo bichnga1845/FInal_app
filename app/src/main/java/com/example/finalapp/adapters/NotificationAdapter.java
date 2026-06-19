@@ -43,7 +43,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         Notification notification = notifications.get(position);
         holder.txtTitle.setText(notification.title);
         holder.txtMessage.setText(notification.message);
-        holder.txtTime.setText(getRelativeTime(notification.timestamp));
+        holder.txtTime.setText(getRelativeTime(notification.timestamp, holder.itemView.getContext()));
         holder.viewUnread.setVisibility(notification.isRead ? View.GONE : View.VISIBLE);
 
         if ("order".equals(notification.type)) {
@@ -62,12 +62,12 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         return notifications.size();
     }
 
-    private String getRelativeTime(long timestamp) {
+    private String getRelativeTime(long timestamp, android.content.Context ctx) {
         long now = System.currentTimeMillis();
         long diff = now - timestamp;
-        if (diff < 60000) return "Vừa xong";
-        if (diff < 3600000) return (diff / 60000) + " phút trước";
-        if (diff < 86400000) return (diff / 3600000) + " giờ trước";
+        if (diff < 60000) return ctx.getString(R.string.str_just_now);
+        if (diff < 3600000) return (diff / 60000) + ctx.getString(R.string.str_minutes_ago);
+        if (diff < 86400000) return (diff / 3600000) + ctx.getString(R.string.str_hours_ago);
         return new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(new Date(timestamp));
     }
 

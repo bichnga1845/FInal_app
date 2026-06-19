@@ -1,0 +1,598 @@
+<resources>
+    <string name="app_name">FinalApp</string>
+    <string name="splash_app_name">PONSAI</string>
+    <string name="splash_slogan">ARTISANAL GROWTH</string>
+    <string name="splash_footer">Cultivating Experience&#8230;</string>
+    <string name="str_login">Login</string>
+    <string name="str_login_subtitle">Welcome back to your bonsai space</string>
+
+    <string name="str_bonsai_lifestyle">BONSAI LIFESTYLE</string>
+
+    <string name="str_phone_number">Phone number</string>
+    <string name="str_hint_phone">Enter phone number</string>
+
+    <string name="str_password">Password</string>
+    <string name="str_hint_password">Enter password</string>
+
+    <string name="str_forgot_password">Forgot password?</string>
+
+    <string name="str_continue_with">or continue with</string>
+
+    <string name="str_register">Register</string>
+    <string name="str_dont_have_account">Don\'t have an account?</string>
+
+    <string name="str_google_login">Login with Google</string>
+    <string name="str_facebook_login">Login with Facebook</string>
+
+    <string name="str_register_title">REGISTER NEW ACCOUNT</string>
+    <string name="str_register_subtitle">Please fill in your information to receive exclusive rewards for new members!</string>
+
+    <string name="str_email">Email</string>
+    <string name="str_hint_email">Enter email address</string>
+
+    <string name="str_full_name">Full name *</string>
+    <string name="str_hint_full_name">Enter full name</string>
+
+    <string name="str_gender">Gender *</string>
+    <string name="str_hint_gender">Select gender</string>
+
+    <string name="str_dob">Date of birth *</string>
+    <string name="str_hint_dob">dd/mm/yyyy</string>
+
+    <string name="str_province">Province/City *</string>
+    <string name="str_hint_province">Select province/city</string>
+
+    <string name="str_auth_info">LOGIN INFORMATION</string>
+
+    <string name="str_re_password">Confirm password *</string>
+    <string name="str_hint_re_password">Confirm password</string>
+
+    <string name="str_referral_code">Enter referral code (if any)</string>
+    <string name="str_hint_referral_code">Enter referral code</string>
+
+    <string name="str_other_info">OTHER INFORMATION</string>
+    <string name="str_expand">Expand</string>
+    <string name="str_terms_agree">I agree to the terms and policies of KATINAT</string>
+    <string name="str_register_btn">Register</string>
+
+    <string name="home_discover_title">Discover new plants</string>
+    <string name="home_discover_desc">Bring nature into your home with the latest Bonsai collection.</string>
+    <string name="home_see_more">See more</string>
+    <string name="home_search_hint">Search products...</string>
+    <string name="home_tab_all">All</string>
+    <string name="home_tab_popular">Popular</string>
+    <string name="home_tab_new">New arrivals</string>
+    <string name="str_error_email">Please enter a valid email</string>
+    <string name="str_error_password">Please enter password</string>
+    <string name="str_login_failed">Login failed</string>
+    <string name="product_logo_desc">Logo</string>
+    <string name="product_header_title">PONSAI</string>
+    <string name="product_banner_title">Discover new plants</string>
+    <string name="product_banner_desc">Bring nature into your home with the latest Bonsai collection.</string>
+    <string name="product_banner_button">See more</string>
+    <string name="product_search_hint">Search products...</string>
+    <string name="product_filter_all">All</string>
+    <string name="product_filter_popular">Popular</string>
+    <string name="product_filter_new">New arrivals</string>
+
+    <string name="product_category_all">OFFERS</string>
+    <string name="product_cart_desc">Cart</string>
+
+    <!-- Bottom Navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_product">Products</string>
+    <string name="nav_promo">Offers</string>
+    <string name="nav_about">About Us</string>
+    <string name="nav_account">Account</string>
+    <string name="nav_shop">Shop</string>
+    <string name="nav_cart">Cart</string>
+    <string name="nav_community">Community</string>
+    <string name="nav_profile">Profile</string>
+
+    <!-- Cart Strings -->
+    <string name="cart_title">Your Cart</string>
+    <string name="subtotal_label">Subtotal</string>
+    <string name="shipping_fee_label">Shipping Fee</string>
+    <string name="total_label">Total</string>
+    <string name="checkout_button">CHECKOUT NOW</string>
+    <string name="cart_empty_message">Your cart is currently empty</string>
+
+    <!-- Profile Strings -->
+    <string name="loading">Loading...</string>
+    <string name="str_logout">Logout</string>
+    <string name="welcome_back">WELCOME BACK</string>
+    <string name="account_info_title">Account Information</string>
+    <string name="edit_profile">Edit\nProfile</string>
+    <string name="change_password">Change\nPassword</string>
+    <string name="forgot_password_title">Forgot\nPassword</string>
+    <string name="shipping_address_title">Shipping\nAddress</string>
+    <string name="payment_method_title">Payment\nMethod</string>
+    <string name="contact_info_title">CONTACT INFORMATION</string>
+    <string name="not_updated">Not updated</string>
+    <string name="account_type">Account Type</string>
+    <string name="customer_role">Customer</string>
+    <string name="admin_role">Administrator</string>
+    <string name="str_no_name">No name</string>
+    <string name="str_no_email">No email</string>
+
+    <!-- Order Detail Strings -->
+    <string name="order_detail_title">Order details</string>
+    <string name="order_status_completed">Order completed</string>
+    <string name="order_status_thanks">Thank you for shopping at Bonsai Shop!</string>
+    <string name="shipping_info">Shipping information</string>
+    <string name="shipping_carrier_default">Express - Giao Hang Tiet Kiem</string>
+    <string name="shipping_address">Shipping address</string>
+    <string name="shop_name">BONSAI SHOP</string>
+    <string name="total_amount_label">Total amount:</string>
+    <string name="support_question">Need help?</string>
+    <string name="request_refund">Return/Refund request</string>
+    <string name="contact_shop">Contact Shop</string>
+    <string name="order_id_label">Order ID</string>
+    <string name="copy_action">COPY</string>
+    <string name="payment_method_label">Payment method</string>
+    <string name="payment_cash">Cash</string>
+    <string name="order_time_label">Order time</string>
+    <string name="completion_time_label">Completion time</string>
+    <string name="reorder_button">Reorder</string>
+    <string name="str_error_order_id_not_found">Order ID not found</string>
+    <string name="str_order_id_copied">Order ID copied to clipboard</string>
+    <string name="str_items_added_to_cart">Items added to cart</string>
+    <string name="receiver_info_label">Receiver Information</string>
+    <string name="delivery_success">Delivery successful</string>
+    <string name="expected_delivery">Expected in 2-3 days</string>
+    <string name="processing_label">Processing...</string>
+    <string name="status_pending">Pending confirmation</string>
+    <string name="status_preparing">Preparing goods</string>
+    <string name="status_shipping">In delivery</string>
+    <string name="status_cancelled">Cancelled</string>
+    <string name="status_default_desc">Your order is being processed by the system.</string>
+    <string name="status_cancelled_desc">Order has been successfully cancelled.</string>
+    <string name="status_shipping_desc">Order is on its way to you.</string>
+    <string name="status_preparing_desc">We will deliver to you soon.</string>
+
+    <!-- Product Detail Strings -->
+    <string name="premium_collection">PREMIUM COLLECTION</string>
+    <string name="species_label">Species: %1$s</string>
+    <string name="shipping_included">Includes shipping\nfee</string>
+    <string name="age_label">AGE</string>
+    <string name="height_label">HEIGHT</string>
+    <string name="difficulty_label">DIFFICULTY</string>
+    <string name="watering_label">Watering</string>
+    <string name="light_label">Light</string>
+    <string name="about_masterpiece">About this masterpiece</string>
+    <string name="add_to_cart">ADD TO CART</string>
+    <string name="related_bonsai">Related Bonsai</string>
+    <string name="years_old">%1$s Years</string>
+    <string name="difficulty_expert">Expert</string>
+    <string name="watering_freq">Every 2-3 Days</string>
+    <string name="light_full">Full Sun</string>
+    <string name="str_error_product_not_found">Product not found!</string>
+    <string name="bonsai_art">Artistic Bonsai</string>
+    <string name="no_description">No description yet.</string>
+    <string name="str_error_login_required">Please login to purchase!</string>
+    <string name="str_added_to_cart">Added to cart!</string>
+    <string name="error_prefix">Error: </string>
+    <string name="str_error_firebase_connection">Firebase connection error</string>
+
+    <!-- Checkout Strings -->
+    <string name="checkout_title">Checkout</string>
+    <string name="change_action">Change</string>
+    <string name="home_address_label">Home</string>
+    <string name="default_label">DEFAULT</string>
+    <string name="order_summary">Order Summary</string>
+    <string name="total_payment_label">Total Payment</string>
+    <string name="confirm_payment_button">Confirm Payment</string>
+    <string name="payment_on_delivery">Cash on Delivery</string>
+    <string name="cod_label">COD</string>
+    <string name="use_promo_code">Use promo code</string>
+    <string name="select_promo_action">Select code</string>
+    <string name="str_promo_feature_not_ready">Promo code feature is under development</string>
+    <string name="str_error_select_address">Please select a shipping address</string>
+    <string name="str_error_place_order">Error placing order</string>
+
+    <!-- Notification Strings -->
+    <string name="notifications_title">Notifications</string>
+    <string name="mark_all_read">Mark all as read</string>
+    <string name="no_notifications">No notifications found</string>
+    <string name="notification_detail_title">Notification Details</string>
+    <string name="view_details_action">View Details</string>
+
+    <!-- About Us Strings -->
+    <string name="about_hero_quote">Bringing bonsai art to every living space.</string>
+    <string name="about_hero_desc">Explore exquisitely curated bonsai to create a peaceful, modern, and inspiring green corner.</string>
+    <string name="explore_collection">Explore Collection</string>
+    <string name="buy_now">Buy Now</string>
+    <string name="our_story_title">OUR STORY</string>
+    <string name="brand_story">Brand Story</string>
+    <string name="brand_story_desc">We started with a passion for small bonsai that bring peace to busy lives. This app was created to help young people and those short on time easily discover, buy, and care for bonsai in the most accessible way.</string>
+    <string name="brand_story_quote">Each product is a small story of patience, balance, and the beauty of slow living.</string>
+    <string name="mission_vision">Mission &amp; Vision</string>
+    <string name="mission_title">Mission</string>
+    <string name="mission_desc">To help people easily access bonsai art and bring nature into modern living spaces.</string>
+    <string name="vision_title">Vision</string>
+    <string name="vision_desc">To become Vietnam\'s leading online bonsai platform, where art and green lifestyle meet.</string>
+    <string name="core_values">Core Values</string>
+    <string name="sustainable_living">Sustainable Living</string>
+    <string name="sustainable_desc">Prioritize healthy plants, sustainable pots, and green lifestyle.</string>
+    <string name="quality_first">Quality First</string>
+    <string name="quality_desc">Each bonsai is carefully selected and cared for.</string>
+    <string name="customer_care">Customer Care</string>
+    <string name="customer_care_desc">Supporting newcomers from plant selection to care.</string>
+    <string name="artistic_lifestyle">Artistic Lifestyle</string>
+    <string name="artistic_desc">Bonsai as part of a refined lifestyle.</string>
+    <string name="why_choose_us">Why Choose Us?</string>
+    <string name="benefit_1">Bonsai is carefully cared for before reaching you</string>
+    <string name="benefit_2">Safe delivery, minimizing vibrations</string>
+    <string name="benefit_3">Plant care guide for beginners</string>
+    <string name="benefit_4">Dedicated advice to choose suitable bonsai for your space</string>
+    <string name="meet_our_team">Meet Our Team</string>
+    <string name="achievements">Achievements</string>
+    <string name="customers_count">customers</string>
+    <string name="trees_delivered">trees delivered</string>
+    <string name="avg_rating">average rating</string>
+    <string name="support_consult">support &amp; consultation</string>
+    <string name="cta_start_journey">Start your green journey today.</string>
+    <string name="cta_explore_desc">Explore the bonsai collection that fits your lifestyle.</string>
+
+    <!-- Change Password Strings -->
+    <string name="change_password_title">Change Password</string>
+    <string name="set_new_password">Set New Password</string>
+    <string name="password_requirement">New password must be at least 6 characters for security</string>
+    <string name="current_password_label">Current Password</string>
+    <string name="hint_current_password">Enter current password</string>
+    <string name="new_password_label">New Password</string>
+    <string name="hint_new_password">Enter new password (≥ 6 characters)</string>
+    <string name="confirm_new_password_label">Confirm New Password</string>
+    <string name="hint_confirm_new_password">Re-enter new password</string>
+    <string name="cancel_button">Cancel</string>
+
+    <!-- Edit Profile Strings -->
+    <string name="edit_profile_title">Edit Profile</string>
+    <string name="avatar_label">Profile Picture</string>
+    <string name="full_name_label">Full Name</string>
+    <string name="hint_full_name">Enter full name</string>
+    <string name="email_readonly_label">Email (cannot be edited)</string>
+    <string name="phone_label">Phone Number</string>
+    <string name="hint_phone">Enter phone number</string>
+    <string name="address_label">Address</string>
+    <string name="hint_address_detail">Enter detailed address</string>
+    <string name="save_changes_button">Save Changes</string>
+
+    <!-- Select Address Strings -->
+    <string name="no_addresses">No addresses found</string>
+    <string name="add_first_address_hint">Add your first address to start ordering bonsai</string>
+    <string name="add_new_action">Add New</string>
+    <string name="confirm_action">Confirm</string>
+    <string name="set_default_action">Set Default</string>
+    <string name="delete_action">Delete</string>
+
+    <!-- Dialog Add Address Strings -->
+    <string name="add_new_address_title">Add New Address</string>
+    <string name="receiver_name_label">Receiver Name *</string>
+    <string name="hint_receiver_name">e.g. John Doe</string>
+    <string name="phone_required_label">Phone Number *</string>
+    <string name="hint_phone_example">e.g. 0901234567</string>
+    <string name="address_detail_required_label">Detailed Address *</string>
+    <string name="hint_address_full">House number, street, ward, district, city</string>
+    <string name="set_as_default">Set as default address</string>
+
+    <!-- Forgot Password Strings -->
+    <string name="recover_password">Recover Password</string>
+    <string name="forgot_password_desc">Enter your registered email, we will send a password reset link to your inbox.</string>
+    <string name="hint_registered_email">Enter registered email</string>
+    <string name="send_reset_button">Send Reset Email</string>
+    <string name="back_to_login">Back to Login</string>
+
+    <!-- Payment Success Strings -->
+    <string name="payment_success_title">Payment Successful!</string>
+    <string name="payment_success_desc">Thank you for your trust and shopping at Bonsai Shop. Your order is being processed.</string>
+    <string name="view_order_details">View Order Details</string>
+    <string name="continue_shopping">Continue Shopping</string>
+
+    <!-- Payment Method Strings -->
+    <string name="select_payment_method">Select Payment Method</string>
+    <string name="payment_method_desc">You can pay on delivery or transfer in advance</string>
+    <string name="cod_full_label">Cash on Delivery (COD)</string>
+    <string name="cod_desc">Pay cash to the delivery person</string>
+    <string name="bank_transfer_label">Bank Transfer</string>
+    <string name="bank_transfer_desc">Transfer before delivery</string>
+    <string name="bank_transfer_info">TRANSFER INFORMATION</string>
+    <string name="bank_label">Bank</string>
+    <string name="account_number_label">Account Number</string>
+    <string name="account_holder_label">Account Holder</string>
+    <string name="bank_transfer_note">Transfer note: BONSAI + Order ID</string>
+
+    <!-- Refund Strings -->
+    <string name="refund_request_title">Return/Refund Request</string>
+    <string name="product_variant_label">Product Variant</string>
+    <string name="reason_label">Reason *</string>
+    <string name="select_reason_hint">Select reason</string>
+    <string name="solution_label">Solution *</string>
+    <string name="total_refund_amount">Total Refund</string>
+    <string name="price_after_promo">Price after promotion</string>
+    <string name="description_label">Description</string>
+    <string name="hint_additional_notes">Additional notes</string>
+    <string name="submit_request_button">Submit Request</string>
+    <string name="refund_selection_title">What issue are you facing?</string>
+    <string name="received_issue_title">Received items with issues (Wilted, broken branches, broken pots, wrong model...) - Free return shipping</string>
+    <string name="received_issue_note">Note: For bonsai, please provide an unboxing video for the best support.</string>
+    <string name="not_received_title">Haven\'t received plants or missing accessories (fertilizer, tools)</string>
+    <string name="not_received_note">Note: If delivery takes too long and affects plant health, you have the right to refuse receipt.</string>
+
+    <!-- Register Error Strings -->
+    <string name="str_error_phone">Please enter a valid phone number</string>
+    <string name="str_error_name">Please enter full name</string>
+    <string name="str_error_password_length">Password must be at least 6 characters</string>
+    <string name="str_error_password_mismatch">Re-entered password does not match</string>
+    <string name="str_error_terms">Please agree to the terms</string>
+    <string name="str_register_failed">Registration failed</string>
+    <string name="str_error_firebase_user">Could not retrieve newly created account</string>
+    <string name="str_error_save_user">Could not save user information</string>
+    <string name="str_error_user_not_found">User information not found</string>
+    <string name="str_error_invalid_data">Invalid data</string>
+    <string name="str_error_load_failed">Error loading data</string>
+
+    <!-- Localization -->
+    <string name="str_filter_all_caps">ALL</string>
+    <string name="str_login_required_purchase">Please login to purchase</string>
+    <string name="str_default_product_desc">Artistic Bonsai</string>
+    <string name="addr_hint_province">-- Select Province/City --</string>
+    <string name="addr_hint_district">-- Select District --</string>
+    <string name="addr_hint_ward">-- Select Ward --</string>
+    <string name="addr_hint_select_province_first">-- Select Province first --</string>
+    <string name="addr_hint_select_district_first">-- Select District first --</string>
+    <string name="loading_hint">-- Loading... --</string>
+    <string name="addr_select_province_required">Please select Province/City</string>
+    <string name="addr_select_district_required">Please select District</string>
+    <string name="addr_select_ward_required">Please select Ward</string>
+    <string name="addr_err_detail_required">Please enter detailed address</string>
+    <string name="notification_order_detail_btn">View order details</string>
+    <string name="notification_promo_btn">Use now</string>
+    <string name="notification_product_btn">View product</string>
+    <string name="img_hero_bonsai_desc">Bonsai hero image</string>
+    <string name="str_not_found">Product not found</string>
+    <!-- Banner -->
+    <string name="banner1_tag">NEW COLLECTION</string>
+    <string name="banner1_title">Natural Bonsai</string>
+    <string name="banner1_desc">Bring the beauty of nature into your living space</string>
+    <string name="banner2_tag">JAPANESE STYLE</string>
+    <string name="banner2_title">Wabi-Sabi Art</string>
+    <string name="banner2_desc">Perfection in every simple line</string>
+    <string name="banner3_tag">EASY CARE</string>
+    <string name="banner3_title">Trees for Beginners</string>
+    <string name="banner3_desc">Start your bonsai journey today</string>
+    <string name="banner4_tag">RARE &amp; UNIQUE</string>
+    <string name="banner4_title">Rare Collection</string>
+    <string name="banner4_desc">Unique bonsai species for connoisseurs</string>
+    <!-- Reviews -->
+    <string name="review1_name">Nguyen Van A</string>
+    <string name="review1_text">Very beautiful tree, carefully packed, fast delivery. Very satisfied!</string>
+    <string name="review1_date">06/01/2025</string>
+    <string name="review2_name">Tran Thi B</string>
+    <string name="review2_text">High quality bonsai, still thriving after 2 weeks. The shop gave great advice.</string>
+    <string name="review2_date">06/05/2025</string>
+    <string name="review3_name">Le Minh C</string>
+    <string name="review3_text">Product as described, reasonable price. Will buy again.</string>
+    <string name="review3_date">06/10/2025</string>
+    <string name="review4_name">Pham Thu D</string>
+    <string name="review4_text">Tree arrived in perfect condition. Staff support was excellent!</string>
+    <string name="review4_date">06/15/2025</string>
+    <!-- Home screen -->
+    <string name="str_greeting">GOOD AFTERNOON,</string>
+    <string name="str_default_username">Bonsai Lover</string>
+    <string name="cat_indoor">Indoor Bonsai</string>
+    <string name="cat_outdoor">Outdoor Bonsai</string>
+    <string name="cat_beginner">Trees for Beginners</string>
+    <string name="cat_rare">Rare Collection</string>
+    <string name="str_best_sellers">Best Sellers</string>
+    <string name="str_view_all">View All</string>
+    <string name="str_new_arrivals">New Arrivals</string>
+    <string name="str_customer_reviews">What Customers Say About Bonsai</string>
+    <string name="str_cta_headline">Hello Bonsai,</string>
+    <string name="str_cta_subheadline">Start your journey now!</string>
+    <string name="hint_search_products">Search for your favorite plants...</string>
+    <!-- Cart screen -->
+    <string name="str_cart_empty">Your cart is empty</string>
+    <string name="str_cart_empty_desc">Explore and add your favorite products to the cart!</string>
+    <string name="str_explore_products">Explore Products</string>
+    <!-- Checkout -->
+    <string name="str_add_shipping_address">+ Add Shipping Address</string>
+    <!-- Product detail -->
+    <string name="str_size_label">SIZE</string>
+    <string name="str_product_desc_placeholder">Product description...</string>
+    <!-- Profile -->
+    <string name="str_logout_confirm">Are you sure you want to logout?</string>
+    <!-- Register -->
+    <string name="str_select_gender">Select gender</string>
+    <string name="str_gender_male">Male</string>
+    <string name="str_gender_female">Female</string>
+    <string name="str_gender_other">Other</string>
+    <string name="str_register_success_title">Registration Successful!</string>
+    <string name="str_register_success_msg">Your account has been created. Please login to continue.</string>
+    <string name="str_login_now">Login Now</string>
+    <!-- Refund reasons -->
+    <string name="str_refund_reason1">Plant wilted, dried, or dead</string>
+    <string name="str_refund_reason2">Plant severely broken or leaf drop</string>
+    <string name="str_refund_reason3">Ceramic pot broken or cracked</string>
+    <string name="str_refund_reason4">Plant wrong size/shape</string>
+    <string name="str_refund_reason5">Wrong plant delivered</string>
+    <string name="str_refund_solution1">Refund &amp; Return Plant</string>
+    <string name="str_refund_solution2">Immediate Refund (Keep Plant)</string>
+    <string name="str_refund_solution3">Exchange for New Plant</string>
+    <string name="str_refund_reason_placeholder">Select reason</string>
+    <!-- Notification time -->
+    <string name="str_just_now">Just now</string>
+    <string name="str_minutes_ago"> min ago</string>
+    <string name="str_hours_ago"> hr ago</string>
+    <!-- Adapter defaults -->
+    <string name="str_all_category">All</string>
+    <string name="str_species_default">Bonsai</string>
+    <string name="str_age_default">Artisan</string>
+    <string name="str_quantity_prefix">x</string>
+    <!-- About team -->
+    <string name="about_member1_name">Bich Nga</string>
+    <string name="about_member1_role">UI/UX Designer</string>
+    <string name="about_member2_name">Hoang Sang</string>
+    <string name="about_member2_role">Bonsai Care</string>
+    <string name="about_member3_name">Khanh Ly</string>
+    <string name="about_member3_role">Nature Brand</string>
+    <string name="about_member4_name">Cam Dao</string>
+    <string name="about_member4_role">Developer</string>
+    <!-- Address form labels -->
+    <string name="addr_label_province">Province / City *</string>
+    <string name="addr_label_district">District *</string>
+    <string name="addr_label_ward">Ward *</string>
+    <string name="addr_label_detail">Detailed Address *</string>
+    <!-- Refund success dialog -->
+    <string name="refund_success_title">Request Submitted!</string>
+    <string name="refund_success_msg">The shop has received your request and will review and respond within 1–3 business days.</string>
+    <string name="refund_success_btn">Go to Home</string>
+    <!-- Select address screen -->
+    <string name="str_address">Address</string>
+    <string name="str_menu_address">Shipping\nAddress</string>
+    <string name="str_hint_address_detail">Enter detailed address</string>
+    <string name="str_select_address_title">Shipping Address</string>
+    <string name="str_addr_empty_title">No addresses yet</string>
+    <string name="str_addr_empty_subtitle">Add your first address to start ordering plants</string>
+    <string name="str_addr_add_new">Add New</string>
+    <string name="str_addr_default_badge">Default</string>
+    <string name="str_addr_set_default">Set Default</string>
+    <string name="str_addr_receiver_placeholder">Recipient Name</string>
+    <string name="str_addr_detail_placeholder">123 ABC Street, XYZ District, HCM City</string>
+    <string name="str_addr_dialog_title">Add New Address</string>
+    <string name="str_addr_receiver">Recipient Name *</string>
+    <string name="str_addr_hint_receiver">E.g: John Smith</string>
+    <string name="str_addr_phone">Phone Number *</string>
+    <string name="str_addr_hint_phone">E.g: 0901234567</string>
+    <string name="str_addr_detail">Detailed Address *</string>
+    <string name="str_addr_hint_detail">House number, street, ward, district, province</string>
+    <string name="str_addr_set_default_checkbox">Set as default address</string>
+    <string name="str_addr_load_error">Error loading address: %1$s</string>
+    <string name="str_addr_err_receiver">Enter recipient name</string>
+    <string name="str_addr_err_phone">Invalid phone number</string>
+    <string name="str_addr_err_detail">Address too short</string>
+    <string name="str_addr_no_id">Could not create ID</string>
+    <string name="str_addr_added">Address added</string>
+    <string name="str_addr_save_error">Save error: %1$s</string>
+    <string name="str_addr_set_default_done">Set as default</string>
+    <string name="str_addr_delete_confirm_title">Confirm Delete</string>
+    <string name="str_addr_delete_confirm_msg">Delete this address?</string>
+    <string name="str_addr_deleted">Deleted</string>
+    <string name="str_addr_select_required">Please select an address</string>
+    <!-- Common actions -->
+    <string name="str_cancel">Cancel</string>
+    <string name="str_delete">Delete</string>
+    <string name="str_save">Save</string>
+    <string name="str_confirm">Confirm</string>
+    <string name="str_loading">Loading…</string>
+    <string name="str_not_updated">Not updated yet</string>
+    <string name="str_coming_soon">This screen is being developed</string>
+    <string name="str_back_to_login">Back to login</string>
+    <string name="str_save_changes">Save Changes</string>
+    <string name="str_email_label">Email</string>
+    <string name="str_full_name_label">Full Name</string>
+    <string name="str_account_type">Account Type</string>
+    <!-- Profile screen -->
+    <string name="str_profile_welcome_back">WELCOME BACK</string>
+    <string name="str_profile_email_example">email@example.com</string>
+    <string name="str_profile_user_default">USER</string>
+    <string name="str_profile_account_info">Account Information</string>
+    <string name="str_profile_contact_info">CONTACT INFORMATION</string>
+    <string name="str_role_customer">Customer</string>
+    <string name="str_role_admin">Administrator</string>
+    <string name="str_profile_user_not_found">User information not found</string>
+    <string name="str_profile_invalid_data">Invalid data</string>
+    <string name="str_profile_load_error">Error loading data: %1$s</string>
+    <string name="str_profile_no_name">No name set</string>
+    <string name="str_profile_no_email">No email set</string>
+    <!-- Profile menu -->
+    <string name="str_menu_edit_profile">Edit\nProfile</string>
+    <string name="str_menu_change_password">Change\nPassword</string>
+    <string name="str_menu_forgot_password">Forgot\nPassword</string>
+    <string name="str_menu_payment">Payment\nMethod</string>
+    <!-- Edit profile screen -->
+    <string name="str_edit_profile_title">Edit Profile</string>
+    <string name="str_edit_avatar">Profile Picture</string>
+    <string name="str_edit_email_readonly">Email (read-only)</string>
+    <string name="str_edit_user_not_found">User not found</string>
+    <string name="str_err_name_required">Please enter your full name</string>
+    <string name="str_err_name_too_short">Name must be at least 2 characters</string>
+    <string name="str_err_phone_invalid">Invalid phone number (10-11 digits, starting with 0)</string>
+    <string name="str_edit_saved">Changes saved</string>
+    <string name="str_edit_save_error">Save error: %1$s</string>
+    <!-- Change password screen -->
+    <string name="str_change_password_title">Change Password</string>
+    <string name="str_cp_heading">Set New Password</string>
+    <string name="str_cp_subtitle">New password must be at least 6 characters for security</string>
+    <string name="str_cp_current">Current Password</string>
+    <string name="str_cp_hint_current">Enter current password</string>
+    <string name="str_cp_new">New Password</string>
+    <string name="str_cp_hint_new">Enter new password (≥ 6 characters)</string>
+    <string name="str_cp_confirm">Confirm New Password</string>
+    <string name="str_cp_hint_confirm">Re-enter new password</string>
+    <string name="str_cp_button">Change Password</string>
+    <string name="str_cp_err_current_required">Please enter current password</string>
+    <string name="str_cp_err_new_required">Please enter new password</string>
+    <string name="str_cp_err_new_too_short">New password must be at least 6 characters</string>
+    <string name="str_cp_err_new_same">New password must differ from current password</string>
+    <string name="str_cp_err_confirm_mismatch">Passwords do not match</string>
+    <string name="str_cp_need_login">You need to login first. Please login again.</string>
+    <string name="str_cp_wrong_current">Current password is incorrect</string>
+    <string name="str_cp_success">Password changed successfully</string>
+    <string name="str_cp_error">Error: %1$s</string>
+    <!-- Forgot password screen -->
+    <string name="str_forgot_password_title">Forgot Password</string>
+    <string name="str_fp_heading">Recover Password</string>
+    <string name="str_fp_subtitle">Enter your registered email and we will send a password reset link to your inbox.</string>
+    <string name="str_fp_hint_email">Enter your registered email</string>
+    <string name="str_fp_button">Send Password Reset Email</string>
+    <string name="str_fp_err_email_required">Please enter your email</string>
+    <string name="str_fp_err_email_invalid">Invalid email</string>
+    <string name="str_fp_sent">Password reset email sent. Please check your inbox (including Spam).</string>
+    <string name="str_fp_email_not_found">This email has not been registered</string>
+    <string name="str_fp_error">Could not send: %1$s</string>
+    <!-- Payment method screen -->
+    <string name="str_payment_method_title">Payment Method</string>
+    <string name="str_pay_choose">Choose payment method</string>
+    <string name="str_pay_subtitle">You can pay on delivery or transfer in advance</string>
+    <string name="str_pay_cod_title">Cash on Delivery (COD)</string>
+    <string name="str_pay_cod_desc">Pay cash to the delivery person</string>
+    <string name="str_pay_bank_title">Bank Transfer</string>
+    <string name="str_pay_bank_desc">Transfer before delivery</string>
+    <string name="str_pay_bank_info">TRANSFER DETAILS</string>
+    <string name="str_pay_bank_name_label">Bank</string>
+    <string name="str_pay_bank_name">Vietcombank</string>
+    <string name="str_pay_bank_acc_label">Account Number</string>
+    <string name="str_pay_bank_acc">0123 456 789</string>
+    <string name="str_pay_bank_owner_label">Account Holder</string>
+    <string name="str_pay_bank_owner">BONSAI VN CO., LTD</string>
+    <string name="str_pay_bank_note">Transfer note: BONSAI + Order ID</string>
+    <string name="str_pay_cod_label">Cash on Delivery</string>
+    <string name="str_pay_selected">Selected: %1$s</string>
+    <!-- Notification messages -->
+    <string name="notif_order_placed_title">Order placed successfully! 🎉</string>
+    <string name="notif_order_placed_msg">Order #%1$s has been received. We will process it as soon as possible.</string>
+    <string name="notif_order_confirmed_title">Order confirmed</string>
+    <string name="notif_order_confirmed_msg">Order #%1$s has been confirmed and is being prepared.</string>
+    <string name="notif_order_shipping_title">Order on the way</string>
+    <string name="notif_order_shipping_msg">Order #%1$s is on its way to you. Please keep your phone nearby!</string>
+    <string name="notif_order_delivered_title">Delivery successful</string>
+    <string name="notif_order_delivered_msg">Order #%1$s has been delivered successfully. Thank you for trusting Ponsai!</string>
+    <string name="notif_order_cancelled_title">Order cancelled</string>
+    <string name="notif_order_cancelled_msg">Order #%1$s has been cancelled. Contact support if you need more information.</string>
+    <string name="notif_order_updated_title">Order update</string>
+    <string name="notif_order_updated_msg">Order #%1$s has a new update.</string>
+    <string name="str_menu_orders">My Orders</string>
+    <string name="str_orders_title">Track Orders</string>
+    <string name="str_tab_all">All</string>
+    <string name="str_tab_pending">Pending</string>
+    <string name="str_tab_processing">Confirmed</string>
+    <string name="str_tab_shipped">Shipping</string>
+    <string name="str_tab_delivered">Delivered</string>
+    <string name="str_tab_refund">Refund</string>
+    <string name="str_tab_cancelled">Cancelled</string>
+    <string name="str_order_empty">No orders found</string>
+    <string name="str_uploading_avatar">Uploading photo...</string>
+    <string name="str_avatar_updated">Profile photo updated!</string>
+    <string name="str_avatar_upload_failed">Upload failed: %1$s</string>
+</resources>

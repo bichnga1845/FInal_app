@@ -87,7 +87,7 @@ public class NotificationDetailActivity extends AppCompatActivity {
 
         if ("order".equals(notif.type)) {
             imgIcon.setImageResource(R.drawable.ic_shopping_cart);
-            btnAction.setText("Xem chi tiết đơn hàng");
+            btnAction.setText(getString(R.string.notification_order_detail_btn));
             btnAction.setOnClickListener(v -> {
                 Intent intent = new Intent(this, OrderDetailActivity.class);
                 intent.putExtra("ORDER_ID", notif.targetId);
@@ -95,7 +95,7 @@ public class NotificationDetailActivity extends AppCompatActivity {
             });
         } else if ("promo".equals(notif.type)) {
             imgIcon.setImageResource(R.drawable.ic_ticket);
-            btnAction.setText("Dùng ngay");
+            btnAction.setText(getString(R.string.notification_promo_btn));
             btnAction.setOnClickListener(v -> {
                 Intent intent = new Intent(this, MainFinalActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -103,7 +103,7 @@ public class NotificationDetailActivity extends AppCompatActivity {
             });
         } else if ("product".equals(notif.type)) {
             imgIcon.setImageResource(R.drawable.ic_leaf); // Assuming ic_leaf exists
-            btnAction.setText("Xem sản phẩm");
+            btnAction.setText(getString(R.string.notification_product_btn));
             btnAction.setOnClickListener(v -> {
                 Intent intent = new Intent(this, ProductDetailActivity.class);
                 intent.putExtra("PRODUCT_ID", notif.targetId);

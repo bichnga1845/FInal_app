@@ -24,7 +24,8 @@
         android:src="@drawable/ic_arrow_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/white" />
+        app:tint="@color/white"
+        android:contentDescription="@string/product_cart_desc" />
 
     <TextView
         android:id="@+id/txtHeaderTitle"
@@ -32,23 +33,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:fontFamily="sans-serif-black"
-        android:text="Thanh toán"
+        android:text="@string/checkout_title"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@id/btnBack"
         app:layout_constraintStart_toEndOf="@id/btnBack"
         app:layout_constraintTop_toTopOf="@id/btnBack" />
-
-    <ImageView
-        android:id="@+id/btnSearch"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="20dp"
-        android:src="@android:drawable/ic_menu_search"
-        app:layout_constraintBottom_toBottomOf="@id/txtHeaderTitle"
-        app:layout_constraintEnd_toStartOf="@id/imgProfileCard"
-        app:layout_constraintTop_toTopOf="@id/txtHeaderTitle"
-        app:tint="@color/white" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/imgProfileCard"
@@ -65,7 +55,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:src="@mipmap/ic_banner" />
+            android:src="@mipmap/ic_banner"
+            android:contentDescription="@string/nav_account" />
     </androidx.cardview.widget.CardView>
 
     <androidx.core.widget.NestedScrollView
@@ -74,8 +65,8 @@
         android:clipToPadding="false"
         android:paddingBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/viewHeader"
-        android:layout_marginTop="-40dp">
+        app:layout_constraintTop_toBottomOf="@id/btnBack"
+        android:layout_marginTop="16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -92,7 +83,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-black"
-                    android:text="Địa chỉ giao hàng"
+                    android:text="@string/shipping_address"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
                 <TextView
@@ -100,18 +91,35 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:text="Thay đổi"
+                    android:text="@string/change_action"
                     android:textColor="@color/primary"
                     android:textStyle="bold" />
             </RelativeLayout>
+
+            <!-- Button thêm địa chỉ — hiển thị khi chưa có địa chỉ -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnAddAddress"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/bg_btn_add_address"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/str_add_shipping_address"
+                android:textColor="#4A5E35"
+                android:textAllCaps="false"
+                android:textSize="15sp"
+                android:visibility="gone" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp"
+                android:visibility="gone"
                 app:cardCornerRadius="24dp"
-                app:cardElevation="2dp">
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="#FFF8EC">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -130,7 +138,8 @@
                             android:layout_height="24dp"
                             android:layout_gravity="center"
                             android:src="@android:drawable/ic_menu_mylocation"
-                            app:tint="@color/primary" />
+                            app:tint="@color/primary"
+                            android:contentDescription="@string/shipping_address" />
                     </androidx.cardview.widget.CardView>
 
                     <LinearLayout
@@ -149,7 +158,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="sans-serif-medium"
-                                android:text="Nhà riêng"
+                                android:text="@string/home_address_label"
                                 android:textColor="@color/black"
                                 android:textSize="16sp" />
                             <TextView
@@ -160,7 +169,7 @@
                                 android:background="@drawable/bg_detail_info"
                                 android:paddingHorizontal="6dp"
                                 android:paddingVertical="2dp"
-                                android:text="MẶC ĐỊNH"
+                                android:text="@string/default_label"
                                 android:textColor="@color/primary"
                                 android:textSize="10sp"
                                 android:textStyle="bold" />
@@ -178,7 +187,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:text="+84 908 123 456"
+                            tools:text="+84 908 123 456"
                             android:textColor="@color/text_description"
                             android:textSize="13sp" />
                     </LinearLayout>
@@ -191,7 +200,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
                 android:fontFamily="sans-serif-black"
-                android:text="Tóm tắt đơn hàng"
+                android:text="@string/order_summary"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
@@ -218,7 +227,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Tạm tính"
+                        android:text="@string/subtotal_label"
                         android:textColor="@color/text_description" />
                     <TextView
                         android:id="@+id/txtSubtotal"
@@ -237,7 +246,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Phí vận chuyển"
+                        android:text="@string/shipping_fee_label"
                         android:textColor="@color/text_description" />
                     <TextView
                         android:id="@+id/txtShipping"
@@ -257,7 +266,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:fontFamily="sans-serif-medium"
-                        android:text="Tổng thanh toán"
+                        android:text="@string/total_payment_label"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
                     <TextView
@@ -280,7 +289,7 @@
                 android:layout_marginBottom="24dp"
                 android:backgroundTint="@color/primary"
                 android:fontFamily="sans-serif-black"
-                android:text="Xác nhận thanh toán"
+                android:text="@string/confirm_payment_button"
                 android:textColor="@color/text_button"
                 app:cornerRadius="32dp" />
 
@@ -291,7 +300,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp"
                 app:cardCornerRadius="24dp"
-                app:cardElevation="2dp">
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="#FFF8EC">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -309,7 +319,8 @@
                             android:layout_height="28dp"
                             android:layout_gravity="center"
                             android:src="@android:drawable/ic_menu_save"
-                            app:tint="@color/text_description" />
+                            app:tint="@color/text_description"
+                            android:contentDescription="@string/payment_method_label" />
                     </androidx.cardview.widget.CardView>
                     <LinearLayout
                         android:layout_width="0dp"
@@ -321,14 +332,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-medium"
-                            android:text="Thanh toán khi nhận hàng"
+                            android:text="@string/payment_on_delivery"
                             android:textColor="@color/black"
                             android:textSize="16sp" />
                         <TextView
                             android:id="@+id/txtPaymentMethodDesc"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="COD"
+                            android:text="@string/cod_label"
                             android:textColor="@color/text_description"
                             android:textSize="13sp" />
                     </LinearLayout>
@@ -360,13 +371,14 @@
                         android:layout_height="24dp"
                         android:layout_marginStart="8dp"
                         android:src="@drawable/ic_ticket"
-                        app:tint="#8B4513" />
+                        app:tint="#8B4513"
+                        android:contentDescription="@string/use_promo_code" />
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
                         android:layout_weight="1"
-                        android:text="Sử dụng mã giảm giá"
+                        android:text="@string/use_promo_code"
                         android:textColor="#8B4513"
                         android:textSize="15sp" />
                     <Button
@@ -375,7 +387,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/white"
-                        android:text="Chọn mã"
+                        android:text="@string/select_promo_action"
                         android:textColor="@color/black"
                         android:textStyle="bold"
                         app:cornerRadius="20dp" />

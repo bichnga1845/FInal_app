@@ -21,7 +21,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Yêu cầu Trả hàng/Hoàn tiền"
+                android:text="@string/refund_request_title"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:fontFamily="sans-serif-medium" />
@@ -52,7 +52,8 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/ic_leaf" />
+                    android:src="@drawable/ic_leaf"
+                    android:contentDescription="@string/product_logo_desc" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -66,7 +67,7 @@
                         android:layout_height="wrap_content"
                         android:ellipsize="end"
                         android:maxLines="2"
-                        android:text="Tên sản phẩm"
+                        tools:text="Tên sản phẩm"
                         android:textColor="@color/black"
                         android:textSize="14sp" />
 
@@ -75,7 +76,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="Phân loại hàng"
+                        android:text="@string/product_variant_label"
                         android:textColor="@color/text_description"
                         android:textSize="12sp" />
 
@@ -97,7 +98,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
-                            android:text="x1"
+                            tools:text="x1"
                             android:textColor="@color/text_description"
                             android:textSize="14sp" />
                     </RelativeLayout>
@@ -124,7 +125,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Lý do *"
+                    android:text="@string/reason_label"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
@@ -132,7 +133,7 @@
                     android:id="@+id/txtReason"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Chọn lý do"
+                    android:text="@string/select_reason_hint"
                     android:textColor="@color/text_description"
                     android:textSize="14sp" />
 
@@ -143,7 +144,8 @@
                     android:layout_marginStart="8dp"
                     android:rotation="180"
                     android:src="@drawable/ic_arrow_back"
-                    app:tint="@color/text_description" />
+                    app:tint="@color/text_description"
+                    android:contentDescription="@string/product_cart_desc" />
             </LinearLayout>
 
             <View
@@ -167,7 +169,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Phương án *"
+                    android:text="@string/solution_label"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
@@ -175,7 +177,7 @@
                     android:id="@+id/txtSolution"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="-"
+                    tools:text="-"
                     android:textColor="@color/text_description"
                     android:textSize="14sp" />
 
@@ -186,7 +188,8 @@
                     android:layout_marginStart="8dp"
                     android:rotation="180"
                     android:src="@drawable/ic_arrow_back"
-                    app:tint="@color/text_description" />
+                    app:tint="@color/text_description"
+                    android:contentDescription="@string/product_cart_desc" />
             </LinearLayout>
 
             <View
@@ -208,7 +211,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Tổng tiền hoàn"
+                        android:text="@string/total_refund_amount"
                         android:textColor="@color/black"
                         android:textSize="14sp" />
 
@@ -227,7 +230,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="Giá sản phẩm sau khuyến mãi"
+                    android:text="@string/price_after_promo"
                     android:textColor="@color/text_description"
                     android:textSize="12sp" />
             </LinearLayout>
@@ -251,7 +254,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Mô tả"
+                        android:text="@string/description_label"
                         android:textColor="@color/black"
                         android:textSize="14sp" />
 
@@ -272,9 +275,10 @@
                     android:layout_marginTop="8dp"
                     android:background="@null"
                     android:gravity="top"
-                    android:hint="Ghi chú thêm"
+                    android:hint="@string/hint_additional_notes"
                     android:minHeight="100dp"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:autofillHints="none" />
             </LinearLayout>
 
             <View
@@ -293,7 +297,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Email *"
+                    android:text="@string/str_email"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
@@ -303,9 +307,10 @@
                     android:layout_height="wrap_content"
                     android:background="@null"
                     android:gravity="end"
-                    android:hint="Nhập email"
+                    android:hint="@string/str_hint_email"
                     android:inputType="textEmailAddress"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:autofillHints="emailAddress" />
             </LinearLayout>
 
         </LinearLayout>
@@ -324,12 +329,41 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:backgroundTint="#EEEEEE"
-            android:text="Gửi yêu cầu"
+            android:text="@string/submit_request_button"
             android:textAllCaps="false"
             android:textColor="@color/placeholder"
             android:textSize="16sp"
             app:cornerRadius="4dp"
             android:enabled="false" />
     </LinearLayout>
+
+    <!-- Dim overlay -->
+    <View
+        android:id="@+id/dimOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"
+        android:elevation="8dp"
+        android:visibility="gone" />
+
+    <!-- Success popup -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutSuccessPopup"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="16dp"
+        android:visibility="gone">
+
+        <include
+            layout="@layout/dialog_refund_success"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

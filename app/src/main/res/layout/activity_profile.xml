@@ -9,9 +9,52 @@
     android:background="@color/background"
     tools:context=".ProfileActivity">
 
+    <!-- ===== Header cố định: nền xanh, icon trở về + Đăng xuất màu kem ===== -->
+    <LinearLayout
+        android:id="@+id/profile_header_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary"
+        android:minHeight="56dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="4dp"
+        android:paddingEnd="8dp">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_arrow_back"
+            android:padding="10dp"
+            app:tint="@color/text_button"
+            android:contentDescription="@string/product_cart_desc"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/tv_header_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/str_logout"
+            android:textColor="@color/text_button"
+            android:textSize="15sp"
+            android:fontFamily="sans-serif-medium"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"/>
+    </LinearLayout>
+
+    <!-- ===== Nội dung cuộn ===== -->
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:fillViewport="true">
 
         <LinearLayout
@@ -20,55 +63,30 @@
             android:orientation="vertical"
             android:padding="20dp">
 
-            <!-- ===== Header row: avatar nho + ten + nut Dang xuat ===== -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+            <!-- ===== Avatar căn giữa (không có tên bên dưới) ===== -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardProfileAvatar"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="40dp"
+                app:cardElevation="4dp">
 
                 <ImageView
                     android:id="@+id/iv_profile_avatar"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:background="@drawable/bg_avatar_circle"
-                    android:padding="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/ic_logo"
-                    android:contentDescription="Anh dai dien"/>
-
-                <TextView
-                    android:id="@+id/tv_profile_name"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginStart="12dp"
-                    android:text="@string/str_loading"
-                    android:textColor="@color/text_main"
-                    android:textSize="18sp"
-                    android:fontFamily="sans-serif-medium"
-                    android:singleLine="true"
-                    android:ellipsize="end"/>
-
-                <TextView
-                    android:id="@+id/tv_header_logout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="8dp"
-                    android:text="@string/str_logout"
-                    android:textColor="@color/timestamp"
-                    android:textSize="14sp"
-                    android:fontFamily="sans-serif-medium"
-                    android:background="?attr/selectableItemBackground"
-                    android:clickable="true"
-                    android:focusable="true"/>
-            </LinearLayout>
+                    android:src="@mipmap/ic_account"
+                    android:contentDescription="@string/product_logo_desc"/>
+            </androidx.cardview.widget.CardView>
 
             <!-- ===== Welcome card lon (gradient olive) ===== -->
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
-                android:layout_marginTop="20dp"
                 android:background="@drawable/bg_welcome_card">
 
                 <LinearLayout
@@ -118,7 +136,7 @@
                     android:layout_margin="16dp"
                     android:alpha="0.25"
                     android:src="@drawable/ic_leaf"
-                    android:contentDescription="leaf"/>
+                    android:contentDescription="@string/product_logo_desc"/>
             </FrameLayout>
 
             <!-- ===== Section title ===== -->
@@ -162,7 +180,7 @@
                             android:layout_width="32dp"
                             android:layout_height="32dp"
                             android:src="@drawable/ic_menu_edit_profile"
-                            android:contentDescription="Chinh sua ho so"/>
+                            android:contentDescription="@string/edit_profile"/>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -191,7 +209,7 @@
                             android:layout_width="32dp"
                             android:layout_height="32dp"
                             android:src="@drawable/ic_menu_password"
-                            android:contentDescription="Doi mat khau"/>
+                            android:contentDescription="@string/change_password"/>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -220,7 +238,7 @@
                             android:layout_width="32dp"
                             android:layout_height="32dp"
                             android:src="@drawable/ic_menu_forgot_password"
-                            android:contentDescription="Quen mat khau"/>
+                            android:contentDescription="@string/forgot_password_title"/>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -264,7 +282,7 @@
                             android:layout_width="32dp"
                             android:layout_height="32dp"
                             android:src="@drawable/ic_menu_address"
-                            android:contentDescription="Dia chi"/>
+                            android:contentDescription="@string/shipping_address_title"/>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -293,7 +311,7 @@
                             android:layout_width="32dp"
                             android:layout_height="32dp"
                             android:src="@drawable/ic_menu_payment"
-                            android:contentDescription="Thanh toan"/>
+                            android:contentDescription="@string/payment_method_title"/>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -307,7 +325,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/menu_logout"
+                        android:id="@+id/menu_orders"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -321,15 +339,15 @@
                         <ImageView
                             android:layout_width="32dp"
                             android:layout_height="32dp"
-                            android:src="@drawable/ic_menu_logout"
-                            android:contentDescription="Dang xuat"/>
+                            android:src="@drawable/ic_menu_orders"
+                            android:contentDescription="@string/str_menu_orders"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="6dp"
                             android:gravity="center"
-                            android:text="@string/str_logout"
+                            android:text="@string/str_menu_orders"
                             android:textColor="@color/text_main"
                             android:textSize="12sp"
                             android:fontFamily="sans-serif-medium"/>
@@ -337,13 +355,13 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <!-- ===== Info card (loai tai khoan, sdt, dia chi) ===== -->
+            <!-- ===== Info card: nền xanh lá ===== -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
-                android:background="@drawable/bg_profile_card"
+                android:background="@drawable/bg_profile_card_green"
                 android:orientation="vertical"
                 android:padding="16dp">
 
@@ -351,7 +369,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/str_profile_contact_info"
-                    android:textColor="@color/text_main"
+                    android:textColor="#FFEFC8"
                     android:textSize="13sp"
                     android:letterSpacing="0.05"
                     android:fontFamily="sans-serif-medium"/>
@@ -360,9 +378,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="14dp"
                     android:text="@string/str_phone_number"
-                    android:textColor="@color/text_description"
+                    android:textColor="#AAFFFFFF"
                     android:textSize="12sp"
                     android:fontFamily="sans-serif-light"/>
 
@@ -372,7 +390,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:text="@string/str_not_updated"
-                    android:textColor="@color/text_main"
+                    android:textColor="@color/white"
                     android:textSize="15sp"
                     android:fontFamily="sans-serif-medium"/>
 
@@ -381,14 +399,14 @@
                     android:layout_height="1dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:background="@color/timestamp"/>
+                    android:background="#33FFFFFF"/>
 
                 <!-- Dia chi -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/str_address"
-                    android:textColor="@color/text_description"
+                    android:textColor="#AAFFFFFF"
                     android:textSize="12sp"
                     android:fontFamily="sans-serif-light"/>
 
@@ -398,7 +416,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:text="@string/str_not_updated"
-                    android:textColor="@color/text_main"
+                    android:textColor="@color/white"
                     android:textSize="15sp"
                     android:fontFamily="sans-serif-medium"/>
 
@@ -407,14 +425,14 @@
                     android:layout_height="1dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:background="@color/timestamp"/>
+                    android:background="#33FFFFFF"/>
 
                 <!-- Email -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/str_email_label"
-                    android:textColor="@color/text_description"
+                    android:textColor="#AAFFFFFF"
                     android:textSize="12sp"
                     android:fontFamily="sans-serif-light"/>
 
@@ -424,7 +442,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:text="@string/str_profile_email_example"
-                    android:textColor="@color/text_main"
+                    android:textColor="@color/white"
                     android:textSize="15sp"
                     android:fontFamily="sans-serif-medium"/>
 
@@ -433,14 +451,14 @@
                     android:layout_height="1dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:background="@color/timestamp"/>
+                    android:background="#33FFFFFF"/>
 
                 <!-- Loai tai khoan -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/str_account_type"
-                    android:textColor="@color/text_description"
+                    android:textColor="#AAFFFFFF"
                     android:textSize="12sp"
                     android:fontFamily="sans-serif-light"/>
 
@@ -450,7 +468,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:text="@string/str_role_customer"
-                    android:textColor="@color/text_main"
+                    android:textColor="@color/white"
                     android:textSize="15sp"
                     android:fontFamily="sans-serif-medium"/>
             </LinearLayout>

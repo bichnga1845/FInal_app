@@ -22,7 +22,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Thông tin đơn hàng"
+                android:text="@string/order_detail_title"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:fontFamily="sans-serif-medium" />
@@ -53,7 +53,7 @@
                     android:id="@+id/txtOrderStatus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Đơn hàng đã hoàn thành"
+                    android:text="@string/order_status_completed"
                     android:textColor="@color/white"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -63,7 +63,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="Cảm ơn bạn đã mua sắm tại Bonsai Shop!"
+                    android:text="@string/order_status_thanks"
                     android:textColor="@color/white"
                     android:textSize="14sp" />
             </LinearLayout>
@@ -85,7 +85,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Thông tin vận chuyển"
+                        android:text="@string/shipping_info"
                         android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -108,7 +108,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="12dp"
-                            android:text="Nhanh - Giao Hàng Tiết Kiệm"
+                            android:text="@string/shipping_carrier_default"
                             android:textColor="@color/black"
                             android:textSize="14sp" />
                     </LinearLayout>
@@ -133,7 +133,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Địa chỉ nhận hàng"
+                        android:text="@string/shipping_address"
                         android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -161,7 +161,7 @@
                                 android:id="@+id/txtReceiverNamePhone"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Nguyễn Hoàng Sang (+84) 937 325 868"
+                                tools:text="Nguyễn Hoàng Sang (+84) 937 325 868"
                                 android:textColor="@color/black"
                                 android:textSize="14sp" />
 
@@ -214,7 +214,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:layout_weight="1"
-                            android:text="BONSAI SHOP"
+                            android:text="@string/shop_name"
                             android:textColor="@color/black"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -248,7 +248,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentStart="true"
-                            android:text="Thành tiền:"
+                            android:text="@string/total_amount_label"
                             android:textColor="@color/black"
                             android:textSize="15sp" />
 
@@ -286,7 +286,7 @@
                         android:layout_marginHorizontal="16dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="8dp"
-                        android:text="Bạn cần hỗ trợ?"
+                        android:text="@string/support_question"
                         android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -310,7 +310,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="12dp"
                             android:layout_weight="1"
-                            android:text="Gửi yêu cầu Trả hàng/Hoàn tiền"
+                            android:text="@string/request_refund"
                             android:textColor="@color/black"
                             android:textSize="14sp" />
 
@@ -346,7 +346,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="12dp"
                             android:layout_weight="1"
-                            android:text="Liên hệ Shop"
+                            android:text="@string/contact_shop"
                             android:textColor="@color/black"
                             android:textSize="14sp" />
 
@@ -381,7 +381,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Mã đơn hàng"
+                            android:text="@string/order_id_label"
                             android:textColor="@color/black"
                             android:textSize="15sp"
                             android:textStyle="bold" />
@@ -405,7 +405,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="8dp"
-                                android:text="SAO CHÉP"
+                                android:text="@string/copy_action"
                                 android:textColor="@color/primary"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
@@ -422,7 +422,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Phương thức thanh toán"
+                            android:text="@string/payment_method_label"
                             android:textColor="@color/text_description"
                             android:textSize="13sp" />
 
@@ -430,7 +430,7 @@
                             android:id="@+id/txtPaymentMethod"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Tiền mặt"
+                            android:text="@string/payment_cash"
                             android:textColor="@color/black"
                             android:textSize="13sp" />
                     </LinearLayout>
@@ -445,7 +445,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Thời gian đặt hàng"
+                            android:text="@string/order_time_label"
                             android:textColor="@color/text_description"
                             android:textSize="13sp" />
 
@@ -468,7 +468,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Thời gian hoàn thành"
+                            android:text="@string/completion_time_label"
                             android:textColor="@color/text_description"
                             android:textSize="13sp" />
 
@@ -493,17 +493,36 @@
         android:layout_gravity="bottom"
         android:background="@color/white"
         android:elevation="8dp"
-        android:padding="12dp">
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/btnGoHome"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="6dp"
+            android:backgroundTint="@color/white"
+            app:strokeColor="@color/primary"
+            app:strokeWidth="2dp"
+            android:text="@string/refund_success_btn"
+            android:textAllCaps="false"
+            android:textColor="@color/primary"
+            android:textSize="15sp"
+            app:cornerRadius="25dp" />
 
         <Button
             android:id="@+id/btnReorder"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="50dp"
+            android:layout_weight="1"
+            android:layout_marginStart="6dp"
             android:backgroundTint="@color/primary"
-            android:text="Mua lại"
+            android:text="@string/reorder_button"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="16sp"
+            android:textSize="15sp"
             app:cornerRadius="25dp" />
     </LinearLayout>
 

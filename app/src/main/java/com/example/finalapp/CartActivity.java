@@ -87,7 +87,7 @@ public class CartActivity extends AppCompatActivity {
 
         btnCheckout.setOnClickListener(v -> {
             if (cartItemList.isEmpty()) {
-                Toast.makeText(this, "Giỏ hàng của bạn đang trống", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.cart_empty_message), Toast.LENGTH_SHORT).show();
             } else {
                 startActivity(new Intent(CartActivity.this, CheckoutActivity.class));
             }

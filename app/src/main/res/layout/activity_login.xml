@@ -33,49 +33,14 @@
         app:layout_constraintStart_toStartOf="@id/imgBanner"
         app:layout_constraintEnd_toEndOf="@id/imgBanner"/>
 
-    <!-- Back -->
+    <!-- imgBack kept as invisible anchor for Java code reference -->
     <ImageView
         android:id="@+id/imgBack"
-        android:layout_width="42dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="52dp"
-        android:background="@mipmap/ic_back"
-        android:padding="11dp"
-        android:src="@drawable/ic_arrow_back_black_24"
-        android:tint="@android:color/white"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <!-- Notification -->
-    <FrameLayout
-        android:id="@+id/layoutNotification"
-        android:layout_width="42dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="20dp"
-        android:background="@mipmap/ic_notify"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/imgNotification"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_gravity="center"
-            android:src="@mipmap/ic_notify"
-            android:tint="@android:color/white" />
-
-        <!-- Dot -->
-        <View
-            android:layout_width="10dp"
-            android:layout_height="10dp"
-            android:layout_gravity="top|end"
-            android:layout_marginTop="9dp"
-            android:layout_marginEnd="9dp"
-            android:background="@drawable/bg_notification_dot" />
-
-    </FrameLayout>
 
     <!-- ================= LOGIN CARD ================= -->
 
@@ -92,10 +57,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
         <LinearLayout
             android:id="@+id/layoutContainer"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingHorizontal="28dp"
             android:paddingTop="24dp"
@@ -258,17 +228,18 @@
                 android:textStyle="bold" />
 
             <!-- Login Button -->
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnLogin"
+                style="@style/Widget.AppCompat.Button"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
                 android:layout_marginTop="24dp"
-                android:background="@drawable/bg_button_primary"
+                android:background="@drawable/bg_button_green"
                 android:elevation="6dp"
                 android:stateListAnimator="@null"
                 android:text="@string/str_login"
-                android:textAllCaps="false"
-                android:textColor="@color/input_border"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -350,14 +321,19 @@
                     android:id="@+id/txtSignUp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
                     android:text="@string/str_register"
                     android:textColor="@color/primary"
                     android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:clickable="true"
+                    android:focusable="true" />
 
             </LinearLayout>
 
         </LinearLayout>
+
+        </ScrollView>
 
     </androidx.cardview.widget.CardView>
 

@@ -4,8 +4,10 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
@@ -69,11 +71,11 @@ public class RefundRequestActivity extends AppCompatActivity {
 
         findViewById(R.id.btnSelectReason).setOnClickListener(v -> {
             PopupMenu popup = new PopupMenu(this, v);
-            popup.getMenu().add("Cây bị héo, khô hoặc chết");
-            popup.getMenu().add("Cây bị gãy cành, rụng lá nghiêm trọng");
-            popup.getMenu().add("Chậu sứ bị vỡ, nứt");
-            popup.getMenu().add("Cây không đúng kích thước/dáng thế");
-            popup.getMenu().add("Giao sai loại cây");
+            popup.getMenu().add(getString(R.string.str_refund_reason1));
+            popup.getMenu().add(getString(R.string.str_refund_reason2));
+            popup.getMenu().add(getString(R.string.str_refund_reason3));
+            popup.getMenu().add(getString(R.string.str_refund_reason4));
+            popup.getMenu().add(getString(R.string.str_refund_reason5));
             
             popup.setOnMenuItemClickListener(item -> {
                 txtReason.setText(item.getTitle());
@@ -85,9 +87,9 @@ public class RefundRequestActivity extends AppCompatActivity {
 
         findViewById(R.id.btnSelectSolution).setOnClickListener(v -> {
             PopupMenu popup = new PopupMenu(this, v);
-            popup.getMenu().add("Hoàn tiền & Trả cây");
-            popup.getMenu().add("Hoàn tiền ngay (Không trả cây)");
-            popup.getMenu().add("Đổi cây mới (Gửi bù cây khác)");
+            popup.getMenu().add(getString(R.string.str_refund_solution1));
+            popup.getMenu().add(getString(R.string.str_refund_solution2));
+            popup.getMenu().add(getString(R.string.str_refund_solution3));
 
             popup.setOnMenuItemClickListener(item -> {
                 txtSolution.setText(item.getTitle());
@@ -97,10 +99,7 @@ public class RefundRequestActivity extends AppCompatActivity {
             popup.show();
         });
 
-        btnSubmit.setOnClickListener(v -> {
-            Toast.makeText(this, "Yêu cầu đã được gửi thành công!", Toast.LENGTH_SHORT).show();
-            finish();
-        });
+        btnSubmit.setOnClickListener(v -> submitRefundRequest());
 
         if (FirebaseAuth.getInstance().getCurrentUser() != null) {
             edtEmail.setText(FirebaseAuth.getInstance().getCurrentUser().getEmail());
@@ -136,14 +135,14 @@ public class RefundRequestActivity extends AppCompatActivity {
     private void displayOrderInfo(Order order) {
         CartItem firstItem = order.items.get(0);
         if (firstItem.product != null) {
-            txtProductName.setText(firstItem.product.name);
+            txtProductName.setText(firstItem.product.getLocalizedName());
             txtProductVariant.setText(firstItem.product.category);
             txtProductPrice.setText(formatMoney(firstItem.product.getVndPrice()));
             if (firstItem.product.imageUrl != null && !firstItem.product.imageUrl.isEmpty()) {
                 Glide.with(this).load(firstItem.product.imageUrl).into(imgProduct);
             }
         }
-        txtQuantity.setText("x" + firstItem.quantity);
+        txtQuantity.setText(getString(R.string.str_quantity_prefix) + firstItem.quantity);
         txtRefundAmount.setText(formatMoney(order.totalAmount));
     }
 
@@ -177,7 +176,7 @@ public class RefundRequestActivity extends AppCompatActivity {
     }
 
     private void validateForm() {
-        boolean isValid = !txtReason.getText().toString().equals("Chọn lý do")
+        boolean isValid = !txtReason.getText().toString().equals(getString(R.string.str_refund_reason_placeholder))
                 && !txtSolution.getText().toString().equals("-")
                 && !edtEmail.getText().toString().isEmpty();
 
@@ -190,6 +189,44 @@ public class RefundRequestActivity extends AppCompatActivity {
             btnSubmit.setBackgroundTintList(android.content.res.ColorStateList.valueOf(0xFFEEEEEE));
             btnSubmit.setTextColor(androidx.core.content.ContextCompat.getColor(this, R.color.placeholder));
         }
+    }
+
+    private void submitRefundRequest() {
+        if (orderId == null) return;
+        btnSubmit.setEnabled(false);
+        // Cập nhật status đơn hàng → Refund trên Firebase
+        FirebaseDatabase.getInstance()
+                .getReference("orders")
+                .child(orderId)
+                .child("status")
+                .setValue("Refund")
+                .addOnSuccessListener(unused -> showSuccessPopup())
+                .addOnFailureListener(e -> {
+                    btnSubmit.setEnabled(true);
+                    android.widget.Toast.makeText(this,
+                            "Lỗi: " + e.getMessage(),
+                            android.widget.Toast.LENGTH_SHORT).show();
+                });
+    }
+
+    private void showSuccessPopup() {
+        View dimOverlay = findViewById(R.id.dimOverlay);
+        View layoutPopup = findViewById(R.id.layoutSuccessPopup);
+
+        dimOverlay.setVisibility(View.VISIBLE);
+        layoutPopup.setVisibility(View.VISIBLE);
+
+        // Animate popup vào
+        layoutPopup.setAlpha(0f);
+        layoutPopup.setScaleX(0.85f);
+        layoutPopup.setScaleY(0.85f);
+        layoutPopup.animate().alpha(1f).scaleX(1f).scaleY(1f).setDuration(250).start();
+
+        layoutPopup.findViewById(R.id.btnBackHome).setOnClickListener(v -> {
+            startActivity(new android.content.Intent(this, MainFinalActivity.class)
+                    .addFlags(android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP));
+            finish();
+        });
     }
 
     private String formatMoney(double amount) {

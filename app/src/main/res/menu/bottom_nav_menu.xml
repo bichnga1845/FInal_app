@@ -3,21 +3,21 @@
     <item
         android:id="@+id/nav_home"
         android:icon="@mipmap/ic_homepage"
-        android:title="Trang chủ" />
+        android:title="@string/nav_home" />
     <item
         android:id="@+id/nav_product"
         android:icon="@mipmap/ic_category_bonsai_trees"
-        android:title="Sản phẩm" />
+        android:title="@string/nav_product" />
     <item
         android:id="@+id/nav_promo"
         android:icon="@mipmap/ic_coupon"
-        android:title="Ưu đãi" />
+        android:title="@string/nav_promo" />
     <item
         android:id="@+id/nav_about"
         android:icon="@mipmap/ic_about_us"
-        android:title="Về chúng tôi" />
+        android:title="@string/nav_about" />
     <item
         android:id="@+id/nav_account"
         android:icon="@mipmap/ic_account"
-        android:title="Tài khoản" />
+        android:title="@string/nav_account" />
 </menu>

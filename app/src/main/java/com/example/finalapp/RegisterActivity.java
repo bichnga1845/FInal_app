@@ -1,13 +1,19 @@
 package com.example.finalapp;
 
+import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -21,13 +27,12 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Calendar;
+
 public class RegisterActivity extends AppCompatActivity {
 
-    private EditText edtPhone;
-    private EditText edtEmail;
-    private EditText edtFullName;
-    private EditText edtPassword;
-    private EditText edtRePassword;
+    private EditText edtPhone, edtEmail, edtFullName, edtPassword, edtRePassword, edtDob;
+    private Spinner spinnerGender;
     private CheckBox cbTerms;
     private Button btnRegister;
     private FirebaseAuth auth;
@@ -36,6 +41,7 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
+        getWindow().setStatusBarColor(getResources().getColor(R.color.primary, getTheme()));
         setContentView(R.layout.activity_register);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -57,8 +63,59 @@ public class RegisterActivity extends AppCompatActivity {
         edtFullName = findViewById(R.id.edtFullName);
         edtPassword = findViewById(R.id.edtPassword);
         edtRePassword = findViewById(R.id.edtRePassword);
+        edtDob = findViewById(R.id.edtDob);
+        spinnerGender = findViewById(R.id.spinnerGender);
         cbTerms = findViewById(R.id.cbTerms);
         btnRegister = findViewById(R.id.btnRegister);
+
+        // Spinner giới tính
+        ArrayAdapter<String> genderAdapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item,
+                new String[]{getString(R.string.str_select_gender), getString(R.string.str_gender_male), getString(R.string.str_gender_female), getString(R.string.str_gender_other)});
+        genderAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerGender.setAdapter(genderAdapter);
+
+        // Toggle hiện/ẩn mật khẩu
+        ImageView imgTogglePassword = findViewById(R.id.imgTogglePassword);
+        if (imgTogglePassword != null) {
+            imgTogglePassword.setOnClickListener(v -> {
+                boolean isHidden = edtPassword.getTransformationMethod()
+                        instanceof PasswordTransformationMethod;
+                if (isHidden) {
+                    edtPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    imgTogglePassword.setImageResource(R.drawable.ic_eye_on);
+                } else {
+                    edtPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    imgTogglePassword.setImageResource(R.drawable.ic_eye_off);
+                }
+                edtPassword.setSelection(edtPassword.getText().length());
+            });
+        }
+
+        ImageView imgToggleRePassword = findViewById(R.id.imgToggleRePassword);
+        if (imgToggleRePassword != null) {
+            imgToggleRePassword.setOnClickListener(v -> {
+                boolean isHidden = edtRePassword.getTransformationMethod()
+                        instanceof PasswordTransformationMethod;
+                if (isHidden) {
+                    edtRePassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    imgToggleRePassword.setImageResource(R.drawable.ic_eye_on);
+                } else {
+                    edtRePassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    imgToggleRePassword.setImageResource(R.drawable.ic_eye_off);
+                }
+                edtRePassword.setSelection(edtRePassword.getText().length());
+            });
+        }
+
+        // DatePicker ngày sinh
+        edtDob.setOnClickListener(v -> {
+            Calendar cal = Calendar.getInstance();
+            new DatePickerDialog(this, (view, year, month, day) -> {
+                String date = String.format("%02d/%02d/%04d", day, month + 1, year);
+                edtDob.setText(date);
+            }, cal.get(Calendar.YEAR) - 18, cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH)).show();
+        });
     }
 
     private void attemptRegister() {
@@ -69,37 +126,37 @@ public class RegisterActivity extends AppCompatActivity {
         String rePassword = edtRePassword.getText().toString();
 
         if (TextUtils.isEmpty(phone) || !phone.matches("^0\\d{9,10}$")) {
-            edtPhone.setError("Vui long nhap so dien thoai hop le");
+            edtPhone.setError(getString(R.string.str_error_phone));
             edtPhone.requestFocus();
             return;
         }
 
         if (TextUtils.isEmpty(email) || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            edtEmail.setError("Vui long nhap email hop le");
+            edtEmail.setError(getString(R.string.str_error_email));
             edtEmail.requestFocus();
             return;
         }
 
         if (TextUtils.isEmpty(fullName) || fullName.length() < 2) {
-            edtFullName.setError("Vui long nhap ho ten");
+            edtFullName.setError(getString(R.string.str_error_name));
             edtFullName.requestFocus();
             return;
         }
 
         if (password.length() < 6) {
-            edtPassword.setError("Mat khau phai co it nhat 6 ky tu");
+            edtPassword.setError(getString(R.string.str_error_password_length));
             edtPassword.requestFocus();
             return;
         }
 
         if (!password.equals(rePassword)) {
-            edtRePassword.setError("Mat khau nhap lai khong khop");
+            edtRePassword.setError(getString(R.string.str_error_password_mismatch));
             edtRePassword.requestFocus();
             return;
         }
 
         if (!cbTerms.isChecked()) {
-            Toast.makeText(this, "Vui long dong y dieu khoan", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.str_error_terms), Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -110,7 +167,7 @@ public class RegisterActivity extends AppCompatActivity {
                         btnRegister.setEnabled(true);
                         String message = task.getException() != null
                                 ? task.getException().getMessage()
-                                : "Dang ky that bai";
+                                : getString(R.string.str_register_failed);
                         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
                         return;
                     }
@@ -118,7 +175,7 @@ public class RegisterActivity extends AppCompatActivity {
                     FirebaseUser firebaseUser = auth.getCurrentUser();
                     if (firebaseUser == null) {
                         btnRegister.setEnabled(true);
-                        Toast.makeText(this, "Khong lay duoc tai khoan vua tao", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, getString(R.string.str_error_firebase_user), Toast.LENGTH_SHORT).show();
                         return;
                     }
 
@@ -134,20 +191,27 @@ public class RegisterActivity extends AppCompatActivity {
                 .addOnCompleteListener(task -> {
                     btnRegister.setEnabled(true);
                     if (task.isSuccessful()) {
-                        openMainScreen();
+                        showSuccessAndGoToLogin();
                     } else {
                         String message = task.getException() != null
                                 ? task.getException().getMessage()
-                                : "Khong luu duoc thong tin nguoi dung";
+                                : getString(R.string.str_error_save_user);
                         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
                     }
                 });
     }
 
-    private void openMainScreen() {
-        Intent intent = new Intent(this, MainFinalActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
-        finishAffinity();
+    private void showSuccessAndGoToLogin() {
+        new AlertDialog.Builder(this)
+                .setTitle(getString(R.string.str_register_success_title))
+                .setMessage(getString(R.string.str_register_success_msg))
+                .setCancelable(false)
+                .setPositiveButton(getString(R.string.str_login_now), (dialog, which) -> {
+                    com.google.firebase.auth.FirebaseAuth.getInstance().signOut();
+                    Intent intent = new Intent(this, LoginActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+                })
+                .show();
     }
 }

@@ -28,7 +28,7 @@
             android:background="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"
             android:focusable="true"
-            android:contentDescription="Quay lai"
+            android:contentDescription="@string/product_cart_desc"
             app:tint="@color/toolbar_content"/>
 
         <TextView
@@ -54,20 +54,47 @@
             android:orientation="vertical"
             android:padding="20dp">
 
-            <!-- Avatar (chi xem, chua cho doi anh) -->
+            <!-- Avatar có thể thay đổi -->
             <FrameLayout
+                android:id="@+id/avatarContainer"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_gravity="center_horizontal">
+                android:layout_gravity="center_horizontal"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless">
 
-                <ImageView
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/bg_avatar_circle"
-                    android:padding="6dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/ic_logo"
-                    android:contentDescription="Anh dai dien"/>
+                    app:cardCornerRadius="50dp"
+                    app:cardElevation="4dp">
+
+                    <ImageView
+                        android:id="@+id/iv_edit_avatar"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/ic_account"
+                        android:contentDescription="@string/avatar_label"/>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Overlay tối mờ + icon camera căn giữa (dùng CardView để clip tròn) -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:cardCornerRadius="50dp"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="#66000000">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_menu_edit_profile"
+                        app:tint="@color/text_button"
+                        android:contentDescription="@string/str_edit_avatar"/>
+                </androidx.cardview.widget.CardView>
             </FrameLayout>
 
             <TextView
@@ -155,34 +182,6 @@
                 android:textColorHint="@color/placeholder"
                 android:textSize="16sp"
                 android:autofillHints="phone"/>
-
-            <!-- ===== Dia chi ===== -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/str_address"
-                android:textColor="@color/text_main"
-                android:textSize="14sp"
-                android:fontFamily="sans-serif-medium"/>
-
-            <EditText
-                android:id="@+id/et_edit_address"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="@dimen/input_height"
-                android:layout_marginTop="6dp"
-                android:background="@drawable/bg_input"
-                android:gravity="top|start"
-                android:hint="@string/str_hint_address_detail"
-                android:inputType="textPostalAddress|textCapSentences|textMultiLine"
-                android:maxLines="3"
-                android:padding="12dp"
-                android:paddingHorizontal="16dp"
-                android:textColor="@color/text_main"
-                android:textColorHint="@color/placeholder"
-                android:textSize="16sp"
-                android:autofillHints="postalAddress"/>
 
             <!-- ===== Nut Luu ===== -->
             <com.google.android.material.button.MaterialButton

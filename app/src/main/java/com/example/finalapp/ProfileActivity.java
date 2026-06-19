@@ -1,8 +1,10 @@
 package com.example.finalapp;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -25,12 +27,9 @@ public class ProfileActivity extends AppCompatActivity {
 
     public static final String EXTRA_UID = "extra_uid";
 
-    // UID test mac dinh (Nga Tran Thi Bich trong firebase_migration.json)
-    // Khi nhom tich hop Firebase Auth xong, LoginActivity se truyen UID that qua Intent
-    private static final String DEFAULT_UID = "69a9a035fde9b32594ffb37e";
 
     // Header
-    private TextView tvName;
+
     private TextView tvHeaderLogout;
 
     // Welcome card
@@ -49,7 +48,7 @@ public class ProfileActivity extends AppCompatActivity {
     private LinearLayout menuForgotPassword;
     private LinearLayout menuAddress;
     private LinearLayout menuPayment;
-    private LinearLayout menuLogout;
+    private LinearLayout menuOrders;
 
     private String currentUid;
 
@@ -59,9 +58,9 @@ public class ProfileActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_profile);
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.profile_root), (v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.profile_header_bar), (v, insets) -> {
             Insets bars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(bars.left, bars.top, bars.right, bars.bottom);
+            v.setPadding(bars.left, bars.top, bars.right, 0);
             return insets;
         });
 
@@ -79,7 +78,6 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void bindViews() {
-        tvName = findViewById(R.id.tv_profile_name);
         tvHeaderLogout = findViewById(R.id.tv_header_logout);
 
         tvWelcomeEmail = findViewById(R.id.tv_welcome_email);
@@ -95,12 +93,23 @@ public class ProfileActivity extends AppCompatActivity {
         menuForgotPassword = findViewById(R.id.menu_forgot_password);
         menuAddress = findViewById(R.id.menu_address);
         menuPayment = findViewById(R.id.menu_payment);
-        menuLogout = findViewById(R.id.menu_logout);
+        menuOrders = findViewById(R.id.menu_orders);
+
+        findViewById(R.id.btnBack).setOnClickListener(v -> finish());
     }
 
     private void resolveUid() {
         String uidFromIntent = getIntent().getStringExtra(EXTRA_UID);
-        currentUid = !TextUtils.isEmpty(uidFromIntent) ? uidFromIntent : DEFAULT_UID;
+        if (!TextUtils.isEmpty(uidFromIntent)) {
+            currentUid = uidFromIntent;
+        } else {
+            com.google.firebase.auth.FirebaseUser firebaseUser =
+                    com.google.firebase.auth.FirebaseAuth.getInstance().getCurrentUser();
+            currentUid = firebaseUser != null ? firebaseUser.getUid() : null;
+        }
+        if (TextUtils.isEmpty(currentUid)) {
+            finish();
+        }
     }
 
     private void loadUserFromFirebase() {
@@ -133,9 +142,14 @@ public class ProfileActivity extends AppCompatActivity {
         String name = TextUtils.isEmpty(user.name) ? getString(R.string.str_profile_no_name) : user.name;
         String email = TextUtils.isEmpty(user.email) ? getString(R.string.str_profile_no_email) : user.email;
 
-        tvName.setText(name);
         tvWelcomeEmail.setText(email);
         tvWelcomeNameBig.setText(name.toUpperCase());
+
+        // Load avatar
+        ImageView ivAvatar = findViewById(R.id.iv_profile_avatar);
+        if (ivAvatar != null) {
+            EditProfileActivity.loadAvatarInto(user.avatarUrl, ivAvatar);
+        }
 
         tvPhone.setText(TextUtils.isEmpty(user.phone) ? getString(R.string.str_not_updated) : user.phone);
         tvAddress.setText(TextUtils.isEmpty(user.address) ? getString(R.string.str_not_updated) : user.address);
@@ -158,7 +172,7 @@ public class ProfileActivity extends AppCompatActivity {
         menuAddress.setOnClickListener(v -> openActivity("com.example.finalapp.SelectAddressActivity"));
         menuPayment.setOnClickListener(v -> openActivity("com.example.finalapp.PaymentMethodActivity"));
 
-        menuLogout.setOnClickListener(v -> handleLogout());
+        menuOrders.setOnClickListener(v -> startActivity(new Intent(this, OrderTrackingActivity.class)));
     }
 
     /**
@@ -177,8 +191,16 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void handleLogout() {
-        AppToast.show(this, R.string.str_logout);
-        // Sau khi tich hop Firebase Auth: FirebaseAuth.getInstance().signOut();
-        finish();
+        new AlertDialog.Builder(this)
+                .setTitle(getString(R.string.str_logout))
+                .setMessage(getString(R.string.str_logout_confirm))
+                .setPositiveButton(getString(R.string.str_logout), (dialog, which) -> {
+                    com.google.firebase.auth.FirebaseAuth.getInstance().signOut();
+                    Intent intent = new Intent(this, LoginActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+                })
+                .setNegativeButton(getString(R.string.str_cancel), null)
+                .show();
     }
 }

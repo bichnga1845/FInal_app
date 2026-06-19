@@ -38,6 +38,7 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation(libs.firebase.database)
     implementation(libs.firebase.auth)
+    // firebase-storage removed: using Cloudinary instead (Spark plan limitation)
     implementation(libs.material)
     implementation("com.github.bumptech.glide:glide:4.16.0")
     testImplementation(libs.junit)

@@ -29,7 +29,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     }
 
     public interface OnAddToCartClickListener {
-        void onAddToCartClick(Product product);
+        void onAddToCartClick(Product product, View sourceView, ImageView productImage);
     }
 
     public ProductAdapter(List<Product> productList) {
@@ -71,7 +71,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     @Override
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
         Product product = productList.get(position);
-        holder.txtName.setText(product.getName());
+        holder.txtName.setText(product.getLocalizedName());
         
         DecimalFormat df = new DecimalFormat("#,###đ");
         holder.txtPrice.setText(df.format(product.getPrice()));
@@ -81,7 +81,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         }
         
         if (holder.txtSpecies != null) {
-            holder.txtSpecies.setText(product.species != null ? product.species : "Bonsai");
+            holder.txtSpecies.setText(product.species != null ? product.species : holder.itemView.getContext().getString(R.string.str_species_default));
         }
 
         // Clear previous image to prevent showing same image
@@ -108,7 +108,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         if (holder.btnAddCart != null) {
             holder.btnAddCart.setOnClickListener(v -> {
                 if (addToCartListener != null && product != null) {
-                    addToCartListener.onAddToCartClick(product);
+                    addToCartListener.onAddToCartClick(product, v, holder.imgProduct);
                 }
             });
         }

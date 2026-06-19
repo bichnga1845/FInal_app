@@ -28,7 +28,7 @@
             android:background="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"
             android:focusable="true"
-            android:contentDescription="Quay lai"
+            android:contentDescription="@string/product_cart_desc"
             app:tint="@color/toolbar_content"/>
 
         <TextView
@@ -89,7 +89,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:src="@drawable/ic_payment_cod"
-                    android:contentDescription="cod"/>
+                    android:contentDescription="@string/cod_label"/>
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -142,7 +142,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:src="@drawable/ic_payment_bank"
-                    android:contentDescription="bank"/>
+                    android:contentDescription="@string/bank_transfer_label"/>
 
                 <LinearLayout
                     android:layout_width="0dp"
