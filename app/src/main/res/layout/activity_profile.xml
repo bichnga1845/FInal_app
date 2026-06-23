@@ -354,59 +354,7 @@
                     </LinearLayout>
                 </LinearLayout>
 
-                <!-- Divider mong giua 2 hang tiep theo -->
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginEnd="12dp"
-                    android:background="@color/timestamp"/>
 
-                <!-- Row 3 -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:id="@+id/menu_system"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="?attr/selectableItemBackground"
-                        android:clickable="true"
-                        android:focusable="true"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="12dp">
-
-                        <ImageView
-                            android:layout_width="32dp"
-                            android:layout_height="32dp"
-                            android:src="@drawable/ic_attach"
-                            android:contentDescription="@string/str_menu_system"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="6dp"
-                            android:gravity="center"
-                            android:text="@string/str_menu_system"
-                            android:textColor="@color/text_main"
-                            android:textSize="12sp"
-                            android:fontFamily="sans-serif-medium"/>
-                    </LinearLayout>
-
-                    <!-- Empty space for symmetry -->
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"/>
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"/>
-                </LinearLayout>
             </LinearLayout>
 
             <!-- ===== Info card: nền xanh lá ===== -->

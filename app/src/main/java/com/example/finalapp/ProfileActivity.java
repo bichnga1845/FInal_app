@@ -49,7 +49,6 @@ public class ProfileActivity extends AppCompatActivity {
     private LinearLayout menuAddress;
     private LinearLayout menuPayment;
     private LinearLayout menuOrders;
-    private LinearLayout menuSystem;
 
     private String currentUid;
 
@@ -95,7 +94,6 @@ public class ProfileActivity extends AppCompatActivity {
         menuAddress = findViewById(R.id.menu_address);
         menuPayment = findViewById(R.id.menu_payment);
         menuOrders = findViewById(R.id.menu_orders);
-        menuSystem = findViewById(R.id.menu_system);
 
         findViewById(R.id.btnBack).setOnClickListener(v -> finish());
     }
@@ -175,7 +173,6 @@ public class ProfileActivity extends AppCompatActivity {
         menuPayment.setOnClickListener(v -> openActivity("com.example.finalapp.PaymentMethodActivity"));
 
         menuOrders.setOnClickListener(v -> startActivity(new Intent(this, OrderTrackingActivity.class)));
-        menuSystem.setOnClickListener(v -> startActivity(new Intent(this, SecurityActivity.class)));
     }
 
     /**
