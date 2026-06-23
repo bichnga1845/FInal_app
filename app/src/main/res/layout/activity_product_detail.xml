@@ -31,6 +31,20 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" />
 
+        <ImageView
+            android:id="@+id/btnShareProduct"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@drawable/bg_badge_soft"
+            android:padding="8dp"
+            android:src="@drawable/ic_share"
+            app:tint="@color/primary"
+            android:contentDescription="Chia sẻ"
+            app:layout_constraintEnd_toStartOf="@id/btnChatDetail"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="10dp"/>
+
         <!-- Nút chat với shop -->
         <ImageView
             android:id="@+id/btnChatDetail"

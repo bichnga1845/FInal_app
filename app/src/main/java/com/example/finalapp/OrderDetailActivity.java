@@ -1,11 +1,22 @@
 package com.example.finalapp;
 
+import android.app.AlertDialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
+import android.content.ContentResolver;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +36,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -39,6 +53,7 @@ public class OrderDetailActivity extends AppCompatActivity {
     private android.widget.Button btnReorder;
     private CheckoutAdapter adapter;
     private String orderId;
+    private Order currentOrder;
     private String currentStatus;
     private DatabaseReference orderRef;
     private String lastKnownStatus = null;
@@ -83,7 +98,7 @@ public class OrderDetailActivity extends AppCompatActivity {
             Toast.makeText(this, getString(R.string.str_order_id_copied), Toast.LENGTH_SHORT).show();
         });
 
-        // Support Section — hiển thị sau khi bind status
+        // Support Section
         findViewById(R.id.btnRefund).setOnClickListener(v -> {
             Intent intent = new Intent(OrderDetailActivity.this, RefundSelectionActivity.class);
             intent.putExtra("ORDER_ID", orderId);
@@ -112,6 +127,8 @@ public class OrderDetailActivity extends AppCompatActivity {
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             startActivity(intent);
         });
+
+        findViewById(R.id.btnDownloadInvoice).setOnClickListener(v -> downloadInvoice());
     }
 
     private void updateFooterButton(String status) {
@@ -156,7 +173,6 @@ public class OrderDetailActivity extends AppCompatActivity {
                     DatabaseReference cartRef = FirebaseDatabase.getInstance().getReference("cart").child(uId);
 
                     for (CartItem item : order.items) {
-                        // Reset quantity if needed or just copy
                         cartRef.child(item.productId).setValue(new CartItem(item.productId, item.quantity));
                     }
 
@@ -185,21 +201,20 @@ public class OrderDetailActivity extends AppCompatActivity {
         orderRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Order order = snapshot.getValue(Order.class);
-                if (order != null) {
-                    displayOrderDetails(order);
-                    // Phát thông báo khi trạng thái thay đổi (bỏ qua lần load đầu)
-                    String currentStatus = order.status;
+                currentOrder = snapshot.getValue(Order.class);
+                if (currentOrder != null) {
+                    displayOrderDetails(currentOrder);
+                    String status = currentOrder.status;
                     if (lastKnownStatus != null
-                            && currentStatus != null
-                            && !currentStatus.equals(lastKnownStatus)) {
+                            && status != null
+                            && !status.equals(lastKnownStatus)) {
                         String uid = FirebaseAuth.getInstance().getUid();
                         if (uid != null) {
                             com.example.finalapp.utils.NotificationHelper
-                                    .orderStatusChanged(OrderDetailActivity.this, uid, orderId, mapStatus(currentStatus));
+                                    .orderStatusChanged(OrderDetailActivity.this, uid, orderId, mapStatus(status));
                         }
                     }
-                    lastKnownStatus = currentStatus;
+                    lastKnownStatus = status;
                 }
             }
 
@@ -210,11 +225,107 @@ public class OrderDetailActivity extends AppCompatActivity {
         });
     }
 
+    private void downloadInvoice() {
+        if (currentOrder == null) return;
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
+            if (androidx.core.content.ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE) 
+                    != android.content.pm.PackageManager.PERMISSION_GRANTED) {
+                androidx.core.app.ActivityCompat.requestPermissions(this, 
+                        new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, 102);
+                return;
+            }
+        }
+
+        AppToast.show(this, "Đang tải hóa đơn...");
+
+        new android.os.Handler(android.os.Looper.getMainLooper()).postDelayed(() -> {
+            Bitmap bitmap = createInvoiceBitmap();
+            if (bitmap != null) {
+                Uri imageUri = saveBitmapToGallery(bitmap, "Invoice_" + currentOrder.orderId);
+                if (imageUri != null) {
+                    showSuccessPopup(imageUri);
+                } else {
+                    Toast.makeText(this, "Lỗi khi lưu hóa đơn", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }, 1500);
+    }
+
+    private Bitmap createInvoiceBitmap() {
+        // Lấy view chứa thông tin đơn hàng (NestedScrollView)
+        View statusView = findViewById(R.id.layoutStatus);
+        if (statusView == null) return null;
+        View content = (View) statusView.getParent();
+        if (content == null) return null;
+
+        int height = content.getHeight();
+        int width = content.getWidth();
+
+        Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        Paint paint = new Paint();
+        paint.setColor(Color.WHITE);
+        canvas.drawRect(0, 0, width, height, paint);
+        content.draw(canvas);
+        return bitmap;
+    }
+
+    private Uri saveBitmapToGallery(Bitmap bitmap, String filename) {
+        OutputStream fos = null;
+        Uri imageUri = null;
+        ContentResolver resolver = getContentResolver();
+
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put(MediaStore.MediaColumns.DISPLAY_NAME, filename + ".png");
+                contentValues.put(MediaStore.MediaColumns.MIME_TYPE, "image/png");
+                contentValues.put(MediaStore.MediaColumns.RELATIVE_PATH, Environment.DIRECTORY_PICTURES + "/Ponsai_Invoices");
+                imageUri = resolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues);
+                if (imageUri != null) {
+                    fos = resolver.openOutputStream(imageUri);
+                }
+            } else {
+                String imagesDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).toString();
+                File dir = new File(imagesDir, "Ponsai_Invoices");
+                if (!dir.exists()) {
+                    boolean created = dir.mkdirs();
+                }
+                File image = new File(dir, filename + ".png");
+                fos = new FileOutputStream(image);
+                imageUri = Uri.fromFile(image);
+            }
+            
+            if (fos != null) {
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
+                fos.close();
+            }
+            return imageUri;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    private void showSuccessPopup(Uri uri) {
+        new AlertDialog.Builder(this)
+                .setTitle("Thành công!")
+                .setMessage("Hóa đơn đã được lưu vào thư viện ảnh.")
+                .setCancelable(true)
+                .setPositiveButton("Xem hóa đơn", (dialog, which) -> {
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setDataAndType(uri, "image/*");
+                    intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                    startActivity(intent);
+                })
+                .setNegativeButton("Đóng", null)
+                .show();
+    }
+
     private void displayOrderDetails(Order order) {
         currentStatus = order.status;
         updateFooterButton(currentStatus);
 
-        // Chỉ hiển thị nút Trả hàng/Hoàn tiền khi đơn đã giao
         android.view.View btnRefundView = findViewById(R.id.btnRefund);
         if (btnRefundView != null) {
             btnRefundView.setVisibility(
@@ -223,10 +334,7 @@ public class OrderDetailActivity extends AppCompatActivity {
 
         txtOrderStatus.setText(getStatusText(order.status));
         txtOrderStatusDetail.setText(getStatusDetail(order.status));
-        
-        // Mock shipping carrier as it's not in the model
         txtShippingCarrier.setText(getString(R.string.shipping_carrier_default));
-        
         txtReceiverAddress.setText(order.addressDetail);
         if (order.receiverName != null && order.receiverPhone != null) {
             txtReceiverNamePhone.setText(order.receiverName + " - " + order.receiverPhone);
@@ -236,7 +344,6 @@ public class OrderDetailActivity extends AppCompatActivity {
 
         DecimalFormat df = new DecimalFormat("#,###đ");
         txtTotalAmount.setText(df.format(order.totalAmount));
-        
         txtOrderId.setText(order.orderId);
         txtPaymentMethod.setText(order.paymentMethod != null ? order.paymentMethod : getString(R.string.payment_cash));
         
@@ -291,6 +398,19 @@ public class OrderDetailActivity extends AppCompatActivity {
             case "Cancelled": return getString(R.string.status_cancelled_desc);
             case "Shipped": return getString(R.string.status_shipping_desc);
             default: return getString(R.string.status_preparing_desc);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 102) {
+            if (grantResults.length > 0 && grantResults[0] == android.content.pm.PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(this, "Đã cấp quyền bộ nhớ!", Toast.LENGTH_SHORT).show();
+                downloadInvoice();
+            } else {
+                Toast.makeText(this, "Cần quyền bộ nhớ để lưu hóa đơn", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }

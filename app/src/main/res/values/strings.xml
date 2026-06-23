@@ -610,6 +610,13 @@
     <string name="str_cancel_success">Đơn hàng đã được huỷ thành công</string>
     <string name="str_cancel_select_reason">Vui lòng chọn lý do huỷ</string>
     <string name="str_menu_orders">Đơn hàng</string>
+    <string name="str_menu_system">Kết nối</string>
+    <string name="str_no_internet">Mất kết nối Internet</string>
+    <string name="str_check_connection">Vui lòng kiểm tra kết nối mạng!</string>
+    <string name="str_network_status">Trạng thái mạng: %1$s</string>
+    <string name="str_network_type">Loại mạng: %1$s</string>
+    <string name="str_connected">ĐANG KẾT NỐI</string>
+    <string name="str_disconnected">MẤT KẾT NỐI</string>
     <string name="str_orders_title">Theo dõi đơn hàng</string>
     <string name="str_tab_all">Tất cả</string>
     <string name="str_tab_pending">Chờ xác nhận</string>
@@ -622,4 +629,11 @@
     <string name="str_uploading_avatar">Đang tải ảnh lên...</string>
     <string name="str_avatar_updated">Cập nhật ảnh đại diện thành công!</string>
     <string name="str_avatar_upload_failed">Tải ảnh thất bại: %1$s</string>
+    <string name="str_greeting_morning">CHÀO BUỔI SÁNG,</string>
+    <string name="str_greeting_afternoon">CHÀO BUỔI CHIỀU,</string>
+    <string name="str_greeting_evening">CHÀO BUỔI TỐI,</string>
+    <string name="str_order_id_prefix">Đơn #</string>
+    <string name="str_product_count">%1$d sản phẩm</string>
+    <string name="str_contact_title">THÔNG TIN LIÊN HỆ</string>
+    <string name="str_remember_login">Ghi nhớ đăng nhập</string>
 </resources>

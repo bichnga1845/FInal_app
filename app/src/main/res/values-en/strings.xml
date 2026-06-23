@@ -52,7 +52,7 @@
 
     <string name="str_other_info">OTHER INFORMATION</string>
     <string name="str_expand">Expand</string>
-    <string name="str_terms_agree">I agree to the terms and policies of KATINAT</string>
+    <string name="str_terms_agree">I agree to the terms and policies of PONSAI</string>
     <string name="str_register_btn">Register</string>
 
     <string name="home_discover_title">Discover new plants</string>
@@ -583,6 +583,13 @@
     <string name="notif_order_updated_title">Order update</string>
     <string name="notif_order_updated_msg">Order #%1$s has a new update.</string>
     <string name="str_menu_orders">My Orders</string>
+    <string name="str_menu_system">Connection</string>
+    <string name="str_no_internet">No Internet Connection</string>
+    <string name="str_check_connection">Please check your network connection!</string>
+    <string name="str_network_status">Network Status: %1$s</string>
+    <string name="str_network_type">Network Type: %1$s</string>
+    <string name="str_connected">CONNECTED</string>
+    <string name="str_disconnected">DISCONNECTED</string>
     <string name="str_orders_title">Track Orders</string>
     <string name="str_tab_all">All</string>
     <string name="str_tab_pending">Pending</string>
@@ -595,4 +602,14 @@
     <string name="str_uploading_avatar">Uploading photo...</string>
     <string name="str_avatar_updated">Profile photo updated!</string>
     <string name="str_avatar_upload_failed">Upload failed: %1$s</string>
+    <string name="str_chat_online">Online</string>
+    <string name="str_chat_hint">Message the shop...</string>
+    <string name="str_chat_with_shop">Chat with Shop</string>
+    <string name="str_greeting_morning">GOOD MORNING,</string>
+    <string name="str_greeting_afternoon">GOOD AFTERNOON,</string>
+    <string name="str_greeting_evening">GOOD EVENING,</string>
+    <string name="str_order_id_prefix">Order #</string>
+    <string name="str_product_count">%1$d product(s)</string>
+    <string name="str_contact_title">CONTACT INFORMATION</string>
+    <string name="str_remember_login">Remember login account</string>
 </resources>

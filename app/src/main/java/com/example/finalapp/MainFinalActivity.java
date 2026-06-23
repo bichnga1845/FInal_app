@@ -34,6 +34,7 @@ import com.example.finalapp.adapters.ReviewAdapter.ReviewItem;
 
 import com.example.finalapp.adapters.ProductAdapter;
 import com.example.finalapp.adapters.SearchResultAdapter;
+import com.example.finalapp.utils.KeyboardUtils;
 import com.example.finalapp.models.CartItem;
 import com.example.finalapp.models.Product;
 import com.google.firebase.auth.FirebaseAuth;
@@ -251,6 +252,7 @@ public class MainFinalActivity extends AppCompatActivity {
             hideSearchResults();
             edtSearch.setText("");
             edtSearch.clearFocus();
+            KeyboardUtils.hideKeyboard(this);
             Intent intent = new Intent(MainFinalActivity.this, ProductDetailActivity.class);
             intent.putExtra("PRODUCT_ID", product.id);
             startActivity(intent);
@@ -459,15 +461,15 @@ public class MainFinalActivity extends AppCompatActivity {
     private void updateGreeting() {
         if (tvGreeting == null) return;
         int hour = java.util.Calendar.getInstance().get(java.util.Calendar.HOUR_OF_DAY);
-        String greeting;
+        int greetingRes;
         if (hour < 12) {
-            greeting = "CHÀO BUỔI SÁNG,";
+            greetingRes = R.string.str_greeting_morning;
         } else if (hour < 18) {
-            greeting = "CHÀO BUỔI CHIỀU,";
+            greetingRes = R.string.str_greeting_afternoon;
         } else {
-            greeting = "CHÀO BUỔI TỐI,";
+            greetingRes = R.string.str_greeting_evening;
         }
-        tvGreeting.setText(greeting);
+        tvGreeting.setText(getString(greetingRes));
     }
 
     private void loadUserProfile() {

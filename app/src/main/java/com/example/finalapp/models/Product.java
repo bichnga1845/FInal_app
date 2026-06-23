@@ -1,13 +1,12 @@
 package com.example.finalapp.models;
 
-import android.content.Context;
-
 import com.google.firebase.database.IgnoreExtraProperties;
 
+import java.io.Serializable;
 import java.util.Locale;
 
 @IgnoreExtraProperties
-public class Product {
+public class Product implements Serializable {
     public String id;
     public String name;
     public String nameVi;

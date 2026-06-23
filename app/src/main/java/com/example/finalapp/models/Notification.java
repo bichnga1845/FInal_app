@@ -1,6 +1,8 @@
 package com.example.finalapp.models;
 
-public class Notification {
+import java.io.Serializable;
+
+public class Notification implements Serializable {
     public String id;
     public String title;
     public String message;

@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.finalapp.R;
 import com.example.finalapp.models.Notification;
+import com.example.finalapp.utils.LocalizationHelper;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -41,8 +42,12 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
     @Override
     public void onBindViewHolder(@NonNull NotificationViewHolder holder, int position) {
         Notification notification = notifications.get(position);
-        holder.txtTitle.setText(notification.title);
-        holder.txtMessage.setText(notification.message);
+        
+        String localizedTitle = LocalizationHelper.getLocalizedNotifTitle(holder.itemView.getContext(), notification.title);
+        String localizedMessage = LocalizationHelper.getLocalizedNotifMessage(holder.itemView.getContext(), notification.message, notification.targetId);
+        
+        holder.txtTitle.setText(localizedTitle);
+        holder.txtMessage.setText(localizedMessage);
         holder.txtTime.setText(getRelativeTime(notification.timestamp, holder.itemView.getContext()));
         holder.viewUnread.setVisibility(notification.isRead ? View.GONE : View.VISIBLE);
 

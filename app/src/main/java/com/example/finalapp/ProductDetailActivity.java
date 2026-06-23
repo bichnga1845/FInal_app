@@ -39,7 +39,7 @@ import java.util.List;
 
 public class ProductDetailActivity extends AppCompatActivity {
 
-    private ImageView imgProduct, btnCartDetail, btnChatDetail;
+    private ImageView imgProduct, btnCartDetail, btnChatDetail, btnShare;
     private View layoutDetailTopBar;
     private TextView txtName, txtSpecies, txtPrice, txtAge, txtHeight, txtDifficulty, txtWater, txtLight, txtDesc, txtSize;
     private View layoutBonsaiStats, layoutPotStats, layoutWaterLight;
@@ -88,12 +88,16 @@ public class ProductDetailActivity extends AppCompatActivity {
         btnBack = findViewById(R.id.btnBack);
         btnCartDetail = findViewById(R.id.btnCartDetail);
         btnChatDetail = findViewById(R.id.btnChatDetail);
+        btnShare = findViewById(R.id.btnShareProduct);
         layoutDetailTopBar = findViewById(R.id.layoutDetailTopBar);
         rvRelated = findViewById(R.id.rvRelatedProducts);
 
         btnBack.setOnClickListener(v -> finish());
         btnCartDetail.setOnClickListener(v -> startActivity(new Intent(this, CartActivity.class)));
         btnChatDetail.setOnClickListener(v -> openChatWithProduct());
+        if (btnShare != null) {
+            btnShare.setOnClickListener(v -> shareProduct());
+        }
 
         // Đổi màu bar khi cuộn
         int colorTransparent = android.graphics.Color.TRANSPARENT;
@@ -432,5 +436,39 @@ public class ProductDetailActivity extends AppCompatActivity {
             if (img != null) intent.putExtra("PRODUCT_IMAGE", img);
         }
         startActivity(intent);
+    }
+
+    private void shareProduct() {
+        if (currentProduct == null) return;
+        
+        // Kỹ thuật Security: Yêu cầu quyền danh bạ để demo
+        if (androidx.core.content.ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_CONTACTS) 
+                != android.content.pm.PackageManager.PERMISSION_GRANTED) {
+            androidx.core.app.ActivityCompat.requestPermissions(this, 
+                    new String[]{android.Manifest.permission.READ_CONTACTS}, 104);
+            return;
+        }
+
+        String shareText = "Xem thử cây Bonsai này nhé: " + currentProduct.getLocalizedName() 
+                + "\nGiá: " + new DecimalFormat("#,###đ").format(currentProduct.getPrice())
+                + "\nTải App Ponsai ngay!";
+        
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, shareText);
+        startActivity(Intent.createChooser(intent, "Chia sẻ qua"));
+    }
+    
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 104) {
+            if (grantResults.length > 0 && grantResults[0] == android.content.pm.PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(this, "Đã cấp quyền danh bạ!", Toast.LENGTH_SHORT).show();
+                shareProduct();
+            } else {
+                Toast.makeText(this, "Bạn cần cấp quyền danh bạ để xem danh sách gợi ý chia sẻ", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }

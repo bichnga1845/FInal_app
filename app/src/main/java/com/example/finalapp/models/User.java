@@ -1,10 +1,11 @@
 package com.example.finalapp.models;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
 // Model user - map data tu Firebase Realtime DB node /users/{uid}
-public class User {
+public class User implements Serializable {
     public String uid;
     public String name;
     public String email;

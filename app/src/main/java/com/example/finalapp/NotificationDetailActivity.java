@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.finalapp.models.Notification;
+import com.example.finalapp.utils.LocalizationHelper;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -79,8 +80,11 @@ public class NotificationDetailActivity extends AppCompatActivity {
     }
 
     private void displayDetail(Notification notif) {
-        txtTitle.setText(notif.title);
-        txtMessage.setText(notif.message);
+        String localizedTitle = LocalizationHelper.getLocalizedNotifTitle(this, notif.title);
+        String localizedMessage = LocalizationHelper.getLocalizedNotifMessage(this, notif.message, notif.targetId);
+        
+        txtTitle.setText(localizedTitle);
+        txtMessage.setText(localizedMessage);
         
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm - dd/MM/yyyy", Locale.getDefault());
         txtTime.setText(sdf.format(new Date(notif.timestamp)));

@@ -210,7 +210,7 @@ public class OrderTrackingActivity extends AppCompatActivity {
             Order order = data.get(position);
             String shortId = order.orderId != null && order.orderId.length() >= 6
                     ? order.orderId.substring(0, 6).toUpperCase() : order.orderId;
-            h.tvOrderId.setText("Đơn #" + shortId);
+            h.tvOrderId.setText(h.itemView.getContext().getString(R.string.str_order_id_prefix) + shortId);
 
             // Trạng thái + màu
             String statusText = getStatusLabel(h.itemView, order.status);
@@ -219,7 +219,7 @@ public class OrderTrackingActivity extends AppCompatActivity {
             h.tvOrderStatus.setTextColor(statusColor);
 
             int count = order.items != null ? order.items.size() : 0;
-            h.tvItemCount.setText(count + " sản phẩm");
+            h.tvItemCount.setText(h.itemView.getContext().getString(R.string.str_product_count, count));
 
             DecimalFormat df = new DecimalFormat("#,###đ");
             h.tvTotalAmount.setText(df.format(order.totalAmount));

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/primary"
+        app:title="Quyền và Bảo mật"
+        app:titleTextColor="@color/white"
+        app:navigationIcon="@drawable/ic_arrow_back" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. Runtime Permissions"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/primary" />
+
+            <Button
+                android:id="@+id/btnRequestMicro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Yêu cầu quyền Microphone"
+                android:layout_marginTop="8dp" />
+
+            <Button
+                android:id="@+id/btnRequestStorage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Yêu cầu quyền Storage" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2. Spyware Demo (Học tập)"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/primary"
+                android:layout_marginTop="24dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cảnh báo: Chỉ sử dụng cho mục đích nghiên cứu bảo mật. Việc đọc dữ liệu cá nhân khi chưa được phép là vi phạm pháp luật."
+                android:textSize="12sp"
+                android:textColor="#FF0000"
+                android:layout_marginTop="4dp" />
+
+            <Button
+                android:id="@+id/btnReadSMS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Đọc tin nhắn SMS hệ thống"
+                android:layout_marginTop="8dp" />
+
+            <Button
+                android:id="@+id/btnReadContacts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Đọc danh bạ điện thoại" />
+
+            <TextView
+                android:id="@+id/tvResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:padding="8dp"
+                android:background="#EEEEEE"
+                android:text="Kết quả sẽ hiển thị ở đây..."
+                android:textColor="@color/black"
+                android:minLines="10" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3. Connectivity &amp; Network"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/primary"
+                android:layout_marginTop="24dp" />
+
+            <Button
+                android:id="@+id/btnCheckNetwork"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kiểm tra kết nối hiện tại"
+                android:layout_marginTop="8dp" />
+
+            <Button
+                android:id="@+id/btnToggleWifi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bật/Tắt Wifi (Yêu cầu quyền)" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

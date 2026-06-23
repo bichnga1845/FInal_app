@@ -2,11 +2,12 @@ package com.example.finalapp.models;
 
 import com.google.firebase.database.Exclude;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
 // Model dia chi giao hang - map data tu Firebase node /addresses/{uid}/{addressId}
-public class Address {
+public class Address implements Serializable {
 
     @Exclude
     public String addressId;
